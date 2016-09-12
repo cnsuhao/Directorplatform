@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 
 #ifdef DIRECTOR_VIDEO
     QDirWidget w;
-    w.resize(500,500);
+    w.resize(200,200);
     w.show();
 #endif
 

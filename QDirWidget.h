@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "PlatformConfig.h"
 #include "QVideoWidget.h"
+#include "QButton.h"
 
 #include <QComboBox>
 /*
@@ -22,22 +23,25 @@ public slots:
 public:
     QVideoWidget *video;
 
-    QPushButton  *dirOutput_btn;
-    QPushButton  *full_btn;
-    QPushButton  *Ts_btn;
-    QPushButton  *R_btn;
-    QPushButton  *record_btn;
-    QPushButton  *pause_btn;
-    QPushButton  *stop_btn;
+    QButton  *dirOutput_btn;
+    QButton  *full_btn;
+    QButton  *Ts_btn;
+    QButton  *R_btn;
+    QButton  *record_btn;
+    QButton  *pause_btn;
+    QButton  *stop_btn;
 
     QComboBox    *PMG_switch;
+    QLabel       *time_title;
 
+    void setToolBarBackColor(QColor color);
 private:
     QHBoxLayout  *toolLayout;
     QVBoxLayout  *videoLayout;
     QVBoxLayout  *Con;
-
-
+    QColor        tool_color;
+protected:
+    void paintEvent(QPaintEvent* event);
 
 };
 
