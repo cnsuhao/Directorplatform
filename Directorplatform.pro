@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     MainWindow.cpp \
     QCtrlWindow.cpp \
     QLiveWidget.cpp \
-    QDirWidget.cpp
+    QDirWidget.cpp \
+    QButton.cpp
 
 HEADERS  += \
     PlatformConfig.h \
@@ -27,7 +28,8 @@ HEADERS  += \
     MainWindow.h \
     QCtrlWindow.h \
     QLiveWidget.h \
-    QDirWidget.h
+    QDirWidget.h \
+    QButton.h
 
 RESOURCES += \
     src.qrc

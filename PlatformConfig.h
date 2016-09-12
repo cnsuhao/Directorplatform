@@ -14,6 +14,7 @@
 #include <QIcon>
 #include <QFile>
 #include <QTextCodec>
+#include <QMessageBox>
 #include <cstdio>
 
 #define FIT   (100)
@@ -34,5 +35,19 @@
 #else
 #define LOG_FILE_DIR                 ("../log")
 #endif
+
+typedef void(*EventCall)();
+
+static QRect ConverToGlobal(QWidget* w)
+{
+    QPoint topleft=w->mapToGlobal(w->pos());
+    QPoint widthheight(w->geometry().width(),w->geometry().height());
+    QPoint bottomright(topleft.x()+widthheight.x(),topleft.y()+widthheight.y());
+
+    QRect rect(topleft,bottomright);
+    return rect;
+}
+
+
 
 #endif // PLATFORMCONFIG_H
