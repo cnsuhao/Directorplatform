@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/cfg">
+        <file>director_en.qm</file>
+        <file>director_zh.qm</file>
+        <file>director_en.ts</file>
+        <file>director_zh.ts</file>
+    </qresource>
+    <qresource prefix="/skin">
+        <file>black.qss</file>
+    </qresource>
+</RCC>
