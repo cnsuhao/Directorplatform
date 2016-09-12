@@ -20,7 +20,7 @@ QDirWidget::QDirWidget(QWidget *parent) :
     pause_btn->setToolTip(tr("pause"));
     stop_btn = new QPushButton(tr("stop"));
     stop_btn->setToolTip(tr("stop"));
-    PMG_switch = new QComboBox(tr("PMG"));
+    PMG_switch = new QComboBox();
     PMG_switch->setToolTip(tr("PMG"));
 
 
