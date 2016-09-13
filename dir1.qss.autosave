@@ -3,3 +3,4 @@ QButton:enabled {
         background: rgb(68, 69, 73);
         color: white;
 }
+

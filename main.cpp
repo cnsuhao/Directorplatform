@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
 
     // load qss
-    QLoadSkin::setStyle(":/skin/black.qss");
+    QLoadSkin::setStyle(":/skin/dir1.qss");
 
 //Test
 
