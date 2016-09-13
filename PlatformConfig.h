@@ -36,7 +36,7 @@
 #define LOG_FILE_DIR                 ("../log")
 #endif
 
-typedef void(*EventCall)();
+typedef void(*EventCall)(QWidget*);
 
 static QRect ConverToGlobal(QWidget* w)
 {

@@ -42,7 +42,13 @@ private:
     QColor        tool_color;
 protected:
     void paintEvent(QPaintEvent* event);
+    friend void onBtnFullScreen(QWidget* q);
+    friend void onBtnRecord(QWidget* q);
+    friend void onBtnPause(QWidget* q);
+    friend void onBtnStop(QWidget* q);
 
 };
+
+
 
 #endif // QDIRWIDGET_H
