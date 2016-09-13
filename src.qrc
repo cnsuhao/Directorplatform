@@ -11,5 +11,8 @@
         <file>icon2.png</file>
         <file>app.rc</file>
         <file>icon1.ico</file>
+        <file>full.png</file>
+        <file>fullexit.png</file>
+        <file>setting.png</file>
     </qresource>
 </RCC>

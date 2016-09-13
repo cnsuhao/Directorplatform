@@ -15,10 +15,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>FullScreen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Full Screen</source>
         <translation type="unfinished"></translation>
     </message>

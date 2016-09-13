@@ -43,8 +43,9 @@ QDirWidget::QDirWidget(QWidget *parent) :
     dirOutput_btn->setFixedWidth(30);
    // auto fun =[](QWidget* w){QMessageBox::warning(0,"tip","导播输出",0,0);};
     dirOutput_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
-    full_btn = new QButton(tr("FullScreen"),this);
-    full_btn->setFixedWidth(30);
+    full_btn = new QButton(this);
+    full_btn->setStyleSheet("border-image:url(:skin/full.png)");
+    full_btn->setFixedSize(25,25);
     full_btn->setToolTip(tr("Full Screen"));
     full_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     Ts_btn = new QButton(tr("Ts"),this);
