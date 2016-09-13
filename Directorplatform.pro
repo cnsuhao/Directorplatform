@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Directorplatform
 TEMPLATE = app
 
+ICON +=icon1.png
 TRANSLATIONS +=director_zh.ts \
                director_en.ts
 
@@ -40,4 +41,5 @@ HEADERS  += \
 RESOURCES += \
     src.qrc
 
+RC_FILE +=app.rc
 OTHER_FILES +=

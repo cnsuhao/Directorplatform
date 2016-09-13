@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "PlatformConfig.h"
 #include "QVideoWidget.h"
-
+#include "QButton.h"
 /*
  * 直播(live video widget)*/
 
@@ -25,12 +25,13 @@ private:
      QVideoWidget *video;
      QVBoxLayout  *videoLayout;
      QGridLayout  *gridLayout;
-     QPushButton  *full_btn;
-     QPushButton  *snd_btn;
-     QPushButton  *setting_btn;
+     QButton  *full_btn;
+     QButton  *snd_btn;
+     QButton  *setting_btn;
      QLabel       *title;
 protected:
       void paintEvent(QPaintEvent* event);
+      friend void onFullScreen(QWidget* q);
 };
 
 #endif // QLIVEWIDGET_H

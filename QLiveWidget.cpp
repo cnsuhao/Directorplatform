@@ -1,5 +1,19 @@
 #include "QLiveWidget.h"
 
+void onFullScreen(QWidget* q)
+{
+    if(q->isFullScreen())
+    {
+        q->setWindowFlags(Qt::SubWindow);
+        q->showNormal();
+    }
+    else
+    {
+        q->setWindowFlags(Qt::Dialog);
+        q->showFullScreen();
+    }
+}
+
 QLiveWidget::QLiveWidget(QWidget *parent) :
     QWidget(parent)
 {
@@ -8,13 +22,14 @@ QLiveWidget::QLiveWidget(QWidget *parent) :
     video = new QVideoWidget();
     videoLayout= new QVBoxLayout();
     gridLayout=new QGridLayout();
-    full_btn=new QPushButton("full");
+    full_btn=new QButton("full",this);
     full_btn->setToolTip(tr("full screen"));
+    full_btn->click=onFullScreen;
     full_btn->setFixedWidth(30);
     full_btn->setGeometry(0,0,30,30);
-    snd_btn=new QPushButton("snd");
+    snd_btn=new QButton("snd",this);
     snd_btn->setFixedWidth(30);
-    setting_btn=new QPushButton("set");
+    setting_btn=new QButton("set",this);
     setting_btn->setFixedWidth(30);
     setting_btn->setToolTip(tr("setting"));
     title=new QLabel("title");
@@ -48,7 +63,7 @@ QLiveWidget::QLiveWidget(QWidget *parent) :
     gridLayout->addLayout(m_statuBar,2,0);
 
     gridLayout->setRowStretch(0,1);
-    gridLayout->setRowStretch(1,6);
+    gridLayout->setRowStretch(1,30);
     gridLayout->setRowStretch(2,1);
     gridLayout->setMargin(0);
     this->setLayout(gridLayout);

@@ -11,20 +11,16 @@
 <context>
     <name>QDirWidget</name>
     <message>
-        <source>D-Output</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Director Output</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">导播输出</translation>
     </message>
     <message>
         <source>FullScreen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">全屏</translation>
     </message>
     <message>
         <source>Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">全屏</translation>
     </message>
     <message>
         <source>Ts</source>
@@ -36,18 +32,22 @@
     </message>
     <message>
         <source>record</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">录制</translation>
     </message>
     <message>
         <source>pause</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">暂停</translation>
     </message>
     <message>
         <source>stop</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">停止</translation>
     </message>
     <message>
         <source>PMG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

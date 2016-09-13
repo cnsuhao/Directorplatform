@@ -11,10 +11,6 @@
 <context>
     <name>QDirWidget</name>
     <message>
-        <source>D-Output</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Director Output</source>
         <translation type="unfinished"></translation>
     </message>
@@ -48,6 +44,10 @@
     </message>
     <message>
         <source>PMG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
