@@ -16,7 +16,7 @@
     </message>
     <message>
         <source>FullScreen</source>
-        <translation type="unfinished">全屏</translation>
+        <translation type="obsolete">全屏</translation>
     </message>
     <message>
         <source>Full Screen</source>

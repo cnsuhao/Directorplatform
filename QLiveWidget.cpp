@@ -55,6 +55,7 @@ QLiveWidget::QLiveWidget(QWidget *parent) :
 
 
     QLabel *lab=new QLabel("A");
+    lab->setFixedHeight(20);
     m_statuBar->addWidget(lab,0,Qt::AlignRight);
 
     videoLayout->addWidget(video);

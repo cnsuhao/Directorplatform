@@ -45,6 +45,9 @@ int main(int argc, char *argv[])
     translator.load(QString(":/cfg/director_zh"));
     app.installTranslator(&translator);
 
+    // load qss
+    QLoadSkin::setStyle(":/skin/black.qss");
+
 //Test
 
 #ifdef VIDEO_ONCE
