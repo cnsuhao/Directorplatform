@@ -11,6 +11,10 @@ QButton::QButton(QWidget *parent) :
     lbuttondown=NULL;
     lbuttonup=NULL;
     rbuttondown=NULL;
+    wid=parent;
+
+    if(wid==NULL)
+        wid=this;
 }
 QButton::QButton(const QString &text, QWidget *parent):QPushButton(text,parent)
 {
@@ -21,6 +25,9 @@ QButton::QButton(const QString &text, QWidget *parent):QPushButton(text,parent)
     lbuttondown=NULL;
     lbuttonup=NULL;
     rbuttondown=NULL;
+    wid=parent;
+    if(wid==NULL)
+        wid=this;
 }
 QButton::QButton(const QIcon& icon, const QString &text, QWidget *parent):
     QPushButton(icon,text,parent)
@@ -32,6 +39,9 @@ QButton::QButton(const QIcon& icon, const QString &text, QWidget *parent):
     lbuttondown=NULL;
     lbuttonup=NULL;
     rbuttondown=NULL;
+    wid=parent;
+    if(wid==NULL)
+        wid=this;
 }
 
 
@@ -42,11 +52,11 @@ void QButton::mouseReleaseEvent(QMouseEvent *event)
     {
         if(click)
         {
-            click();
+            click(wid);
         }
         if(lbuttonup)
         {
-            lbuttonup();
+            lbuttonup(wid);
         }
     }
 }
@@ -59,7 +69,7 @@ bool QButton::event(QEvent *e)
 
         if(dbclick)
         {
-            dbclick();
+            dbclick(wid);
         }
        return true;
     }
@@ -67,7 +77,7 @@ bool QButton::event(QEvent *e)
     {
         if(mouseenter)
         {
-            mouseenter();
+            mouseenter(wid);
         }
         return true;
     }
@@ -75,7 +85,7 @@ bool QButton::event(QEvent *e)
     {
         if(mouseleave)
         {
-            mouseleave();
+            mouseleave(wid);
         }
     }
     else
@@ -91,14 +101,14 @@ void QButton::mousePressEvent(QMouseEvent *event)
     {
         if(lbuttondown)
         {
-            lbuttondown();
+            lbuttondown(wid);
         }
     }
     if(event->button()==Qt::RightButton)
     {
         if(rbuttondown)
         {
-            rbuttondown();
+            rbuttondown(wid);
         }
     }
 }

@@ -21,6 +21,7 @@ public:
     EventCall lbuttondown;
     EventCall lbuttonup;
     EventCall rbuttondown;
+    QWidget  *wid;
 signals:
 
 public slots:

@@ -14,6 +14,10 @@ TEMPLATE = app
 TRANSLATIONS +=director_zh.ts \
                director_en.ts
 
+#CONFIG += c++11
+
+QMAKE_CXXFLAGS += -std=c++0x
+
 SOURCES += main.cpp\
     QVideoWidget.cpp \
     MainWindow.cpp \
