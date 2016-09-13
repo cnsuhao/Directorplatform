@@ -97,6 +97,8 @@ int main(int argc, char *argv[])
 
 
     MainWindow w;
+    w.setWindowIcon(QIcon(":/skin/icon1.png"));
+    w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
     w.resize(800,800);
     w.show();
 

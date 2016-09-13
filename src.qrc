@@ -7,5 +7,9 @@
     </qresource>
     <qresource prefix="/skin">
         <file>black.qss</file>
+        <file>icon1.png</file>
+        <file>icon2.png</file>
+        <file>app.rc</file>
+        <file>icon1.ico</file>
     </qresource>
 </RCC>

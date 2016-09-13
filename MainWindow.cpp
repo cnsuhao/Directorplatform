@@ -28,8 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     gridLayout->addLayout(operatorLayout,0,1);
     gridLayout->addLayout(toolLayout,1,0,1,2);
     mainLayout->addLayout(dirvideoLayout,10);
-    mainLayout->addLayout(livevideoLayout,5);
-    mainLayout->addLayout(functionLayout,5);
+    mainLayout->addLayout(livevideoLayout,4);
+    mainLayout->addLayout(functionLayout,6);
 
     dirvideoLayout->addWidget(leftVideo);
     dirvideoLayout->addWidget(rightVideo);
@@ -51,9 +51,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     gridLayout->setMargin(0);
     gridLayout->setSpacing(1);
-
-
-
 
     this->setLayout(gridLayout);
 
