@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "PlatformConfig.h"
 #include "QLiveWidget.h"
 #include "QVideoWidget.h"
@@ -28,7 +28,7 @@ public:
 
 //#define LIVE_VIDEO
 
-#define DIRECTOR_VIDEO
+//#define DIRECTOR_VIDEO
 
 int main(int argc, char *argv[])
 {
@@ -96,6 +96,9 @@ int main(int argc, char *argv[])
 #endif
 
 
+    MainWindow w;
+    w.resize(800,800);
+    w.show();
 
     return app.exec();
 

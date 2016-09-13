@@ -23,11 +23,14 @@ public:
      QHBoxLayout *m_statuBar;
 private:
      QVideoWidget *video;
+     QVBoxLayout  *videoLayout;
      QGridLayout  *gridLayout;
      QPushButton  *full_btn;
      QPushButton  *snd_btn;
      QPushButton  *setting_btn;
      QLabel       *title;
+protected:
+      void paintEvent(QPaintEvent* event);
 };
 
 #endif // QLIVEWIDGET_H
