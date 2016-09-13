@@ -14,5 +14,6 @@
         <file>full.png</file>
         <file>fullexit.png</file>
         <file>setting.png</file>
+        <file>dir1.qss</file>
     </qresource>
 </RCC>
