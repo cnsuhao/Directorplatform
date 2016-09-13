@@ -16,6 +16,7 @@
 #include <QTextCodec>
 #include <QMessageBox>
 #include <cstdio>
+#include <QPainter>
 
 #define FIT   (100)
 #define SCREEN_WIDTH                  (QApplication::desktop()->width())

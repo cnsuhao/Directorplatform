@@ -5,13 +5,17 @@ QLiveWidget::QLiveWidget(QWidget *parent) :
 {
     m_titleBar=new QHBoxLayout();
     m_statuBar=new QHBoxLayout();
-    video=new QVideoWidget();
+    video = new QVideoWidget();
+    videoLayout= new QVBoxLayout();
     gridLayout=new QGridLayout();
     full_btn=new QPushButton("full");
     full_btn->setToolTip(tr("full screen"));
+    full_btn->setFixedWidth(30);
     full_btn->setGeometry(0,0,30,30);
     snd_btn=new QPushButton("snd");
+    snd_btn->setFixedWidth(30);
     setting_btn=new QPushButton("set");
+    setting_btn->setFixedWidth(30);
     setting_btn->setToolTip(tr("setting"));
     title=new QLabel("title");
     title->setAlignment(Qt::AlignCenter);
@@ -34,15 +38,19 @@ QLiveWidget::QLiveWidget(QWidget *parent) :
 //m_statuBar
     m_statuBar->setSpacing(0);
 
-    QVBoxLayout *vb=new QVBoxLayout();
 
-    QLabel *lab=new QLabel("---------");
-    m_statuBar->addWidget(lab);
+    QLabel *lab=new QLabel("A");
+    m_statuBar->addWidget(lab,0,Qt::AlignRight);
 
-    vb->addWidget(video);
-    gridLayout->addLayout(m_titleBar,0,0,1,16,Qt::AlignLeft);
-    gridLayout->addLayout(vb,1,0,9,16,Qt::AlignCenter);
-    gridLayout->addLayout(m_statuBar,10,0,1,16,Qt::AlignLeft);
+    videoLayout->addWidget(video);
+    gridLayout->addLayout(m_titleBar,0,0);
+    gridLayout->addLayout(videoLayout,1,0);
+    gridLayout->addLayout(m_statuBar,2,0);
+
+    gridLayout->setRowStretch(0,1);
+    gridLayout->setRowStretch(1,6);
+    gridLayout->setRowStretch(2,1);
+    gridLayout->setMargin(0);
     this->setLayout(gridLayout);
 }
 
@@ -51,9 +59,17 @@ QLiveWidget::~QLiveWidget()
     delete          m_titleBar;
     delete          m_statuBar;
     delete          video;
+    delete          videoLayout;
     delete          gridLayout;
     delete          full_btn;
     delete          snd_btn;
     delete          setting_btn;
     delete          title;
+}
+
+void QLiveWidget::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.fillRect(m_titleBar->geometry(),QColor(47,79,79));
+     painter.fillRect(m_statuBar->geometry(),QColor(0,128,128));
 }

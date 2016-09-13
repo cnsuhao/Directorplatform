@@ -19,6 +19,8 @@ signals:
 public slots:
 private:
     QGridLayout *m_gridLayout;
+protected:
+    void paintEvent(QPaintEvent* event);
 
 
 };

@@ -5,10 +5,12 @@ void onBtnFullScreen(QWidget* q)
 {
     if(q->isFullScreen())
     {
+        q->setWindowFlags(Qt::SubWindow);
         q->showNormal();
     }
     else
     {
+        q->setWindowFlags(Qt::Dialog);
         q->showFullScreen();
     }
 }
