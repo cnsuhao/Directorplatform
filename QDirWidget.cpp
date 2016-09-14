@@ -41,9 +41,11 @@ QDirWidget::QDirWidget(QWidget *parent) :
     dirOutput_btn = new QButton(tr("D"),this);
     dirOutput_btn->setToolTip(tr("Director Output"));
     dirOutput_btn->setFixedWidth(30);
+    dirOutput_btn->setObjectName("dir_ouput");
    // auto fun =[](QWidget* w){QMessageBox::warning(0,"tip","导播输出",0,0);};
     dirOutput_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     full_btn = new QButton(this);
+    full_btn->setObjectName("dir_fullscreen");
    // full_btn->setStyleSheet("border-image:url(:skin/full.png)");
     full_btn->setFixedSize(25,25);
     full_btn->setToolTip(tr("Full Screen"));
@@ -59,13 +61,16 @@ QDirWidget::QDirWidget(QWidget *parent) :
     record_btn = new QButton(tr("record"),this);
     record_btn->setToolTip(tr("record"));
     record_btn->setFixedWidth(30);
+    record_btn->setObjectName("dir_record");
     record_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     pause_btn = new QButton("pause",this);
     pause_btn->setToolTip(tr("pause"));
     pause_btn->setFixedWidth(30);
+    pause_btn->setObjectName("dir_pause");
     pause_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     stop_btn = new QButton(tr("stop"),this);
     stop_btn->setToolTip(tr("stop"));
+    stop_btn->setObjectName("dir_stop");
     stop_btn->setFixedWidth(30);
     stop_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     PMG_switch = new QComboBox();
@@ -103,6 +108,11 @@ QDirWidget::QDirWidget(QWidget *parent) :
     record_btn->click=onBtnRecord;
     stop_btn->click=onBtnStop;
     pause_btn->click=onBtnPause;
+
+
+    //
+   // this->setStyleSheet("QButton{ background-color: yellow}");
+   // QLoadSkin::setStyle(this,":/skin/dir1.qss");
 
 }
 

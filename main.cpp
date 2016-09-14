@@ -8,17 +8,6 @@
 #include <QTextCodec>
 #include <QTranslator>
 
-class QLoadSkin
-{
-public:
-    static void setStyle(const QString &style)
-    {
-        QFile qss(style);
-        qss.open(QFile::ReadOnly);
-        qApp->setStyleSheet(qss.readAll());
-        qss.close();
-    }
-};
 
 
 
@@ -46,7 +35,7 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
 
     // load qss
-    QLoadSkin::setStyle(":/skin/dir1.qss");
+    QLoadSkin::setGlobalStyle(":/skin/dir1.qss");
 
 //Test
 

@@ -49,6 +49,24 @@ static QRect ConverToGlobal(QWidget* w)
     return rect;
 }
 
+class QLoadSkin
+{
+public:
+    static void setGlobalStyle(const QString &style)
+    {
+        QFile qss(style);
+        qss.open(QFile::ReadOnly);
+        qApp->setStyleSheet(qss.readAll());
+        qss.close();
+    }
+    static void setStyle(QWidget* q,const QString &style)
+    {
+        QFile qss(style);
+        qss.open(QFile::ReadOnly);
+        q->setStyleSheet(qss.readAll());
+        qss.close();
+    }
+};
 
 
 #endif // PLATFORMCONFIG_H

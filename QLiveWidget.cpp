@@ -22,13 +22,14 @@ QLiveWidget::QLiveWidget(QWidget *parent) :
     video = new QVideoWidget();
     videoLayout= new QVBoxLayout();
     gridLayout=new QGridLayout();
-    full_btn=new QButton("full",this);
+    full_btn=new QButton(this);
     full_btn->setToolTip(tr("full screen"));
     full_btn->click=onFullScreen;
-    full_btn->setFixedWidth(30);
+    full_btn->setFixedWidth(25);
+    full_btn->setObjectName("live_full");
     full_btn->setGeometry(0,0,30,30);
     snd_btn=new QButton("snd",this);
-    snd_btn->setFixedWidth(30);
+    snd_btn->setFixedWidth(25);
     setting_btn=new QButton("set",this);
     setting_btn->setFixedWidth(30);
     setting_btn->setToolTip(tr("setting"));
