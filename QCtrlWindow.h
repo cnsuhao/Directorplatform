@@ -19,7 +19,7 @@ class QCtrlWindow : public QWidget
     Q_OBJECT
 public:
     explicit QCtrlWindow(QWidget *parent = 0);
-
+     ~QCtrlWindow();
 signals:
 
 public slots:
@@ -69,7 +69,18 @@ private:
     QLCDNumber *lcd_time;
     QLCDNumber *lcd_date;
 
+// some event defined
+    friend void onBtn_up_up(QWidget *q);
+    friend void onBtn_up_down(QWidget *q);
 
+    friend void onBtn_down_up(QWidget *q);
+    friend void onBtn_down_down(QWidget *q);
+
+    friend void onBtn_left_up(QWidget *q);
+    friend void onBtn_left_down(QWidget *q);
+
+    friend void onBtn_right_up(QWidget *q);
+    friend void onBtn_right_down(QWidget *q);
 
 
 protected:
