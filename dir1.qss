@@ -1,6 +1,89 @@
+/*自定义控件QButton属性*/
 
-QButton:enabled {
-        background: rgb(68, 69, 73);
-        color: white;
+QButton{
+       color:white;
+       background-color:aqua;
 }
 
+
+/***********************************
+         导播全屏按钮
+*************************************/
+QButton#dir_fullscreen{
+       background-color: transparent;
+       image: url(:/skin/full.png);
+
+
+}
+
+QButton#dir_fullscreen:pressed {
+       background-color: green;
+       image: url(:/skin/full.png);
+
+
+}
+QButton#dir_fullscreen:hover{
+       background-color: red;
+       image: url(:/skin/full.png);
+
+}
+/***********************************
+         导播输出按钮
+*************************************/
+
+QButton#dir_ouput{
+       background-color: green;
+}
+QButton#dir_ouput:pressed{
+       background-color: red;
+}
+QButton#dir_ouput:hover{
+       background-color: yellow;
+}
+/***********************************
+         导播 录制,暂停,停止 按钮
+*************************************/
+QButton#dir_record{
+       background-color: blue;
+}
+QButton#dir_record:pressed{
+       background-color: gray;
+}
+QButton#dir_record:hover{
+       background-color: red;
+}
+
+QButton#dir_pause{
+       background-color: blue;
+}
+QButton#dir_pause:pressed{
+       background-color: gray;
+}
+QButton#dir_pause:hover{
+       background-color: red;
+}
+
+QButton#dir_stop{
+       background-color: blue;
+}
+QButton#dir_stop:pressed{
+       background-color: gray;
+}
+QButton#dir_stop:hover{
+       background-color: red;
+}
+
+/** 直播全屏*/
+
+QButton#live_full{
+       background-color:transparent;
+       image: url(:/skin/livefull);
+}
+QButton#live_full:pressed{
+       background-color:red;
+       image: url(:/skin/livefull);
+}
+QButton#live_full:hover{
+       background-color:green;
+       image: url(:/skin/livefull);
+}

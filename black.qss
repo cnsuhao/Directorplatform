@@ -702,7 +702,7 @@ QPushButton#selectButton:enabled:pressed{
         background: rgb(80, 80, 80);
 }
 
-QPushButton#linkButton {
+QPushButton#linkButton {Q
         background: transparent;
         color: rgb(0, 160, 230);
         text-align:left;
