@@ -9,6 +9,25 @@
     </message>
 </context>
 <context>
+    <name>QCtrlWindow</name>
+    <message>
+        <source>move up</source>
+        <translation type="unfinished">上移</translation>
+    </message>
+    <message>
+        <source>move down</source>
+        <translation type="unfinished">下移</translation>
+    </message>
+    <message>
+        <source>move left</source>
+        <translation type="unfinished">左移</translation>
+    </message>
+    <message>
+        <source>move right</source>
+        <translation type="unfinished">右移</translation>
+    </message>
+</context>
+<context>
     <name>QDirWidget</name>
     <message>
         <source>Director Output</source>
