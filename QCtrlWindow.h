@@ -24,7 +24,7 @@ signals:
 
 public slots:
 private:
-    QGridLayout *m_gridLayout;
+    QGridLayout *gridLayout;
 
     /*direction Button*/
     QButton   *btn_up;

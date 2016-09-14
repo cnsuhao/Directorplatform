@@ -112,7 +112,7 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     focus_off = new QButton(this);
     focus_off->setObjectName("focus_off");
 
-    focus_auto = new QButton(this);
+    focus_auto = new QCheckBox(this);
     focus_auto->setObjectName("focus_auto");
 
     ring_big = new QButton(this);
@@ -121,23 +121,28 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     ring_small = new QButton(this);
     ring_small->setObjectName("ring_small");
 
-    ring_auto = new QButton(this);
+    ring_auto = new QCheckBox(this);
     ring_auto->setObjectName("ring_auto");
 
 
     speed_adjust = new QSlider(Qt::Horizontal,this);
     speed_adjust->setObjectName("speed");
 
+    gridLayout = new QGridLayout();
 
 
+    //layout
+    QVBoxLayout *b1 = new QVBoxLayout;
+    QVBoxLayout *b2 = new QVBoxLayout;
+    QVBoxLayout *b3 = new QVBoxLayout;
 
+    b1->addWidget(meeting_ctrl);
+    b2->addWidget(cloud_ctrl);
+    gridLayout->addLayout(b1,0,0);
+    gridLayout->addLayout(b1,1,0);
+    gridLayout->addLayout(b1,2,0);
 
-
-
-
-
-
-
+    this->setLayout(gridLayout);
 
 
 }
