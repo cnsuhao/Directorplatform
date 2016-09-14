@@ -1,4 +1,4 @@
-#include "qvideowidget.h"
+#include "QVideoWidget.h"
 
 QVideoWidget::QVideoWidget(QWidget *parent) :
     QWidget(parent)
