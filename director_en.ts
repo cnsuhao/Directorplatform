@@ -26,6 +26,30 @@
         <source>move right</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>meeting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QDirWidget</name>
@@ -74,6 +98,17 @@
     </message>
     <message>
         <source>setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>tip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App is opend</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

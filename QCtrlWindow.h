@@ -7,6 +7,7 @@
 #include <QCheckBox>
 #include <QSlider>
 #include <QLCDNumber>
+#include <QGraphicsView>
 
 
 /*
@@ -30,6 +31,7 @@ private:
     QButton   *btn_up;
     QButton   *btn_down;
     QButton   *btn_left;
+    QButton   *btn_center;
     QButton   *btn_right;
 
     /*switch Control use checkbox*/
@@ -42,21 +44,23 @@ private:
     QCheckBox *three_person;
     QCheckBox *group_person;
 
-
+    QLabel  *zoom_label;
     QButton  *zoom_up; //向大变焦
     QButton  *zoom_down;//向小变焦
 
+    QLabel   *focus_label;
     QButton  *focus_on;//放 聚焦
     QButton  *focus_off;//收 聚焦
     QCheckBox *focus_auto;
 
+    QLabel   *ring_label;
     QButton  *ring_big;//光圈 大
     QButton  *ring_small;//光圈 小
     QCheckBox *ring_auto;
 
     QSlider *speed_adjust;//速度调节
 
-
+    QGraphicsView *logo;
     QPushButton *btn_1;
     QPushButton *btn_2;
     QPushButton *btn_3;
@@ -68,6 +72,9 @@ private:
 
     QLCDNumber *lcd_time;
     QLCDNumber *lcd_date;
+
+    QWidget *dir_wid;
+    QGridLayout *dir_lay;
 
 // some event defined
     friend void onBtn_up_up(QWidget *q);

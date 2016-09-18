@@ -73,6 +73,116 @@ QButton#dir_stop:hover{
        background-color: red;
 }
 
+/***********************************
+         云台控制按钮
+*************************************/
+/*UP*/
+QButton#btn_up{
+       background-color: transparent;
+       margin-left: -68px;
+       border:none;
+       image: url(:/skin/btn_up);
+}
+QButton#btn_up:pressed{
+       margin-left: -0px;
+       margin-right: -68px;
+       border:none;
+       image: url(:/skin/btn_up);
+       background-color: transparent;
+}
+QButton#btn_up:hover{
+       margin-left: -34px;
+       margin-right: -34px;
+       border:none;
+       image: url(:/skin/btn_up);
+       background-color: transparent;
+}
+/*LEFT*/
+QButton#btn_left{
+       background-color: transparent;
+       margin-left: -68px;
+       border:none;
+       image: url(:/skin/btn_left);
+}
+QButton#btn_left:pressed{
+       margin-left: -0px;
+       margin-right: -68px;
+       border:none;
+       image: url(:/skin/btn_left);
+       background-color: transparent;
+}
+QButton#btn_left:hover{
+       margin-left: -34px;
+       margin-right: -34px;
+       border:none;
+       image: url(:/skin/btn_left);
+       background-color: transparent;
+}
+/*CENTER*/
+QButton#btn_center{
+       background-color: transparent;
+       margin-left: -68px;
+       border:none;
+       image: url(:/skin/btn_center);
+}
+QButton#btn_center:pressed{
+       margin-left: -0px;
+       margin-right: -68px;
+       border:none;
+       image: url(:/skin/btn_center);
+       background-color: transparent;
+}
+QButton#btn_center:hover{
+       margin-left: -34px;
+       margin-right: -34px;
+       border:none;
+       image: url(:/skin/btn_center);
+       background-color: transparent;
+}
+/*RIGHT*/
+QButton#btn_right{
+       background-color: transparent;
+       margin-left: -68px;
+       border:none;
+       image: url(:/skin/btn_right);
+}
+QButton#btn_right:pressed{
+       margin-left: -0px;
+       margin-right: -68px;
+       border:none;
+       image: url(:/skin/btn_right);
+       background-color: transparent;
+}
+QButton#btn_right:hover{
+       margin-left: -34px;
+       margin-right: -34px;
+       border:none;
+       image: url(:/skin/btn_right);
+       background-color: transparent;
+}
+/*DOWN*/
+QButton#btn_down{
+       background-color: transparent;
+       margin-left: -68px;
+       border:none;
+       image: url(:/skin/btn_down);
+}
+QButton#btn_down:pressed{
+       margin-left: -0px;
+       margin-right: -68px;
+       border:none;
+       image: url(:/skin/btn_down);
+       background-color: transparent;
+}
+QButton#btn_down:hover{
+       margin-left: -34px;
+       margin-right: -34px;
+       border:none;
+       image: url(:/skin/btn_down);
+       background-color: transparent;
+}
+
+
 /** 直播全屏*/
 
 QButton#live_full{
@@ -80,10 +190,16 @@ QButton#live_full{
        image: url(:/skin/livefull);
 }
 QButton#live_full:pressed{
-       background-color:red;
+       background-color:transparent;
        image: url(:/skin/livefull);
 }
 QButton#live_full:hover{
-       background-color:green;
+       background-color:transparent;
        image: url(:/skin/livefull);
 }
+
+
+QGraphicsView#logo{
+      background-image: url(:/skin/logo)
+}
+

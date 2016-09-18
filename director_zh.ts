@@ -26,6 +26,30 @@
         <source>move right</source>
         <translation type="unfinished">右移</translation>
     </message>
+    <message>
+        <source>reset</source>
+        <translation type="unfinished">重置</translation>
+    </message>
+    <message>
+        <source>zoom</source>
+        <translation type="unfinished">变焦</translation>
+    </message>
+    <message>
+        <source>focus</source>
+        <translation type="unfinished">聚焦</translation>
+    </message>
+    <message>
+        <source>ring</source>
+        <translation type="unfinished">光圈</translation>
+    </message>
+    <message>
+        <source>meeting</source>
+        <translation type="unfinished">会议控制</translation>
+    </message>
+    <message>
+        <source>cloud</source>
+        <translation type="unfinished">云台控制</translation>
+    </message>
 </context>
 <context>
     <name>QDirWidget</name>
@@ -79,6 +103,17 @@
     <message>
         <source>setting</source>
         <translation type="unfinished">设置</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>tip</source>
+        <translation type="unfinished">提示</translation>
+    </message>
+    <message>
+        <source>App is opend</source>
+        <translation type="unfinished">应用已经是打开的</translation>
     </message>
 </context>
 </TS>
