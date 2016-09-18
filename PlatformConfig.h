@@ -69,4 +69,7 @@ public:
 };
 
 
+
+
+
 #endif // PLATFORMCONFIG_H

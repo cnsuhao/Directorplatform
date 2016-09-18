@@ -8,7 +8,49 @@
 #include <QTextCodec>
 #include <QTranslator>
 
+/*
+ * cross platform*/
 
+
+#if defined(Q_OS_WIN32)
+#include <windows.h>
+bool isRunning()
+{
+    HANDLE m_hmutex=CreateMutex(NULL,FALSE,L"DirectorPlatform");
+    if(GetLastError()==ERROR_ALREADY_EXISTS)
+    {
+        CloseHandle(m_hmutex);
+        m_hmutex = NULL;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+#endif
+
+#if defined (Q_OS_LINUX) || defined(Q_OS_UNIX)
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+bool isRunning()
+{
+    const char file_name[]="/tmp/lockfile";
+    int fd = open(file_name,O_WRONLY|Q_CREAT,0644);
+    int flock = lockf(fd,F_TLOCK,0);
+    if(fd==-1)
+    {
+        return true;
+    }
+    if(flock==-1)
+    {
+        return true;
+    }
+    return false;
+}
+#endif
 
 
 
@@ -21,13 +63,22 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
 #ifdef Q_OS_WIN32
     QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
 #endif
 #if defined(Q_OS_LINUX) || defined(Q_OS_UNIX)
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
 #endif
+
+    QApplication app(argc, argv);
+
+    // Singletion for App
+    if(isRunning())
+    {
+       QMessageBox::warning(0,"1","2",0,0);
+      return 0;
+    }
+
 
     // make it internationalization
     QTranslator translator;
