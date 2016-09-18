@@ -38,7 +38,7 @@ bool isRunning()
 bool isRunning()
 {
     const char file_name[]="/tmp/lockfile";
-    int fd = open(file_name,O_WRONLY|Q_CREAT,0644);
+    int fd = open(file_name,O_WRONLY|O_CREAT,0644);
     int flock = lockf(fd,F_TLOCK,0);
     if(fd==-1)
     {
