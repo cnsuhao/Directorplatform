@@ -35,7 +35,7 @@ QDirWidget::QDirWidget(QWidget *parent) :
 {
 
 // Init
-    tool_color=QColor(35,35,70);// default is black
+    tool_color=QColor(37,44,52);// default is black
     video =  new  QVideoWidget();
 
     dirOutput_btn = new QButton(tr("D"),this);
@@ -58,20 +58,20 @@ QDirWidget::QDirWidget(QWidget *parent) :
     R_btn->setToolTip(tr("R"));//---
     R_btn->setFixedWidth(30);
     R_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
-    record_btn = new QButton(tr("record"),this);
+    record_btn = new QButton(this);
     record_btn->setToolTip(tr("record"));
-    record_btn->setFixedWidth(30);
+    record_btn->setFixedSize(24,24);
     record_btn->setObjectName("dir_record");
     record_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
-    pause_btn = new QButton("pause",this);
+    pause_btn = new QButton(this);
     pause_btn->setToolTip(tr("pause"));
-    pause_btn->setFixedWidth(30);
+    pause_btn->setFixedSize(24,24);
     pause_btn->setObjectName("dir_pause");
     pause_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
-    stop_btn = new QButton(tr("stop"),this);
+    stop_btn = new QButton(this);
     stop_btn->setToolTip(tr("stop"));
     stop_btn->setObjectName("dir_stop");
-    stop_btn->setFixedWidth(30);
+    stop_btn->setFixedSize(24,24);
     stop_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     PMG_switch = new QComboBox();
     PMG_switch->setToolTip(tr("PMG"));

@@ -118,7 +118,6 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     group_person->setObjectName("group");
 
     zoom_label = new QLabel(tr("zoom"),this);
-
     zoom_up = new QButton(this);
     zoom_up->setObjectName("zoom_up");
 
@@ -227,29 +226,23 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     gridLayout->addWidget(ring_auto,6,3);
 
 
-//    gridLayout->addWidget(btn_up,7,1,1,1,Qt::AlignBottom);
-//    gridLayout->addWidget(btn_left,8,0,1,1,Qt::AlignRight);
-//    gridLayout->addWidget(btn_center,8,1,1,1,Qt::AlignLeft);
-//    gridLayout->addWidget(btn_right,8,2,1,1,Qt::AlignLeft);
-//    gridLayout->addWidget(btn_down,9,1,1,1,Qt::AlignTop);
-
     gridLayout->addWidget(dir_wid,7,1);
 
-    gridLayout->addWidget(speed_adjust,10,0,1,4);
+    gridLayout->addWidget(speed_adjust,8,0,1,4);
 
-    gridLayout->addWidget(btn_1,11,0);
-    gridLayout->addWidget(btn_2,11,1);
-    gridLayout->addWidget(btn_3,11,2);
-    gridLayout->addWidget(btn_4,11,3);
+    gridLayout->addWidget(btn_1,9,0);
+    gridLayout->addWidget(btn_2,9,1);
+    gridLayout->addWidget(btn_3,9,2);
+    gridLayout->addWidget(btn_4,9,3);
 
-    gridLayout->addWidget(btn_5,12,0);
-    gridLayout->addWidget(btn_6,12,1);
-    gridLayout->addWidget(btn_7,12,2);
-    gridLayout->addWidget(btn_8,12,3);
+    gridLayout->addWidget(btn_5,10,0);
+    gridLayout->addWidget(btn_6,10,1);
+    gridLayout->addWidget(btn_7,10,2);
+    gridLayout->addWidget(btn_8,10,3);
 
 
-    gridLayout->addWidget(lcd_date,13,0,1,3);
-    gridLayout->addWidget(lcd_time,14,0,1,3);
+    gridLayout->addWidget(lcd_date,11,0,1,3);
+    gridLayout->addWidget(lcd_time,11,0,1,3);
 
     gridLayout->setColumnStretch(1,1);
     gridLayout->setColumnStretch(2,1);
@@ -258,11 +251,9 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
 
     //gridLayout->setRowStretch(0,2);
     gridLayout->setRowStretch(7,1);
-    gridLayout->setRowStretch(8,1);
+    gridLayout->setRowStretch(8,4);
     gridLayout->setRowStretch(9,1);
-    gridLayout->setRowStretch(10,4);
-    gridLayout->setRowStretch(11,1);
-    gridLayout->setRowStretch(12,1);
+    gridLayout->setRowStretch(10,1);
 
     this->setLayout(gridLayout);
 

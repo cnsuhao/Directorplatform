@@ -64,5 +64,5 @@ MainWindow::~MainWindow()
 void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
-    p.fillRect(toolLayout->geometry(),QColor("blue"));
+    p.fillRect(toolLayout->geometry(),QColor(37,44,52));
 }

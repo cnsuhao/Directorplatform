@@ -44,33 +44,69 @@ QButton#dir_ouput:hover{
          导播 录制,暂停,停止 按钮
 *************************************/
 QButton#dir_record{
-       background-color: blue;
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-48px;
+       border:none;
+       image: url(:/skin/btn_play);
 }
 QButton#dir_record:pressed{
-       background-color: gray;
+       background-color: transparent;
+       margin-left: -48px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_play);
 }
 QButton#dir_record:hover{
-       background-color: red;
+       background-color: transparent;
+       margin-left: -24px;
+       margin-right:-24px;
+       border:none;
+       image: url(:/skin/btn_play);
 }
 
 QButton#dir_pause{
-       background-color: blue;
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-48px;
+       border:none;
+       image: url(:/skin/btn_pause);
 }
 QButton#dir_pause:pressed{
-       background-color: gray;
+       background-color: transparent;
+       margin-left: -48px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_pause);
 }
 QButton#dir_pause:hover{
-       background-color: red;
+       background-color: transparent;
+       margin-left: -24px;
+       margin-right:-24px;
+       border:none;
+       image: url(:/skin/btn_pause);
 }
 
 QButton#dir_stop{
-       background-color: blue;
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-48px;
+       border:none;
+       image: url(:/skin/btn_stop);
 }
 QButton#dir_stop:pressed{
-       background-color: gray;
+       background-color: transparent;
+       margin-left: -48px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_stop);
 }
 QButton#dir_stop:hover{
-       background-color: red;
+       background-color: transparent;
+       margin-left: -24px;
+       margin-right:-24px;
+       border:none;
+       image: url(:/skin/btn_stop);
 }
 
 /***********************************
