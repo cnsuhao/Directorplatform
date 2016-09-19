@@ -239,3 +239,203 @@ QGraphicsView#logo{
       background-image: url(:/skin/logo)
 }
 
+/*预置位*/
+
+
+QPushButton#btn_1{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_1);
+}
+QPushButton#btn_1:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_1);
+}
+QPushButton#btn_1:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_1);
+}
+
+QPushButton#btn_2{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_2);
+}
+QPushButton#btn_2:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_2);
+}
+QPushButton#btn_2:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_2);
+}
+
+QPushButton#btn_3{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_3);
+}
+QPushButton#btn_3:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_3);
+}
+QPushButton#btn_3:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_3);
+}
+
+QPushButton#btn_4{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_4);
+}
+QPushButton#btn_4:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_4);
+}
+QPushButton#btn_4:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_4);
+}
+
+QPushButton#btn_5{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_5);
+}
+QPushButton#btn_5:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_5);
+}
+QPushButton#btn_5:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_5);
+}
+
+QPushButton#btn_6{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_6);
+}
+QPushButton#btn_6:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_6);
+}
+QPushButton#btn_6:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_6);
+}
+
+QPushButton#btn_7{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_7);
+}
+QPushButton#btn_7:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_7);
+}
+QPushButton#btn_7:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_7);
+}
+
+QPushButton#btn_8{
+       background-color: transparent;
+       margin-left: -0px;
+       margin-right:-52px;
+       border:none;
+       image: url(:/skin/btn_8);
+}
+QPushButton#btn_8:hover{
+       background-color: transparent;
+       margin-left: -26px;
+       margin-right:-26px;
+       border:none;
+       image: url(:/skin/btn_8);
+}
+QPushButton#btn_8:pressed{
+       background-color: transparent;
+       margin-left: -52px;
+       margin-right:-0px;
+       border:none;
+       image: url(:/skin/btn_8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

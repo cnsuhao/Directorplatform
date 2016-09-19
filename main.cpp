@@ -80,6 +80,7 @@ int main(int argc, char *argv[])
 
     // load qss
     QLoadSkin::setGlobalStyle(":/skin/dir1.qss");
+    log("loaded skin file \n");
 
 //Test
 
@@ -89,7 +90,7 @@ int main(int argc, char *argv[])
     w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
     w.resize(800,800);
     w.show();
-
+    log("you quit the App\n");
     return app.exec();
 
 }

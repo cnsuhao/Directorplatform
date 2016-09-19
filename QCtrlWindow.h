@@ -25,7 +25,7 @@ signals:
 
 public slots:
 private:
-    QGridLayout *gridLayout;
+    QVBoxLayout *gLayout;
 
     /*direction Button*/
     QButton   *btn_up;
@@ -58,6 +58,11 @@ private:
     QButton  *ring_small;//光圈 小
     QCheckBox *ring_auto;
 
+    QHBoxLayout *personlay;
+    QHBoxLayout *zoomlay;
+    QHBoxLayout *focuslay;
+    QHBoxLayout *ringlay;
+
     QSlider *speed_adjust;//速度调节
 
     QGraphicsView *logo;
@@ -69,11 +74,11 @@ private:
     QPushButton *btn_6;
     QPushButton *btn_7;
     QPushButton *btn_8;
+    QHBoxLayout *numlay1;
+    QHBoxLayout *numlay2;
 
-    QLCDNumber *lcd_time;
     QLCDNumber *lcd_date;
 
-    QWidget *dir_wid;
     QGridLayout *dir_lay;
 
 // some event defined

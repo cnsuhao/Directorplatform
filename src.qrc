@@ -5,26 +5,32 @@
         <file>director_en.ts</file>
         <file>director_zh.ts</file>
     </qresource>
-    <qresource prefix="/skin">
-        <file>black.qss</file>
-        <file>icon1.png</file>
-        <file>icon2.png</file>
-        <file>app.rc</file>
-        <file>icon1.ico</file>
-        <file>full.png</file>
-        <file>fullexit.png</file>
-        <file>setting.png</file>
-        <file>dir1.qss</file>
-        <file>livefull.png</file>
-        <file>livefullexit.png</file>
-        <file>logo.bmp</file>
-        <file>btn_up.png</file>
-        <file>btn_center.png</file>
-        <file>btn_down.png</file>
-        <file>btn_left.png</file>
-        <file>btn_right.png</file>
-        <file>btn_pause.png</file>
-        <file>btn_play.png</file>
-        <file>btn_stop.png</file>
+    <qresource prefix="/">
+        <file>skin/btn_1.png</file>
+        <file>skin/btn_2.png</file>
+        <file>skin/btn_3.png</file>
+        <file>skin/btn_4.png</file>
+        <file>skin/btn_5.png</file>
+        <file>skin/btn_6.png</file>
+        <file>skin/btn_7.png</file>
+        <file>skin/btn_8.png</file>
+        <file>skin/full.png</file>
+        <file>skin/fullexit.png</file>
+        <file>skin/icon1.ico</file>
+        <file>skin/icon1.png</file>
+        <file>skin/livefull.png</file>
+        <file>skin/livefullexit.png</file>
+        <file>skin/logo.bmp</file>
+        <file>skin/setting.png</file>
+        <file>skin/black.qss</file>
+        <file>skin/btn_center.png</file>
+        <file>skin/btn_down.png</file>
+        <file>skin/btn_left.png</file>
+        <file>skin/btn_pause.png</file>
+        <file>skin/btn_play.png</file>
+        <file>skin/btn_right.png</file>
+        <file>skin/btn_stop.png</file>
+        <file>skin/btn_up.png</file>
+        <file>skin/dir1.qss</file>
     </qresource>
 </RCC>
