@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QGridLayout>
-#include "QButton.h"
+#include "Model/QButton.h"
 #include <QCheckBox>
 #include <QSlider>
 #include <QLCDNumber>

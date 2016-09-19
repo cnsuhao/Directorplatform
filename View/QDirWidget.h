@@ -2,9 +2,9 @@
 #define QDIRWIDGET_H
 
 #include <QWidget>
-#include "PlatformConfig.h"
-#include "QVideoWidget.h"
-#include "QButton.h"
+#include "View/PlatformConfig.h"
+#include "Model//QVideoWidget.h"
+#include "Model/QButton.h"
 
 #include <QComboBox>
 /*

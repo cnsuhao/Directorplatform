@@ -1,4 +1,4 @@
-#include "QCtrlWindow.h"
+#include "View/QCtrlWindow.h"
 #include <QPainter>
 
 

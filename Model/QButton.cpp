@@ -1,4 +1,4 @@
-#include "QButton.h"
+#include "Model/QButton.h"
 #include <QMessageBox>
 #include <QMouseEvent>
 QButton::QButton(QWidget *parent) :

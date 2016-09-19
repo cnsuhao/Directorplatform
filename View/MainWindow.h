@@ -2,11 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
-#include "PlatformConfig.h"
-#include "QDirWidget.h"
-#include "QLiveWidget.h"
-#include "QCtrlWindow.h"
-#include "QFunctionWidget.h"
+#include "View/PlatformConfig.h"
+#include "View/QDirWidget.h"
+#include "View/QLiveWidget.h"
+#include "View/QCtrlWindow.h"
+#include "View/QFunctionWidget.h"
 
 #include  <QVector>
 

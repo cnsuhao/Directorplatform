@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+#include "View/MainWindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent), NumberOfLive(7)
