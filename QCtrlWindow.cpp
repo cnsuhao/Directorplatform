@@ -62,7 +62,6 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     logo->setFixedSize(257,94);
     logo->setObjectName("logo");
 
-    dir_wid = new QWidget();
     dir_lay = new QGridLayout();
 
     btn_up = new QButton(this);
@@ -119,75 +118,124 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
 
     zoom_label = new QLabel(tr("zoom"),this);
     zoom_up = new QButton(this);
+    zoom_up->setFixedSize(25,25);
     zoom_up->setObjectName("zoom_up");
 
     zoom_down = new QButton(this);
+    zoom_down->setFixedSize(25,25);
     zoom_down->setObjectName("zoom_down");
 
     focus_label = new QLabel(tr("focus"),this);
 
     focus_on = new QButton(this);
+    focus_on->setFixedSize(25,25);
     focus_on->setObjectName("focus_on");
 
     focus_off = new QButton(this);
+    focus_off->setFixedSize(25,25);
     focus_off->setObjectName("focus_off");
 
     focus_auto = new QCheckBox(this);
+    focus_auto->setFixedSize(25,25);
     focus_auto->setObjectName("focus_auto");
 
     ring_label = new QLabel(tr("ring"),this);
 
     ring_big = new QButton(this);
     ring_big->setObjectName("ring_big");
+    ring_big->setFixedSize(25,25);
 
     ring_small = new QButton(this);
+    ring_small->setFixedSize(25,25);
     ring_small->setObjectName("ring_small");
 
     ring_auto = new QCheckBox(this);
+    ring_auto->setFixedSize(25,25);
     ring_auto->setObjectName("ring_auto");
 
+    personlay = new QHBoxLayout();
+    personlay->addWidget(one_person);
+    personlay->addWidget(two_person);
+    personlay->addWidget(three_person);
+    personlay->addWidget(group_person);
+
+    zoomlay = new QHBoxLayout();
+    zoomlay->setSpacing(1);
+    zoomlay->addWidget(zoom_label,1,Qt::AlignLeft);
+    zoomlay->addWidget(zoom_up,1,Qt::AlignLeft);
+    zoomlay->addWidget(zoom_down,1,Qt::AlignLeft);
+    QLabel *tmp = new QLabel;
+    tmp->setFixedSize(25,25);
+    zoomlay->addWidget(tmp,1,Qt::AlignLeft);
+
+    focuslay = new QHBoxLayout();
+    focuslay->setSpacing(1);
+    focuslay->addWidget(focus_label,1,Qt::AlignLeft);
+    focuslay->addWidget(focus_on,1,Qt::AlignLeft);
+    focuslay->addWidget(focus_off,1,Qt::AlignLeft);
+    focuslay->addWidget(focus_auto,1,Qt::AlignLeft);
+
+    ringlay = new QHBoxLayout();
+    ringlay->setSpacing(1);
+    ringlay->addWidget(ring_label,1,Qt::AlignLeft);
+    ringlay->addWidget(ring_big,1,Qt::AlignLeft);
+    ringlay->addWidget(ring_small,1,Qt::AlignLeft);
+    ringlay->addWidget(ring_auto,1,Qt::AlignLeft);
 
     speed_adjust = new QSlider(Qt::Horizontal,this);
     speed_adjust->setObjectName("speed");
 
-    btn_1 = new QPushButton("1",this);
-    btn_1->setFixedSize(25,25);
-    btn_2 = new QPushButton("2",this);
-    btn_2->setFixedSize(25,25);
-    btn_3 = new QPushButton("3",this);
-    btn_3->setFixedSize(25,25);
-    btn_4 = new QPushButton("4",this);
-    btn_4->setFixedSize(25,25);
-    btn_5 = new QPushButton("5",this);
-    btn_5->setFixedSize(25,25);
-    btn_6 = new QPushButton("6",this);
-    btn_6->setFixedSize(25,25);
-    btn_7 = new QPushButton("7",this);
-    btn_7->setFixedSize(25,25);
-    btn_8 = new QPushButton("8",this);
-    btn_8->setFixedSize(25,25);
+    btn_1 = new QPushButton(this);
+    btn_1->setObjectName("btn_1");
+    btn_1->setFixedSize(26,26);
 
+    btn_2 = new QPushButton(this);
+    btn_2->setObjectName("btn_2");
+    btn_2->setFixedSize(26,26);
+
+    btn_3 = new QPushButton(this);
+    btn_3->setObjectName("btn_3");
+    btn_3->setFixedSize(26,26);
+
+    btn_4 = new QPushButton(this);
+    btn_4->setObjectName("btn_4");
+    btn_4->setFixedSize(26,26);
+
+    btn_5 = new QPushButton(this);
+    btn_5->setObjectName("btn_5");
+    btn_5->setFixedSize(26,26);
+
+    btn_6 = new QPushButton(this);
+    btn_6->setFixedSize(26,26);
+    btn_6->setObjectName("btn_6");
+
+    btn_7 = new QPushButton(this);
+    btn_7->setObjectName("btn_7");
+    btn_7->setFixedSize(26,26);
+
+    btn_8 = new QPushButton(this);
+    btn_8->setObjectName("btn_8");
+    btn_8->setFixedSize(26,26);
+
+
+    numlay1 = new QHBoxLayout;
+    numlay2 = new QHBoxLayout;
+
+    numlay1->addWidget(btn_1);
+    numlay1->addWidget(btn_2);
+    numlay1->addWidget(btn_3);
+    numlay1->addWidget(btn_4);
+
+    numlay2->addWidget(btn_5);
+    numlay2->addWidget(btn_6);
+    numlay2->addWidget(btn_7);
+    numlay2->addWidget(btn_8);
 
     lcd_date = new QLCDNumber(this);
     lcd_date->setDigitCount(30);
-    lcd_date->display("2016-9-18");
+    lcd_date->display("2016-9-18   14:20:56");
 
-    lcd_time = new QLCDNumber(this);
-    lcd_time->setDigitCount(30);
-    lcd_time->display("14:20:52");
-    gridLayout = new QGridLayout();
-
-
-    //layout
-//    QVBoxLayout *b1 = new QVBoxLayout;
-//    QVBoxLayout *b2 = new QVBoxLayout;
-//    QVBoxLayout *b3 = new QVBoxLayout;
-
-//    b1->addWidget(meeting_ctrl);
-//    b2->addWidget(cloud_ctrl);
-//    gridLayout->addLayout(b1,0,0);
-//    gridLayout->addLayout(b1,1,0);
-//    gridLayout->addLayout(b1,2,0);
+    gLayout = new QVBoxLayout();
 
 
     dir_lay->addWidget(btn_up,0,1,1,1,Qt::AlignBottom);
@@ -195,67 +243,34 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     dir_lay->addWidget(btn_center,1,1);
     dir_lay->addWidget(btn_right,1,2,1,1,Qt::AlignLeft);
     dir_lay->addWidget(btn_down,2,1,1,1,Qt::AlignTop);
-
-    dir_wid->setLayout(dir_lay);
-
+    dir_lay->setSpacing(3);
 
 
+    // ----------------LAYOUT-------------------
 
-    gridLayout->addWidget(logo,0,0,1,4);
-    gridLayout->addWidget(meeting_ctrl,1,0,1,3);
+    gLayout->addWidget(logo,2);
+    gLayout->addStretch(1);
+    gLayout->addWidget(meeting_ctrl,1,Qt::AlignCenter);
+    gLayout->addWidget(cloud_ctrl,1,Qt::AlignCenter);
 
-    gridLayout->addWidget(cloud_ctrl,2,0,1,3);
+    gLayout->addLayout(personlay);
+    gLayout->addStretch(1);
+    gLayout->addLayout(zoomlay);
+    gLayout->addLayout(focuslay);
+    gLayout->addLayout(ringlay);
+    gLayout->addStretch(1);
 
-    gridLayout->addWidget(one_person,3,0);
-    gridLayout->addWidget(two_person,3,1);
-    gridLayout->addWidget(three_person,3,2);
-    gridLayout->addWidget(group_person,3,3);
+    gLayout->addLayout(dir_lay,3);
+    gLayout->addWidget(speed_adjust);
+    gLayout->addStretch(2);
+    gLayout->addLayout(numlay1);
+    gLayout->addLayout(numlay2);
 
-    gridLayout->addWidget(zoom_label,4,0);
-    gridLayout->addWidget(zoom_up,4,1);
-    gridLayout->addWidget(zoom_down,4,2);
-
-    gridLayout->addWidget(focus_label,5,0);
-    gridLayout->addWidget(focus_on,5,1);
-    gridLayout->addWidget(focus_off,5,2);
-    gridLayout->addWidget(focus_auto,5,3);
-
-    gridLayout->addWidget(ring_label,6,0);
-    gridLayout->addWidget(ring_small,6,1);
-    gridLayout->addWidget(ring_big,6,2);
-    gridLayout->addWidget(ring_auto,6,3);
+    gLayout->addWidget(lcd_date,3);
 
 
-    gridLayout->addWidget(dir_wid,7,1);
-
-    gridLayout->addWidget(speed_adjust,8,0,1,4);
-
-    gridLayout->addWidget(btn_1,9,0);
-    gridLayout->addWidget(btn_2,9,1);
-    gridLayout->addWidget(btn_3,9,2);
-    gridLayout->addWidget(btn_4,9,3);
-
-    gridLayout->addWidget(btn_5,10,0);
-    gridLayout->addWidget(btn_6,10,1);
-    gridLayout->addWidget(btn_7,10,2);
-    gridLayout->addWidget(btn_8,10,3);
-
-
-    gridLayout->addWidget(lcd_date,11,0,1,3);
-    gridLayout->addWidget(lcd_time,11,0,1,3);
-
-    gridLayout->setColumnStretch(1,1);
-    gridLayout->setColumnStretch(2,1);
-    gridLayout->setColumnStretch(3,1);
-    gridLayout->setColumnStretch(4,1);
-
-    //gridLayout->setRowStretch(0,2);
-    gridLayout->setRowStretch(7,1);
-    gridLayout->setRowStretch(8,4);
-    gridLayout->setRowStretch(9,1);
-    gridLayout->setRowStretch(10,1);
-
-    this->setLayout(gridLayout);
+    gLayout->setSpacing(10);
+    this->setLayout(gLayout);
 
 
 }
