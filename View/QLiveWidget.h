@@ -3,8 +3,8 @@
 
 #include <QWidget>
 #include "PlatformConfig.h"
-#include "QVideoWidget.h"
-#include "QButton.h"
+#include "Model/QVideoWidget.h"
+#include "Model/QButton.h"
 /*
  * 直播(live video widget)*/
 

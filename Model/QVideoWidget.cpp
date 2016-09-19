@@ -1,4 +1,4 @@
-#include "QVideoWidget.h"
+#include "Model/QVideoWidget.h"
 
 QVideoWidget::QVideoWidget(QWidget *parent) :
     QWidget(parent)

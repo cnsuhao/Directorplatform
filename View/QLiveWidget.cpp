@@ -1,4 +1,4 @@
-#include "QLiveWidget.h"
+#include "View/QLiveWidget.h"
 
 void onFullScreen(QWidget* q)
 {

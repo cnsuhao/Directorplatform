@@ -20,23 +20,25 @@ TRANSLATIONS +=director_zh.ts \
 QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp\
-    QVideoWidget.cpp \
-    MainWindow.cpp \
-    QCtrlWindow.cpp \
-    QLiveWidget.cpp \
-    QDirWidget.cpp \
-    QButton.cpp \
-    QFunctionWidget.cpp
+    Model/QYoohooMainWindow.cpp \
+    View/MainWindow.cpp \
+    View/QCtrlWindow.cpp \
+    View/QDirWidget.cpp \
+    View/QFunctionWidget.cpp \
+    View/QLiveWidget.cpp \
+    Model/QButton.cpp \
+    Model/QVideoWidget.cpp
 
 HEADERS  += \
-    PlatformConfig.h \
-    QVideoWidget.h \
-    MainWindow.h \
-    QCtrlWindow.h \
-    QLiveWidget.h \
-    QDirWidget.h \
-    QButton.h \
-    QFunctionWidget.h
+    Model/QYoohooMainWindow.h \
+    View/MainWindow.h \
+    View/PlatformConfig.h \
+    View/QCtrlWindow.h \
+    View/QDirWidget.h \
+    View/QFunctionWidget.h \
+    View/QLiveWidget.h \
+    Model/QButton.h \
+    Model/QVideoWidget.h
 
 RESOURCES += \
     src.qrc

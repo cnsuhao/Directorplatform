@@ -1,4 +1,4 @@
-#include "QFunctionWidget.h"
+#include "View/QFunctionWidget.h"
 #include <QPainter>
 
 QFunctionWidget::QFunctionWidget(QWidget *parent) :

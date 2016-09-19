@@ -5,7 +5,7 @@
 #include <QString>
 #include <QIcon>
 #include <QWidget>
-#include "PlatformConfig.h"
+#include "View/PlatformConfig.h"
 
 class QButton : public QPushButton
 {

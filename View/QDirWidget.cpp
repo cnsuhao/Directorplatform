@@ -1,4 +1,4 @@
-#include "QDirWidget.h"
+#include "View/QDirWidget.h"
 
 
 void onBtnFullScreen(QWidget* q)

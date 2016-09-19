@@ -1,8 +1,8 @@
-#include "MainWindow.h"
-#include "PlatformConfig.h"
-#include "QLiveWidget.h"
-#include "QVideoWidget.h"
-#include "QDirWidget.h"
+#include "View/MainWindow.h"
+#include "View/PlatformConfig.h"
+#include "View/QLiveWidget.h"
+#include "Model/QVideoWidget.h"
+#include "View/QDirWidget.h"
 
 #include <QApplication>
 #include <QTextCodec>
@@ -86,6 +86,7 @@ int main(int argc, char *argv[])
 
 
     MainWindow w;
+    //w.setWindowFlags(Qt::FramelessWindowHint);
     w.setWindowIcon(QIcon(":/skin/icon1.png"));
     w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
     w.resize(800,800);
