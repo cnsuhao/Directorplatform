@@ -30,11 +30,11 @@
 
 
 #ifdef Q_OS_WIN32
-#define LOG_FILE_DIR                 ("C:\\Windows\\System32\\winevt\\Logs")
+#define LOG_FILE_DIR                 ("LogFile")
 #elif defined(Q_OS_UNIX) || defined(Q_OS_LINUX)
-#define LOG_FILE_DIR                 ("/var/log")
+#define LOG_FILE_DIR                 ("/var/log/Director")
 #else
-#define LOG_FILE_DIR                 ("../log")
+#define LOG_FILE_DIR                 ("LogFile")
 #endif
 
 typedef void(*EventCall)(QWidget*);

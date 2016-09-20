@@ -8,6 +8,11 @@
 #include <QTextCodec>
 #include <QTranslator>
 
+#include <QTextStream>
+#include <QMutex>
+#include <QDir>
+#include <QDateTime>
+
 /*
  * cross platform*/
 
@@ -53,6 +58,52 @@ bool isRunning()
 #endif
 
 
+void outputMessage(QtMsgType type, const char* msg)
+{
+    static QMutex mutex;
+    mutex.lock();
+
+    QString text;
+    switch(type)
+    {
+    case QtDebugMsg:
+        text = QString("Debug:");
+        break;
+
+    case QtWarningMsg:
+        text = QString("Warning:");
+        break;
+
+    case QtCriticalMsg:
+        text = QString("Critical:");
+        break;
+
+    case QtFatalMsg:
+        text = QString("Fatal:");
+    }
+
+    QString current_date_time = QDateTime::currentDateTime().toString("hh:mm:ss ddd");
+    QString current_date = QString("(%1)").arg(current_date_time);
+    QString message = QString("%1 %2 %3").arg(text).arg(msg).arg(current_date);
+
+    QString f_name=QString("%1%2").arg(LOG_FILE_DIR).arg("log.txt");
+
+    QDir dir;
+    if(!dir.exists(LOG_FILE_DIR))
+    {
+        dir.mkdir(LOG_FILE_DIR);
+    }
+
+    QFile file(QString(LOG_FILE_DIR)+"/"+QDateTime::currentDateTime().toString("yyyy-MM-dd")+".txt");
+    file.open(QIODevice::WriteOnly | QIODevice::Append);
+    QTextStream text_stream(&file);
+    text_stream << message << "\r\n";
+    file.flush();
+    file.close();
+
+    mutex.unlock();
+}
+
 
 
 int main(int argc, char *argv[])
@@ -66,21 +117,26 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
+    //make logFile
+    qInstallMsgHandler(outputMessage);
+
+
+
     // make it internationalization
     QTranslator translator;
+    qDebug("translator complete");
     translator.load(QString(":/cfg/director_zh"));
     app.installTranslator(&translator);
+    qDebug("translator complete");
     // Singletion for App
     if(isRunning())
     {
        QMessageBox::warning(0,QObject::tr("tip"),QObject::tr("App is opend"),0,0);
       return 0;
     }
-
-
     // load qss
     QLoadSkin::setGlobalStyle(":/skin/dir1.qss");
-    log("loaded skin file \n");
+    qDebug("load skin file complete");
 
 //Test
 
@@ -91,7 +147,7 @@ int main(int argc, char *argv[])
     w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
     w.resize(800,800);
     w.show();
-    log("you quit the App\n");
     return app.exec();
+
 
 }

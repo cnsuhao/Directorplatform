@@ -17,12 +17,6 @@ class IWindowEvent
      */
     virtual void onLoad()=0;
     /**
-     * @brief: onMove
-     *
-     * when load windows to execute
-     */
-    virtual void onMove()=0;
-    /**
      * @brief: setTitle
      * @param title
      *
@@ -50,13 +44,6 @@ class IWindowEvent
      */
     virtual void onClose()=0;
     /**
-     * @brief setVisible
-     * @param visible
-     *
-     * set window visible
-     */
-    virtual void setVisible(bool visible=false)=0;
-    /**
      * @brief onShow
      *
      * show the window
@@ -76,10 +63,6 @@ class IWindowEvent
      * @brief onMoved
      */
     virtual void onMoved()=0;
-    /**
-     * @brief onSizeChange
-     */
-    virtual void onSizeChange()=0;
     /**
      * @brief onMaxSize
      */
@@ -108,16 +91,39 @@ class IWindowEvent
 
 
 
-class QYoohooMainWindow : public QWidget
+class QYoohooMainWindow : public QWidget ,public IWindowEvent
 {
     Q_OBJECT
 public:
     explicit QYoohooMainWindow(QWidget *parent = 0);
-
+    virtual void onLoad();
+    virtual void setTitle(QString &title);
+    virtual void setTitleHeight(uint width=30);
+    virtual void setBorderWidth(uint height=2);
+    virtual void onClose();
+    virtual void onShow();
+    virtual void onHide();
+    virtual void onSizeChanged();
+    virtual void onMoved();
+    virtual void onMaxSize();
+    virtual void onMiniSize();
+    virtual void onRestore();
 signals:
 
 public slots:
-public:
+private:
+    QPoint m_mousePoint;
+    bool  m_needMove;
+ protected:
+    void mouseMoveEvent(QMouseEvent* e);
+    void mouseReleaseEvent(QMouseEvent *e);
+    void mousePressEvent(QMouseEvent *e);
+
+
+protected:
+     QString m_title;
+
+
 
 
 
