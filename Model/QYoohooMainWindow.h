@@ -2,7 +2,10 @@
 #define QYOOHOOMAINWINDOW_H
 
 #include <QWidget>
-
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QPushButton>
 
 /**
  * @brief: IWindowEvent is the Interface of windows event
@@ -10,70 +13,16 @@
 
 class IWindowEvent
 {
-    /**
-     * @brief: onLoad
-     *
-     * when init windows to execute
-     */
-    virtual void onLoad()=0;
-    /**
-     * @brief: setTitle
-     * @param title
-     *
-     * Set the title of the title bar
-     */
+public:
+    virtual void onCreate()=0;
     virtual void setTitle(QString &title)=0;
-    /**
-     * @brief setTitleHeight
-     * @param width
-     *
-     * Set the height of the title bar
-     */
-    virtual void setTitleHeight(uint width=30)=0;
-    /**
-     * @brief setBorderWidth
-     * @param height
-     *
-     * Set the width of the border
-     */
-    virtual void setBorderWidth(uint height=2)=0;
-    /**
-     * @brief onClose
-     *
-     * when windows close to execute
-     */
+    virtual void setTitleHeight(uint height=30)=0;
+    virtual void setBorderWidth(uint width=2)=0;
     virtual void onClose()=0;
-    /**
-     * @brief onShow
-     *
-     * show the window
-     */
-    virtual void onShow()=0;
-    /**
-     * @brief onHide
-     *
-     * hide the window
-     */
-    virtual void onHide()=0;
-    /**
-     * @brief onSizeChanged
-     */
     virtual void onSizeChanged()=0;
-    /**
-     * @brief onMoved
-     */
     virtual void onMoved()=0;
-    /**
-     * @brief onMaxSize
-     */
     virtual void onMaxSize()=0;
-    /**
-     * @brief onMiniSize
-     */
     virtual void onMiniSize()=0;
-    /**
-     * @brief onRestore
-     */
     virtual void onRestore()=0;
 
 };
@@ -81,52 +30,58 @@ class IWindowEvent
 
 
 
-
-
-
-
-
-
-
-
-
-
-class QYoohooMainWindow : public QWidget ,public IWindowEvent
+class QYoohooMainWindow : public QWidget
 {
     Q_OBJECT
 public:
     explicit QYoohooMainWindow(QWidget *parent = 0);
-    virtual void onLoad();
-    virtual void setTitle(QString &title);
-    virtual void setTitleHeight(uint width=30);
-    virtual void setBorderWidth(uint height=2);
-    virtual void onClose();
-    virtual void onShow();
-    virtual void onHide();
-    virtual void onSizeChanged();
-    virtual void onMoved();
-    virtual void onMaxSize();
-    virtual void onMiniSize();
-    virtual void onRestore();
 signals:
 
-public slots:
+public:
+    void addWidgetToYoohoo(QWidget* w);
+    void setTitleToYoohoo(const QString &title);
 private:
-    QPoint m_mousePoint;
-    bool  m_needMove;
- protected:
-    void mouseMoveEvent(QMouseEvent* e);
-    void mouseReleaseEvent(QMouseEvent *e);
-    void mousePressEvent(QMouseEvent *e);
 
+    bool onLeft;
+    bool onRight;
+    bool onBottom;
+    bool onLeftBottom;
+    bool onRightBottom;
+
+    QPoint m_mousePoint;
+    bool  m_canDrag;
+    bool m_isPressed;
+    bool m_isFull;
+    bool m_canExp;
+    int  titieHeight;
+    int  borderWidth;
+    QLabel *m_labTitle;
+    QPushButton *close_btn;
+    QPushButton *mini_btn;
+    QPushButton *max_btn;
+    QHBoxLayout *m_titleLayout;
+    QVBoxLayout *m_mainLayout;
+    QVBoxLayout *m_con;
+
+protected:
+    bool eventFilter(QObject *, QEvent *);
+    void onclose(QObject *obj);
+    void onminisize(QObject *obj);
+    void onmaxsize(QObject *obj);
+private:
+    void mouseMove(QMouseEvent* e);
+    void mousePress(QMouseEvent* e);
+    void mousedbClicked(QMouseEvent* e);
+    void mouseRelease(QMouseEvent* e);
+    void mouseEnter(QMouseEvent* e);
+    void mouseHoverEnter(QHoverEvent* e);
+    void mouseHoverMove(QHoverEvent* e);
+    void mouseLeave(QMouseEvent* e);
+    void paintEvent(QPaintEvent* e);
+    void PaintBtn(QObject* obj);
 
 protected:
      QString m_title;
-
-
-
-
-
 
 };
 

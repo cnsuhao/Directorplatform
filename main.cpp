@@ -3,7 +3,7 @@
 #include "View/QLiveWidget.h"
 #include "Model/QVideoWidget.h"
 #include "View/QDirWidget.h"
-
+#include "Model/QYoohooMainWindow.h"
 #include <QApplication>
 #include <QTextCodec>
 #include <QTranslator>
@@ -86,8 +86,6 @@ void outputMessage(QtMsgType type, const char* msg)
     QString current_date = QString("(%1)").arg(current_date_time);
     QString message = QString("%1 %2 %3").arg(text).arg(msg).arg(current_date);
 
-    QString f_name=QString("%1%2").arg(LOG_FILE_DIR).arg("log.txt");
-
     QDir dir;
     if(!dir.exists(LOG_FILE_DIR))
     {
@@ -141,10 +139,13 @@ int main(int argc, char *argv[])
 //Test
 
 
-    MainWindow w;
+    MainWindow *h = new MainWindow;
+    QYoohooMainWindow w;
+    w.setTitleToYoohoo(MainWindow::tr("DirectorPlatform"));
+    w.addWidgetToYoohoo(h);
     //w.setWindowFlags(Qt::FramelessWindowHint);
     w.setWindowIcon(QIcon(":/skin/icon1.png"));
-    w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
+    //w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
     w.resize(800,800);
     w.show();
     return app.exec();
