@@ -21,9 +21,14 @@ QYoohooMainWindow::QYoohooMainWindow(QWidget *parent) :
     titieHeight = 30;
     borderWidth = 5;
     m_labTitle = new QLabel(this);
-    m_titleLayout = new QHBoxLayout(this);
-    m_mainLayout = new QVBoxLayout(this);
+    m_titleLayout = new QHBoxLayout();
+    m_labTitle->setSizePolicy(QSizePolicy::MinimumExpanding,QSizePolicy::MinimumExpanding);
+    m_mainLayout = new QVBoxLayout();
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setMargin(0);
     m_con = new QVBoxLayout();
+    m_con->setSpacing(0);
+    m_con->setMargin(0);
 
 
     close_btn = new QPushButton(this);
@@ -39,43 +44,30 @@ QYoohooMainWindow::QYoohooMainWindow(QWidget *parent) :
     max_btn->setToolTip(tr("maxsize"));
     max_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(50,205,50);}");
 
-
-
+    connect(close_btn,SIGNAL(clicked()),this,SLOT(close()));
+    connect(mini_btn,SIGNAL(clicked()),this,SLOT(showMinimized()));
+    connect(max_btn,SIGNAL(clicked()),this,SLOT(onmaxsize()));
     m_titleLayout->setSpacing(1);
     m_titleLayout->setMargin(5);
     m_labTitle->setText("QYoohooMainWindow");
-    m_labTitle->setFixedHeight(titieHeight);
+    m_labTitle->setFixedHeight(titieHeight-9);
     m_titleLayout->addWidget(m_labTitle,3,Qt::AlignLeft|Qt::AlignTop);
-    m_titleLayout->addWidget(close_btn,0,Qt::AlignLeft|Qt::AlignTop);
     m_titleLayout->addWidget(mini_btn,0,Qt::AlignLeft|Qt::AlignTop);
     m_titleLayout->addWidget(max_btn,0,Qt::AlignLeft|Qt::AlignTop);
+    m_titleLayout->addWidget(close_btn,0,Qt::AlignLeft|Qt::AlignTop);
     m_con->addLayout(m_titleLayout,0);
     m_con->addLayout(m_mainLayout,20);
     this->setLayout(m_con);
     this->setWindowFlags(Qt::FramelessWindowHint );
 
-    qApp->installEventFilter(this);
+    this->installEventFilter(this);
     this->setAttribute(Qt::WA_Hover,true);
 
 }
 
 
-void QYoohooMainWindow::onclose(QObject *obj)
+void QYoohooMainWindow::onmaxsize()
 {
-    if(obj == close_btn)
-    close();
-}
-
-void QYoohooMainWindow::onminisize(QObject *obj)
-{
-    if(obj == mini_btn)
-    showMinimized();
-}
-
-void QYoohooMainWindow::onmaxsize(QObject *obj)
-{
-    if(obj == max_btn)
-    {
         if(isFullScreen())
         {
             showNormal();
@@ -84,7 +76,6 @@ void QYoohooMainWindow::onmaxsize(QObject *obj)
         {
             showFullScreen();
         }
-    }
 
 }
 
@@ -241,9 +232,6 @@ bool QYoohooMainWindow::eventFilter(QObject *obj, QEvent *e)
         break;
     case QEvent::MouseButtonRelease:
         mouseRelease(static_cast<QMouseEvent*>(e));
-        onclose(obj);
-        onminisize(obj);
-        onmaxsize(obj);
         break;
     case QEvent::Enter:
         mouseEnter(static_cast<QMouseEvent*>(e));

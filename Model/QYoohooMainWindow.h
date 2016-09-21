@@ -40,6 +40,8 @@ signals:
 public:
     void addWidgetToYoohoo(QWidget* w);
     void setTitleToYoohoo(const QString &title);
+public slots:
+    void onmaxsize();
 private:
 
     bool onLeft;
@@ -65,9 +67,6 @@ private:
 
 protected:
     bool eventFilter(QObject *, QEvent *);
-    void onclose(QObject *obj);
-    void onminisize(QObject *obj);
-    void onmaxsize(QObject *obj);
 private:
     void mouseMove(QMouseEvent* e);
     void mousePress(QMouseEvent* e);
