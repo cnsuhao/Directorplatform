@@ -21,7 +21,8 @@ public:
     EventCall lbuttondown;
     EventCall lbuttonup;
     EventCall rbuttondown;
-    QWidget  *wid;
+private:
+    QWidget  *wid; // point to parent
 signals:
 
 public slots:

@@ -35,6 +35,7 @@ class QYoohooMainWindow : public QWidget
     Q_OBJECT
 public:
     explicit QYoohooMainWindow(QWidget *parent = 0);
+    ~QYoohooMainWindow();
 signals:
 
 public:

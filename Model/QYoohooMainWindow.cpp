@@ -65,6 +65,20 @@ QYoohooMainWindow::QYoohooMainWindow(QWidget *parent) :
 
 }
 
+QYoohooMainWindow::~QYoohooMainWindow()
+{
+    delete m_labTitle;
+    m_labTitle = NULL;
+    delete close_btn;
+    close_btn = NULL;
+    delete mini_btn;
+    mini_btn = NULL;
+    delete max_btn;
+    max_btn = NULL;
+    delete m_titleLayout;
+    delete m_mainLayout;
+    delete m_con;
+}
 
 void QYoohooMainWindow::onmaxsize()
 {
