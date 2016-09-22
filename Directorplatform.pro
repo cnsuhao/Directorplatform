@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     View/QFunctionWidget.cpp \
     View/QLiveWidget.cpp \
     Model/QButton.cpp \
-    Model/QVideoWidget.cpp
+    Model/QVideoWidget.cpp \
+    View/QSystemSettingWidget.cpp
 
 HEADERS  += \
     Model/QYoohooMainWindow.h \
@@ -38,7 +39,8 @@ HEADERS  += \
     View/QFunctionWidget.h \
     View/QLiveWidget.h \
     Model/QButton.h \
-    Model/QVideoWidget.h
+    Model/QVideoWidget.h \
+    View/QSystemSettingWidget.h
 
 RESOURCES += \
     src.qrc

@@ -13,6 +13,10 @@
 #include <QDir>
 #include <QDateTime>
 
+
+#include "View/QSystemSettingWidget.h"
+
+
 /*
  * cross platform*/
 
@@ -129,7 +133,7 @@ int main(int argc, char *argv[])
     // Singletion for App
     if(isRunning())
     {
-       QMessageBox::warning(0,QObject::tr("tip"),QObject::tr("App is opend"),0,0);
+       QMessageBox::warning(0,QObject::tr("tip"),QObject::tr("App is opened"),0,0);
       return 0;
     }
     // load qss
@@ -139,15 +143,18 @@ int main(int argc, char *argv[])
 //Test
 
 
-    MainWindow *h = new MainWindow;
-    QYoohooMainWindow w;
-    w.setTitleToYoohoo(MainWindow::tr("DirectorPlatform"));
-    w.addWidgetToYoohoo(h);
-    //w.setWindowFlags(Qt::FramelessWindowHint);
-    w.setWindowIcon(QIcon(":/skin/icon1.png"));
-    //w.setWindowTitle(MainWindow::tr("DirectorPlatform"));
-    w.resize(800,800);
+//    MainWindow *h = new MainWindow;
+//    QYoohooMainWindow w;
+//    w.setTitleToYoohoo(MainWindow::tr("DirectorPlatform"));
+//    w.addWidgetToYoohoo(h);
+//    //w.setWindowFlags(Qt::FramelessWindowHint);
+//    w.setWindowIcon(QIcon(":/skin/icon1.png"));
+//    w.resize(800,800);
+//    w.show();
+
+    QSettingWidget w;
     w.show();
+
     return app.exec();
 
 
