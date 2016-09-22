@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
 //    w.resize(800,800);
 //    w.show();
 
-    QSettingWidget w;
+    QSystemSettingWidget w;
     w.show();
 
     return app.exec();

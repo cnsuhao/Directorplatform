@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>DirectorPlatform</source>
-        <translation type="unfinished">导播平台</translation>
+        <translation type="obsolete">导播平台</translation>
     </message>
 </context>
 <context>
@@ -113,7 +113,80 @@
     </message>
     <message>
         <source>App is opend</source>
-        <translation type="unfinished">应用已经是打开的</translation>
+        <translation type="obsolete">应用已经是打开的</translation>
+    </message>
+    <message>
+        <source>App is opened</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QSettingWidget</name>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QSystemSettingWidget</name>
+    <message>
+        <source>User</source>
+        <translation type="unfinished">用户管理</translation>
+    </message>
+    <message>
+        <source>Serial</source>
+        <translation type="unfinished">串口设置</translation>
+    </message>
+    <message>
+        <source>Disk</source>
+        <translation type="unfinished">磁盘管理</translation>
+    </message>
+    <message>
+        <source>NetWork-C</source>
+        <translation type="unfinished">网络配置</translation>
+    </message>
+    <message>
+        <source>Network-T</source>
+        <translation type="unfinished">网络测试</translation>
+    </message>
+    <message>
+        <source>GraphicsCard</source>
+        <translation type="unfinished">显卡设置</translation>
+    </message>
+    <message>
+        <source>CenterCtrl</source>
+        <translation type="unfinished">中控设置</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished">系统信息</translation>
+    </message>
+    <message>
+        <source>system setting</source>
+        <translation type="unfinished">系统设置</translation>
+    </message>
+</context>
+<context>
+    <name>QYoohooMainWindow</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished">关闭</translation>
+    </message>
+    <message>
+        <source>minisize</source>
+        <translation type="unfinished">最小化</translation>
+    </message>
+    <message>
+        <source>maxsize</source>
+        <translation type="unfinished">最大化</translation>
     </message>
 </context>
 </TS>
