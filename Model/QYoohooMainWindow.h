@@ -28,8 +28,6 @@ public:
 };
 
 
-
-
 class QYoohooMainWindow : public QWidget
 {
     Q_OBJECT
