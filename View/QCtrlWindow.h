@@ -94,6 +94,17 @@ private:
     friend void onBtn_right_up(QWidget *q);
     friend void onBtn_right_down(QWidget *q);
 
+    friend void onBtn_center_up(QWidget *q);
+
+    friend void onZoom_up_clicked(QWidget *q);
+    friend void onZoom_down_clicked(QWidget *q);
+    friend void onFocus_on_clicked(QWidget *q);
+    friend void onFocus_off_clicked(QWidget *q);
+    friend void onRing_big_clicked(QWidget *q);
+    friend void onRing_small_clicked(QWidget *q);
+
+
+
 
 protected:
     void paintEvent(QPaintEvent* event);

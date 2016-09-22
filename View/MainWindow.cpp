@@ -58,7 +58,24 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete leftVideo;
+    delete rightVideo;
+    delete ctrlwin;
+    delete funwin;
 
+    for(int i=0;i<liveVideo_vec.count();i++)
+    {
+        delete liveVideo_vec[i];
+    }
+    liveVideo_vec.clear();
+
+    delete dirvideoLayout;
+    delete livevideoLayout;
+    delete functionLayout;
+    delete toolLayout;
+    delete operatorLayout;
+    delete mainLayout;
+    delete gridLayout;
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)

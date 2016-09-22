@@ -20,7 +20,7 @@ void onBtn_down_up(QWidget *q)
 }
 void onBtn_down_down(QWidget *q)
 {
-
+  QMessageBox::warning(0,"tip","down-dwon",0,0);
 }
 void onBtn_left_up(QWidget *q)
 {
@@ -40,18 +40,41 @@ void onBtn_right_down(QWidget *q)
 
 }
 
+void onBtn_center_up(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","you click center",0,0);
 
+}
+void onZoom_up_clicked(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","zoom-up",0,0);
 
+}
+void onZoom_down_clicked(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","zoom-down",0,0);
 
+}
+void onFocus_on_clicked(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","focus-on",0,0);
 
+}
+void onFocus_off_clicked(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","focus-off",0,0);
 
+}
+void onRing_big_clicked(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","ring_big",0,0);
 
+}
+void onRing_small_clicked(QWidget *q)
+{
+    QMessageBox::warning(0,"tip","ring-small",0,0);
 
-
-
-
-
-
+}
 
 
 QCtrlWindow::QCtrlWindow(QWidget *parent) :
@@ -82,6 +105,7 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     btn_center->setFixedSize(34,34);
     btn_center->setObjectName("btn_center");
     btn_center->setToolTip(tr("reset"));
+    btn_center->lbuttonup = onBtn_center_up;
 
 
     btn_left = new QButton(this);
@@ -120,20 +144,24 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     zoom_up = new QButton(this);
     zoom_up->setFixedSize(25,25);
     zoom_up->setObjectName("zoom_up");
+    zoom_up->lbuttonup = onZoom_up_clicked;
 
     zoom_down = new QButton(this);
     zoom_down->setFixedSize(25,25);
     zoom_down->setObjectName("zoom_down");
+    zoom_down->lbuttonup = onZoom_down_clicked;
 
     focus_label = new QLabel(tr("focus"),this);
 
     focus_on = new QButton(this);
     focus_on->setFixedSize(25,25);
     focus_on->setObjectName("focus_on");
+    focus_on->lbuttonup = onFocus_on_clicked;
 
     focus_off = new QButton(this);
     focus_off->setFixedSize(25,25);
     focus_off->setObjectName("focus_off");
+    focus_off->lbuttonup = onFocus_off_clicked;
 
     focus_auto = new QCheckBox(this);
     focus_auto->setFixedSize(25,25);
@@ -144,10 +172,12 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     ring_big = new QButton(this);
     ring_big->setObjectName("ring_big");
     ring_big->setFixedSize(25,25);
+    ring_big->lbuttonup = onRing_big_clicked;
 
     ring_small = new QButton(this);
     ring_small->setFixedSize(25,25);
     ring_small->setObjectName("ring_small");
+    ring_small->lbuttonup = onRing_small_clicked;
 
     ring_auto = new QCheckBox(this);
     ring_auto->setFixedSize(25,25);
@@ -277,6 +307,53 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
 
 QCtrlWindow::~QCtrlWindow()
 {
+    delete btn_up;
+    delete btn_down;
+    delete btn_left;
+    delete btn_center;
+    delete btn_right;
+
+    delete meeting_ctrl;
+    delete cloud_ctrl;
+    delete one_person;
+    delete two_person;
+    delete three_person;
+    delete group_person;
+
+    delete zoom_label;
+    delete zoom_up;
+    delete zoom_down;
+
+    delete focus_label;
+    delete focus_on;
+    delete focus_off;
+    delete focus_auto;
+
+    delete ring_label;
+    delete ring_big;
+    delete ring_small;
+    delete ring_auto;
+
+    delete speed_adjust;
+    delete logo;
+    delete btn_1;
+    delete btn_2;
+    delete btn_3;
+    delete btn_4;
+    delete btn_5;
+    delete btn_6;
+    delete btn_7;
+    delete btn_8;
+
+    delete lcd_date;
+
+    delete dir_lay;
+    delete personlay;
+    delete zoomlay;
+    delete focuslay;
+    delete ringlay;
+    delete gLayout;
+
 
 }
 void QCtrlWindow::paintEvent(QPaintEvent *event)
