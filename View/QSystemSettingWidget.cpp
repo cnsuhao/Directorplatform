@@ -59,6 +59,15 @@ void QSettingWidget::SetTitle(const QString &title)
     m_labTitle->setText(title);
 }
 
+void QSettingWidget::AddPage(QWidget *widget, const QString &tabTitle)
+{
+    m_mainTab->addTab(widget,tabTitle);
+}
+
+void QSettingWidget::AddPage(QWidget *widget, const QString &tabTitle, const QIcon &icon)
+{
+    m_mainTab->addTab(widget,icon,tabTitle);
+}
 void QSettingWidget::clicked_OK()
 {
 
@@ -121,11 +130,153 @@ void QSettingWidget::mouseMoveEvent(QMouseEvent *event)
 
 
 
-/********************************************************************/
+/*********************************SUB_PAGE***********************************/
+
+// 用户管理
+QUserMgr::QUserMgr(QWidget* parent):QWidget(parent)
+{
+
+}
+
+QUserMgr::~QUserMgr()
+{
+
+}
+
+// 串口设置
+
+QSerialPort::QSerialPort(QWidget* parent):QWidget(parent)
+{
+
+}
+
+QSerialPort::~QSerialPort()
+{
+
+}
+// 磁盘管理
+QDiskMgr::QDiskMgr(QWidget* parent):QWidget(parent)
+{
+
+}
+
+QDiskMgr::~QDiskMgr()
+{
+
+}
+
+// 网络配置
+
+QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
+{
+   m_layout = new QHBoxLayout();
+   m_netMain = new QGroupBox(tr("Main NetWork"));
+   m_netSub = new QGroupBox(tr("Sub NetWork"));
+
+   m_mainLayout = new QFormLayout();
+   m_sublayout = new QFormLayout();
+
+   m_mainDHCP = new QCheckBox((tr("DHCP")));
+   m_mainlabIP = new QLabel(tr("IP"));
+   m_mainIP = new QLineEdit();
+   m_subDHCP = new QCheckBox(tr("DHCP"));
+
+   m_mainLayout->addWidget(m_mainDHCP);
+   m_mainLayout->addRow(tr("IP"),m_mainIP);
+
+   m_sublayout->addWidget(m_subDHCP);
+
+   m_netMain->setLayout(m_mainLayout);
+   m_netSub->setLayout(m_sublayout);
 
 
+   m_layout->addWidget(m_netMain);
+   m_layout->addWidget(m_netSub);
+
+   this->setLayout(m_layout);
+}
+QNetConfig::~QNetConfig()
+{
+
+}
+
+//网络测试
+
+QNetTest::QNetTest(QWidget* parent):QWidget(parent)
+{
+
+}
+
+QNetTest::~QNetTest()
+{
+
+}
+
+//显卡设置
+QGrapCard::QGrapCard(QWidget* parent):QWidget(parent)
+{
+
+}
+
+QGrapCard::~QGrapCard()
+{
+
+}
+
+//中控设置
+
+QCtrlSetting::QCtrlSetting(QWidget* parent):QWidget(parent)
+{
+
+}
+
+QCtrlSetting::~QCtrlSetting()
+{
+
+}
+
+// 系统信息
+
+QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
+{
+
+}
+QSystemInfo::~QSystemInfo()
+{
+
+}
+
+
+
+
+/**********************************END********************************/
 
 QSystemSettingWidget::QSystemSettingWidget(QWidget *parent) :
-    QWidget(parent)
+    QSettingWidget(parent)
 {
+    userMgrWidget = new QUserMgr();
+    serialPortWidget = new QSerialPort();
+    diskMgrWidget = new QDiskMgr();
+    netConfigWidget = new QNetConfig();
+    netTestWidget = new QNetTest();
+    grapCardWidget = new QGrapCard();
+    ctrlSetting = new QCtrlSetting();
+    systemInfoWidget = new QSystemInfo();
+
+
+    AddPage(userMgrWidget,tr("User"));
+    AddPage(serialPortWidget,tr("Serial"));
+    AddPage(diskMgrWidget,tr("Disk"));
+    AddPage(netConfigWidget,tr("NetWork-C"));
+    AddPage(netTestWidget,tr("Network-T"));
+    AddPage(grapCardWidget,tr("GraphicsCard"));
+    AddPage(ctrlSetting,tr("CenterCtrl"));
+    AddPage(systemInfoWidget,tr("Information"));
+    SetTitle(tr("system setting"));
+
+}
+
+QSystemSettingWidget::~QSystemSettingWidget()
+{
+
 }

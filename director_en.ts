@@ -2,13 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="zh_CN" sourcelanguage="en_US">
 <context>
-    <name>MainWindow</name>
-    <message>
-        <source>DirectorPlatform</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>QCtrlWindow</name>
     <message>
         <source>move up</source>
@@ -108,7 +101,76 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>App is opend</source>
+        <source>App is opened</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QSettingWidget</name>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QSystemSettingWidget</name>
+    <message>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Serial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NetWork-C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network-T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GraphicsCard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CenterCtrl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>system setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QYoohooMainWindow</name>
+    <message>
+        <source>close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minisize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>maxsize</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
