@@ -344,10 +344,11 @@ QNetTest::QNetTest(QWidget* parent):QWidget(parent)
     m_con = new QVBoxLayout();
     m_proc = new QProcess(this);
     m_commandLine = new QLineEdit();
+    m_commandLine->setFixedWidth(300);
     m_commandInfo = new QPlainTextEdit();
     m_commandLine->setPlaceholderText(tr("input command"));
 
-    m_con->addWidget(m_commandLine);
+    m_con->addWidget(m_commandLine,0,Qt::AlignCenter);
     m_con->addWidget(m_commandInfo);
     this->setLayout(m_con);
 
@@ -365,9 +366,8 @@ QNetTest::~QNetTest()
 }
 void QNetTest::returnKey()
 {
-    //QMessageBox::warning(0,"","sa",0,0);
-
     m_commandInfo->clear();
+    m_proc->close();
     m_proc->start(m_commandLine->text());
     m_proc->waitForReadyRead();
 
@@ -450,10 +450,17 @@ QSystemSettingWidget::~QSystemSettingWidget()
 
 void QSystemSettingWidget::clicked_OK()
 {
-   close();
+    if(CurrentWidget() == netTestWidget)
+    {
+      ;
+    }
+
+    close();
+
 }
 void QSystemSettingWidget::clicked_Apply()
 {
+
 }
 void QSystemSettingWidget::clicked_Cannel()
 {
