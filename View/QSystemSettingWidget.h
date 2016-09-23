@@ -13,6 +13,9 @@
 #include <QFormLayout>
 #include <QValidator>
 #include <QRegExpValidator>
+#include <QPlainTextEdit>
+#include <QProcess>
+#include <QTextDocument>
 
 /********************************************
  * QSystemSettingWidget class
@@ -124,6 +127,7 @@ signals:
 
 public slots:
 protected:
+
 };
 
 
@@ -141,10 +145,12 @@ public:
 signals:
 
 public slots:
+     void mainCheckChange(int );
+     void subCheckChange(int);
+     void ReturnKey();
+
 public:
     QCheckBox         *m_mainDHCP,*m_subDHCP;
-//    QLabel            *m_mainlabIP,*m_sublabIP,*m_mainlabMask,*m_sublabMask,*m_mainlabDNS,*m_sublanDNS,
-//                      *m_mainlabMAC,*m_sublabMac;
     QLineEdit         *m_mainIP,*m_subIP,*m_mainMask,*m_sub_Mask,*m_mainGateway,*m_subGateway,*m_mainDNS,*m_subDNS,
                       *m_mainMAC,*m_subMAC;
     QFormLayout       *m_mainLayout,*m_sublayout;
@@ -154,14 +160,17 @@ private:
     QGroupBox*        m_netMain;
     QGroupBox*        m_netSub;
 
+private:
 
+     void setMainEnabled(bool);
+     void setSubEnabled(bool);
 
 };
 
 /**
  * @brief The QNetTest class
  *
- * 网络测试 ping
+ * 网络测试
  */
 class QNetTest : public QWidget
 {
@@ -172,6 +181,15 @@ public:
 signals:
 
 public slots:
+    void returnKey();
+    void showStdOutInfo();
+
+public:
+    QLineEdit*          m_commandLine;
+    QPlainTextEdit*     m_commandInfo;
+private:
+    QVBoxLayout*        m_con;
+    QProcess*           m_proc;
 
 };
 
