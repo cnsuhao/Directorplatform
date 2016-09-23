@@ -68,6 +68,39 @@ void QSettingWidget::AddPage(QWidget *widget, const QString &tabTitle, const QIc
 {
     m_mainTab->addTab(widget,icon,tabTitle);
 }
+
+int QSettingWidget::PageCount()const
+{
+    return m_mainTab->count();
+}
+
+int QSettingWidget::CurrentIndex()const
+{
+    return m_mainTab->currentIndex();
+}
+
+QWidget* QSettingWidget::CurrentWidget()const
+{
+    return m_mainTab->currentWidget();
+}
+
+void QSettingWidget::SetPageIcon(int index,const QIcon &icon)
+{
+    m_mainTab->setTabIcon(index,icon);
+}
+
+void QSettingWidget::SetPageTitle(int index, const QString &title)
+{
+    m_mainTab->setTabText(index,title);
+}
+
+void QSettingWidget::SetPageToolTip(int index, const QString &tip)
+{
+    m_mainTab->setTabToolTip(index,tip);
+}
+
+
+
 void QSettingWidget::clicked_OK()
 {
 
@@ -174,17 +207,47 @@ QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
    m_netSub = new QGroupBox(tr("Sub NetWork"));
 
    m_mainLayout = new QFormLayout();
+   m_mainLayout->setSpacing(35);
    m_sublayout = new QFormLayout();
+   m_sublayout->setSpacing(35);
 
    m_mainDHCP = new QCheckBox((tr("DHCP")));
-   m_mainlabIP = new QLabel(tr("IP"));
    m_mainIP = new QLineEdit();
+   //m_mainIP->setInputMask("000.000.000.000;");
+   QRegExp regexp("^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$");
+   QRegExpValidator *vareg= new QRegExpValidator(regexp,this);
+   m_mainIP->setValidator(vareg);
+   m_mainMask = new QLineEdit();
+   m_mainMask->setValidator(vareg);
+   m_mainGateway = new QLineEdit();
+   m_mainGateway->setValidator(vareg);
+   m_mainDNS = new QLineEdit();
+   m_mainDNS->setValidator(vareg);
+   m_mainDNS->setPlaceholderText("8.8.8.8");
+   m_mainMAC = new QLineEdit();
+   m_mainMAC->setInputMask(">HH:HH:HH:HH:HH:HH;");
+
    m_subDHCP = new QCheckBox(tr("DHCP"));
+   m_subIP = new QLineEdit();
+   m_sub_Mask = new QLineEdit();
+   m_subGateway = new QLineEdit();
+   m_subDNS = new QLineEdit();
+   m_subMAC = new QLineEdit();
 
-   m_mainLayout->addWidget(m_mainDHCP);
+   m_mainLayout->addRow(m_mainDHCP,new QLabel());
    m_mainLayout->addRow(tr("IP"),m_mainIP);
+   m_mainLayout->addRow(tr("Mask"),m_mainMask);
+   m_mainLayout->addRow(tr("Gateway"),m_mainGateway);
+   m_mainLayout->addRow(tr("DNS"),m_mainDNS);
+   m_mainLayout->addRow(tr("MAC"),m_mainMAC);
 
-   m_sublayout->addWidget(m_subDHCP);
+   m_sublayout->addRow(m_subDHCP,new QLabel());
+   m_sublayout->addRow(tr("IP"),m_subIP);
+   m_sublayout->addRow(tr("Mask"),m_sub_Mask);
+   m_sublayout->addRow(tr("Gateway"),m_subGateway);
+   m_sublayout->addRow(tr("DNS"),m_subDNS);
+   m_sublayout->addRow(tr("MAC"),m_subMAC);
+
 
    m_netMain->setLayout(m_mainLayout);
    m_netSub->setLayout(m_sublayout);
@@ -194,11 +257,16 @@ QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
    m_layout->addWidget(m_netSub);
 
    this->setLayout(m_layout);
+
+   //event
+
+
 }
 QNetConfig::~QNetConfig()
 {
 
 }
+
 
 //网络测试
 
@@ -279,4 +347,16 @@ QSystemSettingWidget::QSystemSettingWidget(QWidget *parent) :
 QSystemSettingWidget::~QSystemSettingWidget()
 {
 
+}
+
+void QSystemSettingWidget::clicked_OK()
+{
+   close();
+}
+void QSystemSettingWidget::clicked_Apply()
+{
+}
+void QSystemSettingWidget::clicked_Cannel()
+{
+  close();
 }

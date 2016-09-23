@@ -11,6 +11,8 @@
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QValidator>
+#include <QRegExpValidator>
 
 /********************************************
  * QSystemSettingWidget class
@@ -51,6 +53,14 @@ public:
     virtual void SetTitle(const QString &title);
     virtual void AddPage(QWidget* widget,const QString &tabTitle);
     virtual void AddPage(QWidget *widget, const QString &tabTitle,const QIcon &icon);
+    virtual int PageCount()const;
+    virtual int CurrentIndex()const;
+    virtual QWidget* CurrentWidget()const;
+    virtual void SetPageIcon(int index,const QIcon &icon);
+    virtual void SetPageTitle(int index,const QString &title);
+    virtual void SetPageToolTip(int index,const QString &tip);
+
+
 public slots:
     virtual void clicked_OK();
     virtual void clicked_Apply();
@@ -133,9 +143,9 @@ signals:
 public slots:
 public:
     QCheckBox         *m_mainDHCP,*m_subDHCP;
-    QLabel            *m_mainlabIP,*m_sublabIP,*m_mainlabMask,*m_sublabMask,*m_mainlabDNS,*m_sublanDNS,
-                      *m_mainlabMAC,*m_sublabMac;
-    QLineEdit         *m_mainIP,*m_subIP,*m_mainMask,*m_sub_Mask,*m_mainDNS,*m_subDNS,
+//    QLabel            *m_mainlabIP,*m_sublabIP,*m_mainlabMask,*m_sublabMask,*m_mainlabDNS,*m_sublanDNS,
+//                      *m_mainlabMAC,*m_sublabMac;
+    QLineEdit         *m_mainIP,*m_subIP,*m_mainMask,*m_sub_Mask,*m_mainGateway,*m_subGateway,*m_mainDNS,*m_subDNS,
                       *m_mainMAC,*m_subMAC;
     QFormLayout       *m_mainLayout,*m_sublayout;
 
@@ -243,6 +253,10 @@ private:
     QSystemInfo*    systemInfoWidget;
 
 public slots:
+protected:
+    void clicked_OK();
+    void clicked_Apply();
+    void clicked_Cannel();
 
 };
 
