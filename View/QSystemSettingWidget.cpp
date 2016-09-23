@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QTextDocument>
 
 
 QSettingWidget::QSettingWidget(QWidget *parent) :
@@ -128,7 +129,7 @@ void QSettingWidget::paintEvent(QPaintEvent *event)
     QRect rectTitle=rect();
     rectTitle.setHeight(30);
     painter.fillRect(rectTitle,QColor(75,73,67));
-
+   // painter.fillRect(rectTitle,QColor(228,92,45));
     QPainterPath path;
     path.addRoundRect(rect(),2,2);
     QPolygon polygon= path.toFillPolygon().toPolygon();
@@ -216,7 +217,7 @@ QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
    //m_mainIP->setInputMask("000.000.000.000;");
    QRegExp regexp("^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$");
    QRegExpValidator *vareg= new QRegExpValidator(regexp,this);
-   m_mainIP->setValidator(vareg);
+  // m_mainIP->setValidator(vareg);
    m_mainMask = new QLineEdit();
    m_mainMask->setValidator(vareg);
    m_mainGateway = new QLineEdit();
@@ -259,6 +260,10 @@ QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
    this->setLayout(m_layout);
 
    //event
+   connect(m_mainDHCP,SIGNAL(stateChanged(int)),this,SLOT(mainCheckChange(int)));
+   connect(m_subDHCP,SIGNAL(stateChanged(int)),this,SLOT(subCheckChange(int)));
+
+   connect(m_mainIP,SIGNAL(returnPressed()),this,SLOT(ReturnKey()));
 
 
 }
@@ -267,17 +272,111 @@ QNetConfig::~QNetConfig()
 
 }
 
+void QNetConfig::mainCheckChange(int c)
+{
+    switch (c)
+    {
+    case Qt::Checked:
+        setMainEnabled(false);
+        break;
+    case Qt::Unchecked:
+        setMainEnabled(true);
+        break;
+    case Qt::PartiallyChecked:
+        break;
+    default:
+        break;
+    }
+}
+
+void QNetConfig::subCheckChange(int state)
+{
+    switch (state)
+    {
+    case Qt::Checked:
+        setSubEnabled(false);
+        break;
+    case Qt::Unchecked:
+        setSubEnabled(true);
+        break;
+    case Qt::PartiallyChecked:
+        break;
+    default:
+        break;
+    }
+}
+void QNetConfig::setMainEnabled(bool ienabled)
+{
+    m_mainIP->setEnabled(ienabled);
+    m_mainMask->setEnabled(ienabled);
+    m_mainGateway->setEnabled(ienabled);
+    m_mainDNS->setEnabled(ienabled);
+    m_mainMAC->setEnabled(ienabled);
+
+}
+void QNetConfig::setSubEnabled(bool ienabled)
+{
+    m_subIP->setEnabled(ienabled);
+    m_sub_Mask->setEnabled(ienabled);
+    m_subGateway->setEnabled(ienabled);
+    m_subDNS->setEnabled(ienabled);
+    m_subMAC->setEnabled(ienabled);
+}
+
+
+void QNetConfig::ReturnKey()
+{
+    //QMessageBox::warning(0,"","21",0,0);
+    QString s= m_mainIP->text();
+    QStringList l=s.split(".");
+    if(l.size()!=4)
+    {
+        QMessageBox::warning(0,"","too short",0,0);
+    }
+
+}
+
 
 //网络测试
 
 QNetTest::QNetTest(QWidget* parent):QWidget(parent)
 {
+    m_con = new QVBoxLayout();
+    m_proc = new QProcess(this);
+    m_commandLine = new QLineEdit();
+    m_commandInfo = new QPlainTextEdit();
+    m_commandLine->setPlaceholderText(tr("input command"));
+
+    m_con->addWidget(m_commandLine);
+    m_con->addWidget(m_commandInfo);
+    this->setLayout(m_con);
+
+    //event band
+
+    connect(m_commandLine,SIGNAL(returnPressed()),this,SLOT(returnKey()));
+    connect(m_proc,SIGNAL(readyReadStandardOutput()),this,SLOT(showStdOutInfo()));
+
 
 }
 
 QNetTest::~QNetTest()
 {
 
+}
+void QNetTest::returnKey()
+{
+    //QMessageBox::warning(0,"","sa",0,0);
+
+    m_commandInfo->clear();
+    m_proc->start(m_commandLine->text());
+    m_proc->waitForReadyRead();
+
+}
+void QNetTest::showStdOutInfo()
+{
+    QByteArray bt=m_proc->readAllStandardOutput();
+
+    m_commandInfo->appendPlainText(QString::fromLocal8Bit(bt));
 }
 
 //显卡设置

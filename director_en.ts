@@ -95,6 +95,41 @@
     </message>
 </context>
 <context>
+    <name>QNetConfig</name>
+    <message>
+        <source>Main NetWork</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sub NetWork</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DHCP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DNS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>tip</source>
