@@ -16,6 +16,10 @@
 #include <QPlainTextEdit>
 #include <QProcess>
 #include <QTextDocument>
+#include <QTableView>
+#include <QComboBox>
+#include <QTranslator>
+#include <QApplication>
 
 /********************************************
  * QSystemSettingWidget class
@@ -127,6 +131,12 @@ signals:
 
 public slots:
 protected:
+    QTableView*                m_tableview;
+private:
+    QVBoxLayout*               m_con;
+    QHeaderView*               m_head;
+
+
 
 };
 
@@ -207,6 +217,17 @@ public:
 signals:
 
 public slots:
+protected:
+    QGroupBox             *m_grapCard_1,*m_grapCard_2;
+    QSlider               *m_light_1,*m_light_2,*m_balance_1,*m_balance_2,
+                          *m_shade_1,*m_shade_2,*m_fill_1,*m_fill_2;
+    QComboBox             *m_resolution_1,*m_resolution_2,*m_freq_1,*m_freq_2,
+                          *m_outputDevice;
+    QCheckBox             *m_audio;
+
+private:
+    QHBoxLayout           *m_con;
+    QFormLayout           *m_form_1,*m_form_2;
 
 };
 
@@ -241,6 +262,21 @@ public:
 signals:
 
 public slots:
+    void switchLanguage(int);
+public:
+
+protected:
+    QGroupBox               *m_verInfo,*m_dateSettingB;
+    QLabel                  *m_hardwardId,*m_softVersion,*m_romVersion,*m_releaseVersion;
+    QComboBox               *m_language,*m_dateFormat;
+    QLineEdit               *m_dateSetting,*m_timeSetting,*m_hostName,*m_aysn;
+    QCheckBox               *m_networkTimeAysn;
+    QPushButton             *m_recoveryBtn,*m_upgradeBtn,*m_shutdownBtn,*m_restartBtn,
+                            *m_testScreenBtn,*m_ProSettingBtn,*m_importConfigBtn,*m_exportConfigBtn;
+private:
+    QHBoxLayout             *m_con;
+    QVBoxLayout             *m_verLay,*m_funLay;
+    QFormLayout             *m_supVersion,*m_supDown,*m_supDate;
 
 };
 

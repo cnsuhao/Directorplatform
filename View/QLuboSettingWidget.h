@@ -46,7 +46,7 @@ public slots:
 protected:
     //void clicked_OK();
     //void clicked_Apply();
-   // void clicked_Cannel();
+   //void clicked_Cannel();
 };
 
 #endif // QLUBOSETTINGWIDGET_H

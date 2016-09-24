@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     qDebug("translator complete");
     translator.load(QString(":/cfg/director_zh"));
-    app.installTranslator(&translator);
+    qApp->installTranslator(&translator);
     qDebug("translator complete");
     // Singletion for App
     if(isRunning())
