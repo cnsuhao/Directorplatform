@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QTextDocument>
-
+#include <QHeaderView>
 
 QSettingWidget::QSettingWidget(QWidget *parent) :
     QWidget(parent),canMove(false)
@@ -191,6 +191,14 @@ QSerialPort::~QSerialPort()
 // 磁盘管理
 QDiskMgr::QDiskMgr(QWidget* parent):QWidget(parent)
 {
+    m_tableview = new QTableView();
+    m_head = new QHeaderView(Qt::Horizontal);
+
+    //m_tableview->setHorizontalHeader();
+    m_con = new QVBoxLayout();
+
+    m_con->addWidget(m_tableview);
+    this->setLayout(m_con);
 
 }
 
@@ -382,6 +390,61 @@ void QNetTest::showStdOutInfo()
 //显卡设置
 QGrapCard::QGrapCard(QWidget* parent):QWidget(parent)
 {
+    m_grapCard_1 = new QGroupBox(tr("Graphics Card 1"));
+    m_grapCard_2 = new QGroupBox(tr("Graphics Card 2"));
+
+    m_light_1 = new QSlider(Qt::Horizontal);
+    m_light_2 = new QSlider(Qt::Horizontal);
+
+    m_balance_1 = new QSlider(Qt::Horizontal);
+    m_balance_2 = new QSlider(Qt::Horizontal);
+
+    m_shade_1 = new QSlider(Qt::Horizontal);
+    m_shade_2 = new QSlider(Qt::Horizontal);
+
+    m_fill_1 = new QSlider(Qt::Horizontal);
+    m_fill_2 = new QSlider(Qt::Horizontal);
+
+    m_resolution_1 = new QComboBox();
+    m_resolution_2 = new QComboBox();
+
+    m_freq_1 = new QComboBox();
+    m_freq_2 = new QComboBox();
+
+    m_outputDevice = new QComboBox();
+
+    m_audio = new QCheckBox();
+
+    m_form_1 = new QFormLayout();
+    m_form_1->setSpacing(20);
+    m_form_1->addRow(tr("Output Device"),m_outputDevice);
+    m_form_1->addRow(tr("resolution"),m_resolution_1);
+    m_form_1->addRow(tr("Frequency"),m_freq_1);
+    m_form_1->addRow(tr("Lighting"),m_light_1);
+    m_form_1->addRow(tr("Contrast"),m_balance_1);
+    m_form_1->addRow(tr("Shade"),m_shade_1);
+    m_form_1->addRow(tr("Saturation"),m_fill_1);
+
+
+    m_form_2 = new QFormLayout();
+    m_form_2->setSpacing(20);
+    m_form_2->addRow(tr("Audio"),m_audio);
+    m_form_2->addRow(tr("resolution"),m_resolution_2);
+    m_form_2->addRow(tr("Frequency"),m_freq_2);
+    m_form_2->addRow(tr("Lighting"),m_light_2);
+    m_form_2->addRow(tr("Contrast"),m_balance_2);
+    m_form_2->addRow(tr("Shade"),m_shade_2);
+    m_form_2->addRow(tr("Saturation"),m_fill_2);
+
+
+    m_grapCard_1->setLayout(m_form_1);
+    m_grapCard_2->setLayout(m_form_2);
+    m_con = new QHBoxLayout();
+    m_con->addWidget(m_grapCard_1);
+    m_con->addWidget(m_grapCard_2);
+
+
+    this->setLayout(m_con);
 
 }
 
@@ -406,7 +469,102 @@ QCtrlSetting::~QCtrlSetting()
 
 QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
 {
+    m_verInfo = new QGroupBox(tr("Version Info"));
+    m_dateSettingB = new QGroupBox(tr("Time Setting"));
 
+    m_hardwardId = new QLabel("0");
+    m_softVersion = new QLabel("1.0.0");
+    m_romVersion = new QLabel("Ubuntu 14.04");
+    m_releaseVersion = new QLabel("1.0.0");
+
+
+    m_language = new QComboBox();
+    m_language->addItem(tr("Chinese"));
+    m_language->addItem(tr("English"));
+    m_dateFormat = new QComboBox();
+
+    m_dateSetting = new QLineEdit();
+    m_timeSetting = new QLineEdit();
+    m_hostName = new QLineEdit();
+    m_aysn = new QLineEdit();
+
+    m_networkTimeAysn = new QCheckBox(tr("Network Aysn"));
+
+    m_recoveryBtn = new QPushButton(tr("Recovery"));
+    m_upgradeBtn = new QPushButton(tr("Upgrade"));
+    m_shutdownBtn = new QPushButton(tr("Shutdown"));
+    m_restartBtn = new QPushButton(tr("Restart"));
+    m_testScreenBtn = new QPushButton(tr("Test Screen"));
+    m_ProSettingBtn = new QPushButton(tr("Project"));
+    m_importConfigBtn = new QPushButton(tr("Import"));
+    m_exportConfigBtn = new QPushButton(tr("export"));
+
+    m_supVersion = new QFormLayout();
+    m_supDate = new QFormLayout();
+
+    m_verLay = new QVBoxLayout();
+    m_funLay = new QVBoxLayout();
+    m_supDown = new QFormLayout();
+    m_con = new QHBoxLayout();
+    m_con->setSpacing(20);
+    m_con->setMargin(10);
+
+
+    // layout
+    m_supDown->addRow(tr("Language"),m_language);
+    m_supDown->addRow(tr("Host Name"),m_hostName);
+    m_supVersion->addRow(tr("Hardware ID"),m_hardwardId);
+    m_supVersion->addRow(tr("Software Version"),m_softVersion);
+    m_supVersion->addRow(tr("ROM Version"),m_romVersion);
+    m_supVersion->addRow(tr("Release Version"),m_releaseVersion);
+    m_verInfo->setLayout(m_supVersion);
+
+    m_supDate->addWidget(m_networkTimeAysn);
+    m_supDate->addRow(tr("Date Format"),m_dateFormat);
+    m_supDate->addRow(tr("Date"),m_dateSetting);
+    m_supDate->addRow(tr("Time"),m_timeSetting);
+    m_supDate->addRow(tr("Net-Server"),m_aysn);
+    m_dateSettingB->setLayout(m_supDate);
+
+    m_funLay->addWidget(m_recoveryBtn);
+    m_funLay->addWidget(m_upgradeBtn);
+    m_funLay->addWidget(m_shutdownBtn);
+    m_funLay->addWidget(m_restartBtn);
+    m_funLay->addWidget(m_testScreenBtn);
+    m_funLay->addWidget(m_ProSettingBtn);
+    m_funLay->addWidget(m_importConfigBtn);
+    m_funLay->addWidget(m_exportConfigBtn);
+
+    m_verLay->addWidget(m_verInfo);
+    m_verLay->addLayout(m_supDown);
+    m_con->addLayout(m_verLay);
+    m_con->addWidget(m_dateSettingB);
+    m_con->addLayout(m_funLay);
+
+    this->setLayout(m_con);
+
+
+    //event
+
+    connect(m_language,SIGNAL(currentIndexChanged(int)),this,SLOT(switchLanguage(int)));
+
+
+}
+void QSystemInfo::switchLanguage(int index)
+{
+  if(index==0)
+  {
+
+
+  }
+  else
+  {
+//      QTranslator translator;
+//      qDebug("translator complete");
+//      translator.load(QString(":/cfg/director_en.qm"));
+//      qApp->installTranslator(&translator);
+//      QMessageBox::warning(0,"","111111",0,0);
+  }
 }
 QSystemInfo::~QSystemInfo()
 {
