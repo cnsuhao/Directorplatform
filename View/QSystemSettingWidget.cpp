@@ -6,6 +6,7 @@
 #include <QHeaderView>
 #include <QDir>
 #include "PlatformConfig.h"
+#include <QTextStream>
 
 QSettingWidget::QSettingWidget(QWidget *parent) :
     QWidget(parent),canMove(false)
@@ -565,14 +566,15 @@ void QSystemInfo::switchLanguage(int index)
   else
   {
 
-    qApp->removeTranslator(&rt->m_data);
-    rt->m_data.load(QString(":/cfg/director_en"));
-    qApp->installTranslator(&rt->m_data);
-    QString program = QApplication::applicationFilePath();
-    QStringList arguments = QApplication::arguments();
-    QString workingDirectory = QDir::currentPath();
-    QProcess::startDetached(program, arguments, workingDirectory);
-    QApplication::exit();
+//    qApp->removeTranslator(&rt->m_data);
+//    rt->m_data.load(QString(":/cfg/director_en"));
+//    qApp->installTranslator(&rt->m_data);
+
+//    QString program = QApplication::applicationFilePath();
+//    QStringList arguments = QApplication::arguments();
+//    QString workingDirectory = QDir::currentPath();
+//    QApplication::exit();
+//    QProcess::startDetached(program, arguments, workingDirectory);
   }
 
 }

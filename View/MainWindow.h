@@ -7,7 +7,7 @@
 #include "View/QLiveWidget.h"
 #include "View/QCtrlWindow.h"
 #include "View/QFunctionWidget.h"
-
+#include "QSystemSettingWidget.h"
 #include  <QVector>
 
 class MainWindow : public QWidget
@@ -42,8 +42,27 @@ private:
     QHBoxLayout *dirvideoLayout;
     QHBoxLayout *livevideoLayout;
     QHBoxLayout *functionLayout;
+
+private:
+    QPushButton *m_insertHead;
+    QPushButton *m_insertTail;
+    QPushButton *m_oneDirector;
+    QPushButton *m_twoDirector;
+
+    QPushButton *m_auto;
+    QPushButton *m_semiAuto;
+    QPushButton *m_man;
+
+    QPushButton *m_oneKey;
+
+    QPushButton *m_Setting;
+    QSystemSettingWidget *m_setwin;
+
 protected:
     void paintEvent(QPaintEvent* event);
+
+public slots:
+    void showSystemSetting();
 
 
 };

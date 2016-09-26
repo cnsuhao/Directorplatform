@@ -122,12 +122,8 @@ int main(int argc, char *argv[])
     //make logFile
     qInstallMsgHandler(outputMessage);
 
-
-
     // make it internationalization
     Singleton<QTranslator> *rt = Singleton<QTranslator>::getInstance();
-   // QTranslator translator;
-    qDebug("translator complete");
     rt->m_data.load(QString(":/cfg/director_zh"));
     qApp->installTranslator(&rt->m_data);
     qDebug("translator complete");
@@ -144,17 +140,17 @@ int main(int argc, char *argv[])
 //Test
 
 
-//    MainWindow *h = new MainWindow;
-//    QYoohooMainWindow w;
-//    w.setTitleToYoohoo(MainWindow::tr("DirectorPlatform"));
-//    w.addWidgetToYoohoo(h);
-//    //w.setWindowFlags(Qt::FramelessWindowHint);
-//    w.setWindowIcon(QIcon(":/skin/icon1.png"));
-//    w.resize(800,800);
-//    w.show();
-
-    QSystemSettingWidget w;
+    MainWindow *h = new MainWindow;
+    QYoohooMainWindow w;
+    w.setTitleToYoohoo(MainWindow::tr("DirectorPlatform"));
+    w.addWidgetToYoohoo(h);
+    //w.setWindowFlags(Qt::FramelessWindowHint);
+    w.setWindowIcon(QIcon(":/skin/icon1.png"));
+    w.resize(800,800);
     w.show();
+
+//    QSystemSettingWidget w;
+//    w.show();
 
     return app.exec();
 

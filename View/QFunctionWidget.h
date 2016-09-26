@@ -25,8 +25,10 @@
  *****************************************************************/
 
 #include <QWidget>
-
-
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QTableWidget>
+#include <QPushButton>
 
 /************************SUBPAGE*********************************/
 
@@ -47,6 +49,12 @@ signals:
 public slots:
 protected:
     void paintEvent(QPaintEvent* event);
+    virtual void AddPage(QWidget* widget,const QString &title);
+protected:
+    QVBoxLayout*       m_con;
+    QTabWidget*      m_tab;
+
+
 
 };
 
@@ -65,6 +73,8 @@ signals:
 
 public slots:
 protected:
+
+private:
 
 };
 /**
@@ -132,6 +142,13 @@ signals:
 public slots:
 protected:
     void paintEvent(QPaintEvent* event);
+private:
+    QHBoxLayout *m_con;
+protected:
+    QEffectFun  *m_effectFunWidget;
+    QVideoFun   *m_videoFunWidget;
+    QLuboFun    *m_luboFunWidget;
+    QStateFun   *m_stateFunWidget;
 
 };
 
