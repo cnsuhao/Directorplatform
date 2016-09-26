@@ -16,6 +16,7 @@
 #include <QTextCodec>
 #include <QMessageBox>
 #include <cstdio>
+#include <QMutex>
 #include <QPainter>
 
 #define FIT   (100)
@@ -69,6 +70,49 @@ public:
 };
 
 
+template<typename DataObj>
+class Singleton
+{
+private:
+    Singleton<DataObj>(){  }
+    ~Singleton<DataObj>(){  }
+    static Singleton<DataObj>* instance;
+public:
+    DataObj m_data;
+    static Singleton<DataObj>* getInstance();
+    void release();
+};
+template<typename DataObj>
+Singleton<DataObj>* Singleton<DataObj>::instance = NULL;
+
+template<typename DataObj>
+void Singleton<DataObj>::release()
+{
+    delete instance;
+    instance = NULL;
+}
+/**
+* get a instance from singleton. it can also
+* use muti-thread,it use CriticalSection to
+* make thread safe.
+*/
+template<typename DataObj>
+Singleton<DataObj>* Singleton<DataObj>::getInstance()
+{
+
+    if (instance == NULL)
+    {
+        static QMutex mutex;
+        mutex.lock();
+        if (instance == NULL)
+        {
+            instance = new Singleton<DataObj>();
+        }
+        mutex.unlock();
+    }
+
+    return instance;
+}
 
 
 

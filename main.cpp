@@ -125,10 +125,11 @@ int main(int argc, char *argv[])
 
 
     // make it internationalization
-    QTranslator translator;
+    Singleton<QTranslator> *rt = Singleton<QTranslator>::getInstance();
+   // QTranslator translator;
     qDebug("translator complete");
-    translator.load(QString(":/cfg/director_zh"));
-    qApp->installTranslator(&translator);
+    rt->m_data.load(QString(":/cfg/director_zh"));
+    qApp->installTranslator(&rt->m_data);
     qDebug("translator complete");
     // Singletion for App
     if(isRunning())

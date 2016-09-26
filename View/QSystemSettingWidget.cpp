@@ -4,6 +4,8 @@
 #include <QMouseEvent>
 #include <QTextDocument>
 #include <QHeaderView>
+#include <QDir>
+#include "PlatformConfig.h"
 
 QSettingWidget::QSettingWidget(QWidget *parent) :
     QWidget(parent),canMove(false)
@@ -552,19 +554,27 @@ QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
 }
 void QSystemInfo::switchLanguage(int index)
 {
+     Singleton<QTranslator> *rt =Singleton<QTranslator>::getInstance();
   if(index==0)
   {
-
+      qApp->removeTranslator(&rt->m_data);
+      rt->m_data.load(QString(":/cfg/director_zh"));
+      qApp->installTranslator(&rt->m_data);
 
   }
   else
   {
-//      QTranslator translator;
-//      qDebug("translator complete");
-//      translator.load(QString(":/cfg/director_en.qm"));
-//      qApp->installTranslator(&translator);
-//      QMessageBox::warning(0,"","111111",0,0);
+
+    qApp->removeTranslator(&rt->m_data);
+    rt->m_data.load(QString(":/cfg/director_en"));
+    qApp->installTranslator(&rt->m_data);
+    QString program = QApplication::applicationFilePath();
+    QStringList arguments = QApplication::arguments();
+    QString workingDirectory = QDir::currentPath();
+    QProcess::startDetached(program, arguments, workingDirectory);
+    QApplication::exit();
   }
+
 }
 QSystemInfo::~QSystemInfo()
 {
@@ -624,3 +634,4 @@ void QSystemSettingWidget::clicked_Cannel()
 {
   close();
 }
+
