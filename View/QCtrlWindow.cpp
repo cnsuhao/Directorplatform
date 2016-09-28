@@ -218,35 +218,53 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     btn_1 = new QPushButton(this);
     btn_1->setObjectName("btn_1");
     btn_1->setFixedSize(26,26);
+    btn_1->setCheckable(true);
+    btn_1->setChecked(true);
 
     btn_2 = new QPushButton(this);
     btn_2->setObjectName("btn_2");
     btn_2->setFixedSize(26,26);
+    btn_2->setCheckable(true);
 
     btn_3 = new QPushButton(this);
     btn_3->setObjectName("btn_3");
     btn_3->setFixedSize(26,26);
+    btn_3->setCheckable(true);
 
     btn_4 = new QPushButton(this);
     btn_4->setObjectName("btn_4");
     btn_4->setFixedSize(26,26);
+    btn_4->setCheckable(true);
 
     btn_5 = new QPushButton(this);
     btn_5->setObjectName("btn_5");
     btn_5->setFixedSize(26,26);
+    btn_5->setCheckable(true);
 
     btn_6 = new QPushButton(this);
     btn_6->setFixedSize(26,26);
     btn_6->setObjectName("btn_6");
+    btn_6->setCheckable(true);
 
     btn_7 = new QPushButton(this);
     btn_7->setObjectName("btn_7");
     btn_7->setFixedSize(26,26);
+    btn_7->setCheckable(true);
 
     btn_8 = new QPushButton(this);
     btn_8->setObjectName("btn_8");
     btn_8->setFixedSize(26,26);
+    btn_8->setCheckable(true);
 
+    group = new QButtonGroup();
+    group->addButton(btn_1);
+    group->addButton(btn_2);
+    group->addButton(btn_3);
+    group->addButton(btn_4);
+    group->addButton(btn_5);
+    group->addButton(btn_6);
+    group->addButton(btn_7);
+    group->addButton(btn_8);
 
     numlay1 = new QHBoxLayout;
     numlay2 = new QHBoxLayout;

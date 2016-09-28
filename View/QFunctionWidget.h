@@ -29,6 +29,9 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QPushButton>
+#include <QGroupBox>
+#include <QVector>
+#include <QButtonGroup>
 
 /************************SUBPAGE*********************************/
 
@@ -54,8 +57,6 @@ protected:
     QVBoxLayout*       m_con;
     QTabWidget*      m_tab;
 
-
-
 };
 
 /**
@@ -63,6 +64,47 @@ protected:
  *
  * 特效功能区
  */
+
+
+class ShowSplitWidget : public QWidget //画面分割UI
+{
+    Q_OBJECT
+public:
+    explicit ShowSplitWidget(QWidget *parent = 0);
+    ~ShowSplitWidget();
+
+signals:
+
+public slots:
+protected:
+    void paintEvent(QPaintEvent* event);
+protected:
+
+};
+
+class EffectSwitch : public QWidget //特效切换UI
+{
+    Q_OBJECT
+public:
+    explicit EffectSwitch(QWidget *parent = 0);
+    ~EffectSwitch();
+
+signals:
+
+public slots:
+protected:
+    void paintEvent(QPaintEvent* event);
+protected:
+    QGridLayout     *m_con;
+    QVector<QPushButton*> m_effect;
+    QButtonGroup    *m_group;
+
+
+};
+
+
+
+
 class QEffectFun : public QBaseFun
 {
     Q_OBJECT
@@ -73,8 +115,11 @@ signals:
 
 public slots:
 protected:
+    EffectSwitch    *effectWidget;
+    ShowSplitWidget *splitWidget;
 
 private:
+
 
 };
 /**
@@ -82,6 +127,42 @@ private:
  *
  * 视频功能区
  */
+
+
+class SubTitleWidget : public QWidget //字幕控制UI
+{
+    Q_OBJECT
+public:
+    explicit SubTitleWidget(QWidget *parent = 0);
+    ~SubTitleWidget();
+
+signals:
+
+public slots:
+protected:
+    void paintEvent(QPaintEvent* event);
+protected:
+
+};
+
+class VoiceWidget : public QWidget //声音控制UI
+{
+    Q_OBJECT
+public:
+    explicit VoiceWidget(QWidget *parent = 0);
+    ~VoiceWidget();
+
+signals:
+
+public slots:
+protected:
+    void paintEvent(QPaintEvent* event);
+protected:
+
+};
+
+
+
 class QVideoFun : public QBaseFun
 {
     Q_OBJECT
@@ -92,6 +173,8 @@ signals:
 
 public slots:
 protected:
+    SubTitleWidget*      m_subtitle;
+    VoiceWidget*         m_voice;
 
 };
 /**
@@ -116,6 +199,25 @@ protected:
  *
  * 状态功能区
  */
+
+class StateWidget : public QWidget //特效切换UI
+{
+    Q_OBJECT
+public:
+    explicit StateWidget(QWidget *parent = 0);
+    ~StateWidget();
+
+signals:
+
+public slots:
+protected:
+    void paintEvent(QPaintEvent* event);
+protected:
+    QGridLayout     *m_con;
+    QVector<QPushButton*> m_state;
+};
+
+
 class QStateFun : public QBaseFun
 {
     Q_OBJECT
@@ -126,6 +228,7 @@ signals:
 
 public slots:
 protected:
+    StateWidget*     m_state;
 
 };
 

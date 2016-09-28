@@ -20,6 +20,9 @@
 #include <QComboBox>
 #include <QTranslator>
 #include <QApplication>
+#include <QDateEdit>
+#include <QTimeEdit>
+#include <QTableWidget>
 
 /********************************************
  * QSystemSettingWidget class
@@ -131,11 +134,17 @@ signals:
 
 public slots:
 protected:
-    QTableView*                m_tableview;
-private:
-    QVBoxLayout*               m_con;
-    QHeaderView*               m_head;
+    QTableWidget*                m_tableview;
+    QStringList                  m_headList;
+    QComboBox                    *m_fullAction,*m_fileSystem,*m_diskProtocol;
+    QCheckBox                    *m_forceMoveDiskRecord,*m_newDiskRecord,*m_newMoveDiskRecord,*m_newNetDiskRecord;
+    QPushButton                  *m_uponNetDriver,*m_Share;
 
+private:
+    QVBoxLayout*                 m_con;
+    QHBoxLayout                 *m_lay_1,*m_lay_2,*m_lay_3;
+
+    QLabel  L1,L2,L3;
 
 
 };
@@ -245,6 +254,14 @@ public:
 signals:
 
 public slots:
+private:
+    QHBoxLayout         *m_con;
+    QFormLayout         *m_form1,*m_form2;
+protected:
+    QLineEdit           *m_oneKeyStart,*m_oneKeyStartReturn,*m_oneKeyPause,*m_oneKeyPauseReturn,
+                        *m_oneKeyStop,*m_oneKeyStopReturn,*m_shutdown,*m_shutdownReturn,*m_lockVGA,*m_lockVGAReturn;
+    QComboBox           *m_serialPort;
+    QLabel tmp;
 
 };
 
@@ -263,13 +280,32 @@ signals:
 
 public slots:
     void switchLanguage(int);
+    void switchDateFormat(int);
+    //恢复
+    void recovery();
+    //升级
+    void upgrade();
+    //关机
+    void shutdown();
+    //重启
+    void restart();
+    //显示屏测试
+    void testScreen();
+    //工程设置
+    void proSetting();
+    //导入配置
+    void importCFG();
+    //导出配置
+    void exportCFG();
 public:
 
 protected:
     QGroupBox               *m_verInfo,*m_dateSettingB;
     QLabel                  *m_hardwardId,*m_softVersion,*m_romVersion,*m_releaseVersion;
     QComboBox               *m_language,*m_dateFormat;
-    QLineEdit               *m_dateSetting,*m_timeSetting,*m_hostName,*m_aysn;
+    QLineEdit               *m_hostName,*m_aysn;
+    QDateEdit               *m_dateSetting;
+    QTimeEdit               *m_timeSetting;
     QCheckBox               *m_networkTimeAysn;
     QPushButton             *m_recoveryBtn,*m_upgradeBtn,*m_shutdownBtn,*m_restartBtn,
                             *m_testScreenBtn,*m_ProSettingBtn,*m_importConfigBtn,*m_exportConfigBtn;
