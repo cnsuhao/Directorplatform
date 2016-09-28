@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="zh_CN" sourcelanguage="en_US">
 <context>
+    <name>MainWindow</name>
+    <message>
+        <source>InsertHead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DirectorPlatform</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>InsertTail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Single</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QCtrlWindow</name>
     <message>
         <source>move up</source>
@@ -84,6 +107,60 @@
     </message>
 </context>
 <context>
+    <name>QEffectFun</name>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QGrapCard</name>
+    <message>
+        <source>Graphics Card 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphics Card 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>resolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contrast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QLiveWidget</name>
     <message>
         <source>full screen</source>
@@ -130,6 +207,13 @@
     </message>
 </context>
 <context>
+    <name>QNetTest</name>
+    <message>
+        <source>input command</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>tip</source>
@@ -152,6 +236,124 @@
     </message>
     <message>
         <source>Cannel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QStateFun</name>
+    <message>
+        <source>State</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QSystemInfo</name>
+    <message>
+        <source>Version Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network Aysn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Recovery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Test Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hardware ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Software Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ROM Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Release Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Net-Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yyyy/MM/dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yyyy MM dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MM-dd-yyyy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -191,6 +393,17 @@
     </message>
     <message>
         <source>system setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QVideoFun</name>
+    <message>
+        <source>Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

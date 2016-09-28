@@ -8,6 +8,7 @@
 #include "View/QCtrlWindow.h"
 #include "View/QFunctionWidget.h"
 #include "QSystemSettingWidget.h"
+#include "QLuboSettingWidget.h"
 #include  <QVector>
 
 class MainWindow : public QWidget
@@ -55,14 +56,32 @@ private:
 
     QPushButton *m_oneKey;
 
-    QPushButton *m_Setting;
+    QPushButton *m_sysSetting,*m_luboSetting;
     QSystemSettingWidget *m_setwin;
+    QLuboSettingWidget   *m_setlubowin;
+
+    QButtonGroup *m_modeGroup,*m_autoGroup;
 
 protected:
     void paintEvent(QPaintEvent* event);
 
 public slots:
     void showSystemSetting();
+    void showLuboSetting();
+    //插入片头
+    void insertHead();
+    //插入片尾
+    void insertTail();
+    //单导模式
+    void showSingle();
+    //双导模式
+    void showDouble();
+    //自动
+    void showAuto();
+    //半自动
+    void showSemiAuto();
+    //手动
+    void showHandle();
 
 
 };

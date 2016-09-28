@@ -256,7 +256,7 @@ QPushButton#btn_1:hover{
        border:none;
        image: url(:/skin/btn_1);
 }
-QPushButton#btn_1:pressed{
+QPushButton#btn_1:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -278,7 +278,7 @@ QPushButton#btn_2:hover{
        border:none;
        image: url(:/skin/btn_2);
 }
-QPushButton#btn_2:pressed{
+QPushButton#btn_2:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -300,7 +300,7 @@ QPushButton#btn_3:hover{
        border:none;
        image: url(:/skin/btn_3);
 }
-QPushButton#btn_3:pressed{
+QPushButton#btn_3:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -322,7 +322,7 @@ QPushButton#btn_4:hover{
        border:none;
        image: url(:/skin/btn_4);
 }
-QPushButton#btn_4:pressed{
+QPushButton#btn_4:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -344,7 +344,7 @@ QPushButton#btn_5:hover{
        border:none;
        image: url(:/skin/btn_5);
 }
-QPushButton#btn_5:pressed{
+QPushButton#btn_5:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -366,7 +366,7 @@ QPushButton#btn_6:hover{
        border:none;
        image: url(:/skin/btn_6);
 }
-QPushButton#btn_6:pressed{
+QPushButton#btn_6:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -388,7 +388,7 @@ QPushButton#btn_7:hover{
        border:none;
        image: url(:/skin/btn_7);
 }
-QPushButton#btn_7:pressed{
+QPushButton#btn_7:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -410,7 +410,7 @@ QPushButton#btn_8:hover{
        border:none;
        image: url(:/skin/btn_8);
 }
-QPushButton#btn_8:pressed{
+QPushButton#btn_8:checked{
        background-color: transparent;
        margin-left: -52px;
        margin-right:-0px;
@@ -421,16 +421,28 @@ QPushButton#btn_8:pressed{
 
 
 
+QPushButton:checked{
+
+    background-color: green;
+}
 
 
 
+QPushButton#systemSetting{
 
+    margin-left: -0px;
+    margin-right:-0px;
+    background-image:url(:/skin/sysSetting);
+    border:none;
+}
 
+QPushButton#luboSetting{
 
-
-
-
-
+    margin-left: -0px;
+    margin-right:-0px;
+    background-image:url(:/skin/luboSetting);
+    border:none;
+}
 
 
 

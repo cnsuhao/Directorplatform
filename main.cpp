@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
     w.addWidgetToYoohoo(h);
     //w.setWindowFlags(Qt::FramelessWindowHint);
     w.setWindowIcon(QIcon(":/skin/icon1.png"));
-    w.resize(800,800);
+    w.setGeometry(100,100,w.geometry().width(),w.geometry().height());
     w.show();
 
 //    QSystemSettingWidget w;

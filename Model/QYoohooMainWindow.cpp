@@ -276,19 +276,18 @@ void QYoohooMainWindow::paintEvent(QPaintEvent *e)
       QRectF lrf(0.0,0.0,18.0,18.0);
       p.fillRect(r,QColor(75,73,67,255));
 
+      if(!isMaximized())
+      {
+          QPainterPath path;
+          path.addRoundRect(rect(),2,2);
+          QPolygon polygon= path.toFillPolygon().toPolygon();
+          QRegion region(polygon);
+          setMask(region);
+          p.setPen(QColor(75,73,67,255));
+          p.drawRoundedRect(0,0,width()-1,height()-1,8,8);
 
-      //p.fillRect(test->geometry(),QColor("green"));
-
-      QPainterPath path;
-      path.addRoundRect(rect(),2,2);
-      QPolygon polygon= path.toFillPolygon().toPolygon();
-      QRegion region(polygon);
-      setMask(region);
-      p.setPen(QColor(75,73,67,255));
-      p.drawRoundedRect(0,0,width()-1,height()-1,8,8);
-
-
-
+      }
+      update();
 }
 
 void QYoohooMainWindow::addWidgetToYoohoo(QWidget *w)

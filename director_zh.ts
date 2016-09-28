@@ -5,7 +5,23 @@
     <name>MainWindow</name>
     <message>
         <source>DirectorPlatform</source>
-        <translation type="obsolete">导播平台</translation>
+        <translation type="unfinished">导播平台</translation>
+    </message>
+    <message>
+        <source>InsertHead</source>
+        <translation type="unfinished">插入片头</translation>
+    </message>
+    <message>
+        <source>InsertTail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Single</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -95,6 +111,60 @@
     </message>
 </context>
 <context>
+    <name>QEffectFun</name>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QGrapCard</name>
+    <message>
+        <source>Graphics Card 1</source>
+        <translation type="unfinished">显卡 1 本地导播</translation>
+    </message>
+    <message>
+        <source>Graphics Card 2</source>
+        <translation type="unfinished">显卡 2 PGM输出</translation>
+    </message>
+    <message>
+        <source>Output Device</source>
+        <translation type="unfinished">输出设备</translation>
+    </message>
+    <message>
+        <source>resolution</source>
+        <translation type="unfinished">分辨率</translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation type="unfinished">刷新频率</translation>
+    </message>
+    <message>
+        <source>Lighting</source>
+        <translation type="unfinished">亮度</translation>
+    </message>
+    <message>
+        <source>Contrast</source>
+        <translation type="unfinished">对比度</translation>
+    </message>
+    <message>
+        <source>Shade</source>
+        <translation type="unfinished">色度</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation type="unfinished">饱和度</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">音频</translation>
+    </message>
+</context>
+<context>
     <name>QLiveWidget</name>
     <message>
         <source>full screen</source>
@@ -121,15 +191,15 @@
     </message>
     <message>
         <source>IP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">IP地址</translation>
     </message>
     <message>
         <source>Mask</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">子网掩码</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">网关</translation>
     </message>
     <message>
         <source>DNS</source>
@@ -137,7 +207,14 @@
     </message>
     <message>
         <source>MAC</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">MAC地址</translation>
+    </message>
+</context>
+<context>
+    <name>QNetTest</name>
+    <message>
+        <source>input command</source>
+        <translation type="unfinished">请输入命令</translation>
     </message>
 </context>
 <context>
@@ -168,6 +245,124 @@
     <message>
         <source>Cannel</source>
         <translation type="unfinished">取消</translation>
+    </message>
+</context>
+<context>
+    <name>QStateFun</name>
+    <message>
+        <source>State</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QSystemInfo</name>
+    <message>
+        <source>Version Info</source>
+        <translation type="unfinished">版本信息</translation>
+    </message>
+    <message>
+        <source>Time Setting</source>
+        <translation type="unfinished">日期设置</translation>
+    </message>
+    <message>
+        <source>Chinese</source>
+        <translation type="unfinished">中文</translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation type="unfinished">英文</translation>
+    </message>
+    <message>
+        <source>Network Aysn</source>
+        <translation type="unfinished">网络同步</translation>
+    </message>
+    <message>
+        <source>Recovery</source>
+        <translation type="unfinished">恢复出厂设置</translation>
+    </message>
+    <message>
+        <source>Upgrade</source>
+        <translation type="unfinished">软件升级</translation>
+    </message>
+    <message>
+        <source>Shutdown</source>
+        <translation type="unfinished">关机</translation>
+    </message>
+    <message>
+        <source>Restart</source>
+        <translation type="unfinished">重启</translation>
+    </message>
+    <message>
+        <source>Test Screen</source>
+        <translation type="unfinished">显示屏测试</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">工程设置</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished">导入配置</translation>
+    </message>
+    <message>
+        <source>export</source>
+        <translation type="unfinished">导出配置</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished">语言</translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished">主机名</translation>
+    </message>
+    <message>
+        <source>Hardware ID</source>
+        <translation type="unfinished">硬件ID</translation>
+    </message>
+    <message>
+        <source>Software Version</source>
+        <translation type="unfinished">软件版本</translation>
+    </message>
+    <message>
+        <source>ROM Version</source>
+        <translation type="unfinished">ROM 版本</translation>
+    </message>
+    <message>
+        <source>Release Version</source>
+        <translation type="unfinished">发布版本</translation>
+    </message>
+    <message>
+        <source>Date Format</source>
+        <translation type="unfinished">时间格式</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">日期设置</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">时间设置</translation>
+    </message>
+    <message>
+        <source>Net-Server</source>
+        <translation type="unfinished">网络服务器</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yyyy/MM/dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yyyy MM dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MM-dd-yyyy</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -207,6 +402,17 @@
     <message>
         <source>system setting</source>
         <translation type="unfinished">系统设置</translation>
+    </message>
+</context>
+<context>
+    <name>QVideoFun</name>
+    <message>
+        <source>Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

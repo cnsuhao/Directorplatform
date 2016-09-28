@@ -32,5 +32,7 @@
         <file>skin/btn_stop.png</file>
         <file>skin/btn_up.png</file>
         <file>skin/dir1.qss</file>
+        <file>skin/luboSetting.png</file>
+        <file>skin/sysSetting.png</file>
     </qresource>
 </RCC>

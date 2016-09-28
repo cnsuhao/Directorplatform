@@ -8,7 +8,7 @@
 #include <QSlider>
 #include <QLCDNumber>
 #include <QGraphicsView>
-
+#include <QButtonGroup>
 
 /*
  *  this widget control windows operator */
@@ -74,6 +74,7 @@ private:
     QPushButton *btn_6;
     QPushButton *btn_7;
     QPushButton *btn_8;
+    QButtonGroup *group;
     QHBoxLayout *numlay1;
     QHBoxLayout *numlay2;
 

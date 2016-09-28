@@ -131,7 +131,7 @@ void QSettingWidget::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QRect rectTitle=rect();
     rectTitle.setHeight(30);
-    painter.fillRect(rectTitle,QColor(75,73,67));
+    painter.fillRect(rectTitle,QColor(228,92,45));
    // painter.fillRect(rectTitle,QColor(228,92,45));
     QPainterPath path;
     path.addRoundRect(rect(),2,2);
@@ -194,13 +194,66 @@ QSerialPort::~QSerialPort()
 // 磁盘管理
 QDiskMgr::QDiskMgr(QWidget* parent):QWidget(parent)
 {
-    m_tableview = new QTableView();
-    m_head = new QHeaderView(Qt::Horizontal);
+    m_lay_1 = new QHBoxLayout();
+    m_lay_2 = new QHBoxLayout();
+    m_lay_3 = new QHBoxLayout();
 
-    //m_tableview->setHorizontalHeader();
+    m_fullAction = new QComboBox();
+    m_fileSystem = new QComboBox();
+    m_diskProtocol = new QComboBox();
+    QStringList p;
+    p<<"EXT4"<<"EXT3"<<"EXT2"<<"FAT32"<<"NTFS";
+    m_diskProtocol->addItems(p);
+
+    m_fullAction = new QComboBox();
+    m_fileSystem = new QComboBox();
+    m_diskProtocol = new QComboBox();
+
+    m_forceMoveDiskRecord = new QCheckBox(tr("Forced moving disk video"));
+    m_newDiskRecord = new QCheckBox(tr("New hard disk default video"));
+    m_newMoveDiskRecord = new QCheckBox(tr("New mobile hard disk default video"));
+    m_newNetDiskRecord = new QCheckBox(tr("New SkyDrive default video"));
+
+    m_uponNetDriver = new QPushButton(tr("Map network drive"));
+    m_Share = new QPushButton(tr("Shared settings"));
+
+    L1.setText(tr("After full"));
+    m_lay_1->addWidget(&L1);
+    m_lay_1->addWidget(m_fullAction);
+    m_lay_1->addStretch();
+    L2.setText(tr("File system"));
+    m_lay_1->addWidget(&L2);
+    m_lay_1->addWidget(m_fileSystem);
+     m_lay_1->addStretch();
+    L3.setText(tr("protocol"));
+    m_lay_1->addWidget(&L3);
+    m_lay_1->addWidget(m_diskProtocol);
+
+    m_lay_2->addWidget(m_forceMoveDiskRecord);
+    m_lay_2->addWidget(m_newDiskRecord);
+    m_lay_2->addWidget(m_newMoveDiskRecord);
+
+    m_lay_3->addWidget(m_newNetDiskRecord);
+    m_lay_3->addWidget(m_uponNetDriver);
+    m_lay_3->addWidget(m_Share);
+
+    m_tableview = new QTableWidget(7,8);
+    m_tableview->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");
+    m_headList<<tr("NO")<<tr("State")<<tr("Enabled")<<tr("Capacity")<<tr("Type")<<tr("Format")<<tr("Dump")<<tr("Record");
+
+    int width= m_tableview->geometry().width()/8;
+    for(int i=0;i<8;i++)
+    {
+        m_tableview->setColumnWidth(i,width);
+    }
+    m_tableview->setHorizontalHeaderLabels(m_headList);
+    m_tableview->horizontalHeader()->setClickable(false);
+    m_tableview->verticalHeader()->setVisible(false);
     m_con = new QVBoxLayout();
-
     m_con->addWidget(m_tableview);
+    m_con->addLayout(m_lay_1);
+    m_con->addLayout(m_lay_2);
+    m_con->addLayout(m_lay_3);
     this->setLayout(m_con);
 
 }
@@ -337,7 +390,6 @@ void QNetConfig::setSubEnabled(bool ienabled)
 
 void QNetConfig::ReturnKey()
 {
-    //QMessageBox::warning(0,"","21",0,0);
     QString s= m_mainIP->text();
     QStringList l=s.split(".");
     if(l.size()!=4)
@@ -397,16 +449,33 @@ QGrapCard::QGrapCard(QWidget* parent):QWidget(parent)
     m_grapCard_2 = new QGroupBox(tr("Graphics Card 2"));
 
     m_light_1 = new QSlider(Qt::Horizontal);
+    m_light_1->setMaximum(100);
+    m_light_1->setValue(50);
     m_light_2 = new QSlider(Qt::Horizontal);
+    m_light_2->setMaximum(100);
+    m_light_2->setValue(50);
 
     m_balance_1 = new QSlider(Qt::Horizontal);
+    m_balance_1->setMaximum(100);
+    m_balance_1->setValue(50);
     m_balance_2 = new QSlider(Qt::Horizontal);
+    m_balance_2->setMaximum(100);
+    m_balance_2->setValue(50);
 
     m_shade_1 = new QSlider(Qt::Horizontal);
+    m_shade_1->setMaximum(100);
+    m_shade_1->setValue(50);
     m_shade_2 = new QSlider(Qt::Horizontal);
+    m_shade_2->setMaximum(100);
+    m_shade_2->setValue(50);
 
     m_fill_1 = new QSlider(Qt::Horizontal);
+    m_fill_1->setMaximum(100);
+    m_fill_1->setValue(50);
     m_fill_2 = new QSlider(Qt::Horizontal);
+    m_fill_2->setMaximum(100);
+    m_fill_2->setValue(50);
+
 
     m_resolution_1 = new QComboBox();
     m_resolution_2 = new QComboBox();
@@ -428,7 +497,6 @@ QGrapCard::QGrapCard(QWidget* parent):QWidget(parent)
     m_form_1->addRow(tr("Shade"),m_shade_1);
     m_form_1->addRow(tr("Saturation"),m_fill_1);
 
-
     m_form_2 = new QFormLayout();
     m_form_2->setSpacing(20);
     m_form_2->addRow(tr("Audio"),m_audio);
@@ -438,7 +506,6 @@ QGrapCard::QGrapCard(QWidget* parent):QWidget(parent)
     m_form_2->addRow(tr("Contrast"),m_balance_2);
     m_form_2->addRow(tr("Shade"),m_shade_2);
     m_form_2->addRow(tr("Saturation"),m_fill_2);
-
 
     m_grapCard_1->setLayout(m_form_1);
     m_grapCard_2->setLayout(m_form_2);
@@ -456,15 +523,66 @@ QGrapCard::~QGrapCard()
 
 }
 
-//中控设置
+//中控设置  18393366997---776917623
 
 QCtrlSetting::QCtrlSetting(QWidget* parent):QWidget(parent)
 {
+    m_con = new QHBoxLayout();
+    m_form1 = new QFormLayout();
+    m_form2 = new QFormLayout();
+    m_oneKeyPause = new QLineEdit();
+    m_oneKeyPauseReturn = new QLineEdit();
+    m_oneKeyStart = new QLineEdit();
+    m_oneKeyStartReturn = new QLineEdit();
+    m_oneKeyStop = new QLineEdit();
+    m_oneKeyStopReturn = new QLineEdit();
+    m_shutdown = new QLineEdit();
+    m_shutdownReturn = new QLineEdit();
+    m_lockVGA = new QLineEdit();
+    m_lockVGAReturn = new QLineEdit();
+    m_serialPort = new QComboBox();
+
+    m_con->setMargin(30);
+    m_form1->setSpacing(30);
+    m_form1->addRow(tr("Serial Port"),m_serialPort);
+    m_form1->addRow(tr("One Key Start"),m_oneKeyStart);
+    m_form1->addRow(tr("One Key Pause"),m_oneKeyPause);
+    m_form1->addRow(tr("One Key Stop"),m_oneKeyStop);
+    m_form1->addRow(tr("Power off"),m_shutdown);
+    m_form1->addRow(tr("Lock VGA"),m_lockVGA);
+    m_form2->setSpacing(30);
+    m_form2->addRow(tr(""),&tmp);
+    m_form2->addRow(tr("Return Key"),m_oneKeyStartReturn);
+    m_form2->addRow(tr("Retrun Key"),m_oneKeyPauseReturn);
+    m_form2->addRow(tr("Return Key"),m_oneKeyStopReturn);
+    m_form2->addRow(tr("Return Key"),m_shutdownReturn);
+    m_form2->addRow(tr("Return Key"),m_lockVGAReturn);
+
+
+
+
+    m_con->addLayout(m_form1);
+    m_con->addLayout(m_form2);
+    this->setLayout(m_con);
 
 }
 
 QCtrlSetting::~QCtrlSetting()
 {
+    delete m_oneKeyPause;
+    delete m_oneKeyPauseReturn;
+    delete m_oneKeyStart;
+    delete m_oneKeyStartReturn;
+    delete m_oneKeyStop;
+    delete m_oneKeyPause;
+    delete m_shutdown;
+    delete m_shutdownReturn;
+    delete m_lockVGA;
+    delete m_lockVGAReturn;
+
+    delete m_form1;
+    delete m_form2;
+    delete m_con;
 
 }
 
@@ -485,9 +603,17 @@ QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
     m_language->addItem(tr("Chinese"));
     m_language->addItem(tr("English"));
     m_dateFormat = new QComboBox();
+    m_dateFormat->addItem(tr("yyyy-MM-dd"));
+    m_dateFormat->addItem(tr("yyyy/MM/dd"));
+    m_dateFormat->addItem(tr("yyyy MM dd"));
+    m_dateFormat->addItem(tr("MM-dd-yyyy"));
+    connect(m_dateFormat,SIGNAL(currentIndexChanged(int)),this,SLOT(switchDateFormat(int)));
 
-    m_dateSetting = new QLineEdit();
-    m_timeSetting = new QLineEdit();
+    QDate dt =QDate::currentDate();
+    QTime tm =QTime::currentTime();
+    m_dateSetting = new QDateEdit(dt);
+    m_dateSetting->setDisplayFormat(m_dateFormat->currentText());
+    m_timeSetting = new QTimeEdit(tm);
     m_hostName = new QLineEdit();
     m_aysn = new QLineEdit();
 
@@ -514,6 +640,8 @@ QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
 
 
     // layout
+    m_supVersion->setSpacing(25);
+    m_supDown->setSpacing(25);
     m_supDown->addRow(tr("Language"),m_language);
     m_supDown->addRow(tr("Host Name"),m_hostName);
     m_supVersion->addRow(tr("Hardware ID"),m_hardwardId);
@@ -522,6 +650,7 @@ QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
     m_supVersion->addRow(tr("Release Version"),m_releaseVersion);
     m_verInfo->setLayout(m_supVersion);
 
+    m_supDate->setSpacing(30);
     m_supDate->addWidget(m_networkTimeAysn);
     m_supDate->addRow(tr("Date Format"),m_dateFormat);
     m_supDate->addRow(tr("Date"),m_dateSetting);
@@ -540,9 +669,9 @@ QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
 
     m_verLay->addWidget(m_verInfo);
     m_verLay->addLayout(m_supDown);
-    m_con->addLayout(m_verLay);
-    m_con->addWidget(m_dateSettingB);
-    m_con->addLayout(m_funLay);
+    m_con->addLayout(m_verLay,4);
+    m_con->addWidget(m_dateSettingB,4);
+    m_con->addLayout(m_funLay,3);
 
     this->setLayout(m_con);
 
@@ -550,6 +679,14 @@ QSystemInfo::QSystemInfo(QWidget* parent):QWidget(parent)
     //event
 
     connect(m_language,SIGNAL(currentIndexChanged(int)),this,SLOT(switchLanguage(int)));
+    connect(m_recoveryBtn,SIGNAL(clicked()),this,SLOT(recovery()));
+    connect(m_upgradeBtn,SIGNAL(clicked()),this,SLOT(upgrade()));
+    connect(m_shutdownBtn,SIGNAL(clicked()),this,SLOT(shutdown()));
+    connect(m_restartBtn,SIGNAL(clicked()),this,SLOT(restart()));
+    connect(m_testScreenBtn,SIGNAL(clicked()),this,SLOT(testScreen()));
+    connect(m_ProSettingBtn,SIGNAL(clicked()),this,SLOT(proSetting()));
+    connect(m_importConfigBtn,SIGNAL(clicked()),this,SLOT(importCFG()));
+    connect(m_exportConfigBtn,SIGNAL(clicked()),this,SLOT(exportCFG()));
 
 
 }
@@ -578,12 +715,54 @@ void QSystemInfo::switchLanguage(int index)
   }
 
 }
+
+void QSystemInfo::switchDateFormat(int index)
+{
+     m_dateSetting->setDisplayFormat(m_dateFormat->currentText());
+}
+
+
 QSystemInfo::~QSystemInfo()
 {
 
 }
 
+void QSystemInfo::recovery()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
 
+void QSystemInfo::upgrade()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
+
+void QSystemInfo::shutdown()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
+
+void QSystemInfo::restart()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
+void QSystemInfo::testScreen()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
+void QSystemInfo::proSetting()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
+
+void QSystemInfo::importCFG()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
+void QSystemInfo::exportCFG()
+{
+    QMessageBox::warning(0,"","TODO",0,0);
+}
 
 
 /**********************************END********************************/
@@ -600,7 +779,7 @@ QSystemSettingWidget::QSystemSettingWidget(QWidget *parent) :
     ctrlSetting = new QCtrlSetting();
     systemInfoWidget = new QSystemInfo();
 
-
+    //this->setWindowFlags(Qt::WindowStaysOnTopHint);
     AddPage(userMgrWidget,tr("User"));
     AddPage(serialPortWidget,tr("Serial"));
     AddPage(diskMgrWidget,tr("Disk"));
