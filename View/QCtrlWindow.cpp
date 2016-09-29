@@ -1,6 +1,7 @@
 #include "View/QCtrlWindow.h"
 #include <QPainter>
-
+#include <QDate>
+#include <QDateTime>
 
 
 // friend function to do event
@@ -84,6 +85,7 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     logo = new QGraphicsView(this);
     logo->setFixedSize(257,94);
     logo->setObjectName("logo");
+    logo->setStyleSheet("QGraphicsView{border:none;}");
 
     dir_lay = new QGridLayout();
 
@@ -279,9 +281,12 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     numlay2->addWidget(btn_7);
     numlay2->addWidget(btn_8);
 
-    lcd_date = new QLCDNumber(this);
-    lcd_date->setDigitCount(30);
-    lcd_date->display("2016-9-18   14:20:56");
+    lcd_date = new QLCDNumber();
+    lcd_date->setPalette(Qt::green);
+    lcd_date->setStyleSheet("QLCDNumber{border:1px solid rgb(136, 179, 213);}");
+    lcd_date->setDigitCount(22);
+    QDateTime dt = QDateTime::currentDateTime();
+    lcd_date->display(dt.toString("yyyy-MM-dd  hh:mm:ss"));
 
     gLayout = new QVBoxLayout();
 
@@ -309,7 +314,7 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     gLayout->addStretch(1);
 
     gLayout->addLayout(dir_lay,3);
-    gLayout->addWidget(speed_adjust);
+    gLayout->addWidget(speed_adjust,Qt::AlignCenter);
     gLayout->addStretch(2);
     gLayout->addLayout(numlay1);
     gLayout->addLayout(numlay2);
@@ -319,6 +324,12 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
 
     gLayout->setSpacing(10);
     this->setLayout(gLayout);
+    timer = new QTimer(this);// not need to release
+    timer->start(1000);
+
+    // event
+
+    connect(timer,SIGNAL(timeout()),this,SLOT(updateTime()));
 
 
 }
@@ -378,4 +389,17 @@ void QCtrlWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
     p.fillRect(rect(),QColor(37,44,52));
+
+    p.setPen(QColor(136,179,213));
+    QRect r(gLayout->geometry().left()+8,meeting_ctrl->geometry().top()-10,gLayout->geometry().width()-16,lcd_date->geometry().top()-meeting_ctrl->geometry().top()+5);
+    p.drawRoundedRect(r,5,5);
+
+
+}
+
+void QCtrlWindow::updateTime()
+{
+   // 2016-9-18   14:20:56
+    QDateTime dt = QDateTime::currentDateTime();
+    lcd_date->display(dt.toString("yyyy-MM-dd  hh:mm:ss"));
 }

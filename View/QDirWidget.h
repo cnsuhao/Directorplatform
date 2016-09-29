@@ -5,7 +5,7 @@
 #include "View/PlatformConfig.h"
 #include "Model//QVideoWidget.h"
 #include "Model/QButton.h"
-
+#include <QTimer>
 #include <QComboBox>
 /*
  * Director Widget */
@@ -19,6 +19,7 @@ public:
 signals:
 
 public slots:
+
 
 public:
     QVideoWidget *video;
@@ -40,6 +41,7 @@ private:
     QVBoxLayout  *videoLayout;
     QVBoxLayout  *Con;
     QColor        tool_color;
+
 protected:
     void paintEvent(QPaintEvent* event);
     friend void onBtnFullScreen(QWidget* q);

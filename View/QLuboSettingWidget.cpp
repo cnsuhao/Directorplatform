@@ -343,12 +343,19 @@ SwitchPolicy::~SwitchPolicy()
 /*****************************************************************************/
 FollowMachineSetting::FollowMachineSetting(QWidget* parent):QWidget(parent)
 {
-
+    m_IP = new QLineEdit();
+    m_port = new QLineEdit();
+    m_con = new QFormLayout();
+    m_con->addRow(tr("IP"),m_IP);
+    m_con->addRow(tr("Port"),m_port);
+    this->setLayout(m_con);
 }
 
 FollowMachineSetting::~FollowMachineSetting()
 {
-
+    delete m_IP;
+    delete m_port;
+    delete m_con;
 }
 /*****************************************************************************/
 QLuboSettingWidget::QLuboSettingWidget(QSettingWidget* parent):QSettingWidget(parent)
