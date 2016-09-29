@@ -147,6 +147,7 @@ int main(int argc, char *argv[])
     //w.setWindowFlags(Qt::FramelessWindowHint);
     w.setWindowIcon(QIcon(":/skin/icon1.png"));
     w.setGeometry(100,100,w.geometry().width(),w.geometry().height());
+    w.resize(800,760);
     w.show();
 
 //    QSystemSettingWidget w;

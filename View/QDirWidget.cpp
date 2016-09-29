@@ -79,6 +79,8 @@ QDirWidget::QDirWidget(QWidget *parent) :
     time_title = new QLabel("00:00:00",this);
     time_title->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
 
+
+
 //tool
     toolLayout = new QHBoxLayout();
     toolLayout->setSpacing(2);

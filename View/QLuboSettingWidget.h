@@ -231,6 +231,9 @@ private:
 
 public slots:
 protected:
+    QLineEdit           *m_IP,*m_port;
+private:
+    QFormLayout          *m_con;
 };
 
 /*********************************************************/

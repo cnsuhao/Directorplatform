@@ -9,7 +9,7 @@
 #include <QLCDNumber>
 #include <QGraphicsView>
 #include <QButtonGroup>
-
+#include <QTimer>
 /*
  *  this widget control windows operator */
 
@@ -24,6 +24,7 @@ public:
 signals:
 
 public slots:
+    void updateTime();
 private:
     QVBoxLayout *gLayout;
 
@@ -109,6 +110,7 @@ private:
 
 protected:
     void paintEvent(QPaintEvent* event);
+      QTimer        *timer;
 
 
 };
