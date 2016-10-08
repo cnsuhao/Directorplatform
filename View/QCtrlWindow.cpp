@@ -117,71 +117,78 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     btn_left->lbuttonup = onBtn_left_up;
     btn_left->lbuttondown = onBtn_left_down;
 
-    btn_right = new QButton(this);
+    btn_right = new QButton();
     btn_right->setFixedSize(34,34);
     btn_right->setObjectName("btn_right");
     btn_right->setToolTip(tr("move right"));
     btn_right->lbuttonup = onBtn_right_up;
     btn_right->lbuttondown = onBtn_right_down;
 
-    meeting_ctrl = new QCheckBox(tr("meeting"),this);
+    mcGroup = new QButtonGroup();
+    meeting_ctrl = new QPushButton(tr("meeting"));
+    meeting_ctrl->setIcon(QIcon(":/skin/icon1"));
+    meeting_ctrl->setCheckable(true);
+    meeting_ctrl->setChecked(true);
     meeting_ctrl->setObjectName("meeting_ctrl");
 
-    cloud_ctrl = new QCheckBox(tr("cloud"),this);
+    cloud_ctrl = new QPushButton(tr("cloud"));
+    cloud_ctrl->setCheckable(true);
     cloud_ctrl->setObjectName("cloud_ctrl");
 
-    one_person = new QCheckBox(this);
+    mcGroup->addButton(meeting_ctrl);
+    mcGroup->addButton(cloud_ctrl);
+    one_person = new QCheckBox();
     one_person->setObjectName("one");
 
-    two_person = new QCheckBox(this);
+    two_person = new QCheckBox();
     two_person->setObjectName("two");
 
-    three_person = new QCheckBox(this);
+    three_person = new QCheckBox();
     three_person->setObjectName("three");
 
-    group_person = new QCheckBox(this);
+    group_person = new QCheckBox();
     group_person->setObjectName("group");
 
-    zoom_label = new QLabel(tr("zoom"),this);
-    zoom_up = new QButton(this);
+    zoom_label = new QLabel(tr("zoom"));
+    zoom_up = new QButton();
     zoom_up->setFixedSize(25,25);
-    zoom_up->setObjectName("zoom_up");
+    zoom_up->setObjectName("plus");
     zoom_up->lbuttonup = onZoom_up_clicked;
 
-    zoom_down = new QButton(this);
+    zoom_down = new QButton();
     zoom_down->setFixedSize(25,25);
-    zoom_down->setObjectName("zoom_down");
+    zoom_down->setObjectName("minus");
     zoom_down->lbuttonup = onZoom_down_clicked;
 
-    focus_label = new QLabel(tr("focus"),this);
+    focus_label = new QLabel(tr("focus"));
 
-    focus_on = new QButton(this);
+    focus_on = new QButton();
     focus_on->setFixedSize(25,25);
-    focus_on->setObjectName("focus_on");
+    focus_on->setObjectName("plus");
     focus_on->lbuttonup = onFocus_on_clicked;
 
-    focus_off = new QButton(this);
+    focus_off = new QButton();
     focus_off->setFixedSize(25,25);
-    focus_off->setObjectName("focus_off");
+    focus_off->setObjectName("minus");
     focus_off->lbuttonup = onFocus_off_clicked;
 
-    focus_auto = new QCheckBox(this);
+    focus_auto = new QCheckBox();
     focus_auto->setFixedSize(25,25);
     focus_auto->setObjectName("focus_auto");
 
-    ring_label = new QLabel(tr("ring"),this);
+    ring_label = new QLabel(tr("ring"));
 
-    ring_big = new QButton(this);
-    ring_big->setObjectName("ring_big");
+    ring_big = new QButton();
+    ring_big->setObjectName("plus");
     ring_big->setFixedSize(25,25);
     ring_big->lbuttonup = onRing_big_clicked;
 
-    ring_small = new QButton(this);
+    ring_small = new QButton();
     ring_small->setFixedSize(25,25);
-    ring_small->setObjectName("ring_small");
+    ring_small->setObjectName("minus");
     ring_small->lbuttonup = onRing_small_clicked;
 
-    ring_auto = new QCheckBox(this);
+    ring_auto = new QCheckBox();
     ring_auto->setFixedSize(25,25);
     ring_auto->setObjectName("ring_auto");
 
@@ -214,46 +221,46 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     ringlay->addWidget(ring_small,1,Qt::AlignLeft);
     ringlay->addWidget(ring_auto,1,Qt::AlignLeft);
 
-    speed_adjust = new QSlider(Qt::Horizontal,this);
+    speed_adjust = new QSlider(Qt::Horizontal);
     speed_adjust->setObjectName("speed");
 
-    btn_1 = new QPushButton(this);
+    btn_1 = new QPushButton();
     btn_1->setObjectName("btn_1");
     btn_1->setFixedSize(26,26);
     btn_1->setCheckable(true);
     btn_1->setChecked(true);
 
-    btn_2 = new QPushButton(this);
+    btn_2 = new QPushButton();
     btn_2->setObjectName("btn_2");
     btn_2->setFixedSize(26,26);
     btn_2->setCheckable(true);
 
-    btn_3 = new QPushButton(this);
+    btn_3 = new QPushButton();
     btn_3->setObjectName("btn_3");
     btn_3->setFixedSize(26,26);
     btn_3->setCheckable(true);
 
-    btn_4 = new QPushButton(this);
+    btn_4 = new QPushButton();
     btn_4->setObjectName("btn_4");
     btn_4->setFixedSize(26,26);
     btn_4->setCheckable(true);
 
-    btn_5 = new QPushButton(this);
+    btn_5 = new QPushButton();
     btn_5->setObjectName("btn_5");
     btn_5->setFixedSize(26,26);
     btn_5->setCheckable(true);
 
-    btn_6 = new QPushButton(this);
+    btn_6 = new QPushButton();
     btn_6->setFixedSize(26,26);
     btn_6->setObjectName("btn_6");
     btn_6->setCheckable(true);
 
-    btn_7 = new QPushButton(this);
+    btn_7 = new QPushButton();
     btn_7->setObjectName("btn_7");
     btn_7->setFixedSize(26,26);
     btn_7->setCheckable(true);
 
-    btn_8 = new QPushButton(this);
+    btn_8 = new QPushButton();
     btn_8->setObjectName("btn_8");
     btn_8->setFixedSize(26,26);
     btn_8->setCheckable(true);
@@ -330,7 +337,17 @@ QCtrlWindow::QCtrlWindow(QWidget *parent) :
     // event
 
     connect(timer,SIGNAL(timeout()),this,SLOT(updateTime()));
+    connect(meeting_ctrl,SIGNAL(clicked()),this,SLOT(switch_meet_cloud()));
+    connect(cloud_ctrl,SIGNAL(clicked()),this,SLOT(switch_meet_cloud()));
 
+    connect(btn_1,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_2,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_3,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_4,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_5,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_6,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_7,SIGNAL(clicked()),this,SLOT(switch_num()));
+    connect(btn_8,SIGNAL(clicked()),this,SLOT(switch_num()));
 
 }
 
@@ -344,6 +361,7 @@ QCtrlWindow::~QCtrlWindow()
 
     delete meeting_ctrl;
     delete cloud_ctrl;
+    delete mcGroup;
     delete one_person;
     delete two_person;
     delete three_person;
@@ -402,4 +420,53 @@ void QCtrlWindow::updateTime()
    // 2016-9-18   14:20:56
     QDateTime dt = QDateTime::currentDateTime();
     lcd_date->display(dt.toString("yyyy-MM-dd  hh:mm:ss"));
+}
+
+void QCtrlWindow::switch_meet_cloud()
+{
+   if(meeting_ctrl->isChecked())
+   {
+       QMessageBox::warning(0,"","Meet is checked",0,0);
+   }
+   else
+   {
+       QMessageBox::warning(0,"","cloud is checked",0,0);
+   }
+}
+
+void QCtrlWindow::switch_num()
+{
+    if(btn_1->isChecked())
+    {
+        QMessageBox::warning(0,"","1",0,0);
+    }
+    else if(btn_2->isChecked())
+    {
+        QMessageBox::warning(0,"","2",0,0);
+    }
+    else if(btn_3->isChecked())
+    {
+        QMessageBox::warning(0,"","3",0,0);
+    }
+    else if(btn_4->isChecked())
+    {
+        QMessageBox::warning(0,"","4",0,0);
+    }
+    else if(btn_5->isChecked())
+    {
+        QMessageBox::warning(0,"","5",0,0);
+    }
+    else if(btn_6->isChecked())
+    {
+        QMessageBox::warning(0,"","6",0,0);
+    }
+    else if(btn_7->isChecked())
+    {
+        QMessageBox::warning(0,"","7",0,0);
+    }
+    else if(btn_8->isChecked())
+    {
+        QMessageBox::warning(0,"","8",0,0);
+    }
+
 }

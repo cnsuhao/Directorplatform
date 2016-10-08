@@ -14,6 +14,7 @@ QSettingWidget::QSettingWidget(QWidget *parent) :
     m_labTitle = new QLabel("SettingWidget");
     m_labTitle->setFixedHeight(30);
     m_mainTab = new QTabWidget();
+    m_mainTab->setStyleSheet("QTabWidget{border: 5px solid rgb(255,0,0);}");
     m_titleLay = new QHBoxLayout();
     m_dlgLay = new QHBoxLayout();
     m_con = new QVBoxLayout();
@@ -131,7 +132,7 @@ void QSettingWidget::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QRect rectTitle=rect();
     rectTitle.setHeight(30);
-    painter.fillRect(rectTitle,QColor(228,92,45));
+    painter.fillRect(rectTitle,QColor(75,73,67));
    // painter.fillRect(rectTitle,QColor(228,92,45));
     QPainterPath path;
     path.addRoundRect(rect(),2,2);

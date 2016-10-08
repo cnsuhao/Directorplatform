@@ -25,6 +25,8 @@ signals:
 
 public slots:
     void updateTime();
+    void switch_meet_cloud();
+    void switch_num();
 private:
     QVBoxLayout *gLayout;
 
@@ -36,8 +38,9 @@ private:
     QButton   *btn_right;
 
     /*switch Control use checkbox*/
-    QCheckBox *meeting_ctrl;//会议控制
-    QCheckBox *cloud_ctrl;//云台控制
+    QPushButton *meeting_ctrl;//会议控制
+    QPushButton *cloud_ctrl;//云台控制
+    QButtonGroup *mcGroup;
 
     /*number of person*/
     QCheckBox *one_person;

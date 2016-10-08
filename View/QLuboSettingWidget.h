@@ -175,8 +175,9 @@ protected:
 };
 
 /**
- * @brief The AutoTrackSetting class
+ * @brief: The AutoTrackSetting class
  *
+ * @author: Niu Yoohoo
  * 自动跟踪设置
  */
 class AutoTrackSetting :public QWidget
@@ -188,10 +189,19 @@ public:
 
 signals:
 
+
 private:
 
 public slots:
 protected:
+   QVector<QLabel*>           mv_Labfirst,mv_track,mv_delay;
+   QVector<QComboBox*>        mv_comSecond,mv_comMac;
+//   QLabel                     *m_trackMac,*m_delay;
+   QVector<QLineEdit*>        mv_editLong,mv_editdelay;
+
+private:
+    QGridLayout               *m_con;
+
 };
 
 /**
