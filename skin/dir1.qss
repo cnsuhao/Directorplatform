@@ -446,8 +446,24 @@ QPushButton#luboSetting{
 
 
 
+QButton#minus
+{
+     margin-left: -0px;
+     margin-right: -0px;
+     border:none;
+     image: url(:/skin/minus);
+     background-color: transparent;
+}
 
+QButton#plus
+{
+     margin-left: -0px;
+     margin-right: -0px;
+     border:none;
+     image: url(:/skin/plus);
+     background-color: transparent;
+}
 
-
-
-
+QTabWidget::tab-bar {
+        border: none;
+}

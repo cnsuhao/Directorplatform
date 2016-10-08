@@ -168,8 +168,8 @@ QHeaderView::down-arrow:hover, QHeaderView::down-arrow:pressed {
 }
 
 /**********表格**********/
-QTableView {
-        border: 1px solid rgb(45, 45, 45);
+QTableView::pane {
+        border:none;
         background: rgb(57, 58, 60);
         gridline-color: rgb(60, 60, 60);
 }

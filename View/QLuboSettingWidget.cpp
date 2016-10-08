@@ -321,6 +321,65 @@ TSSetting::~TSSetting()
 /*****************************************************************************/
 AutoTrackSetting::AutoTrackSetting(QWidget* parent):QWidget(parent)
 {
+    mv_Labfirst.resize(11);
+    mv_comSecond.resize(11);
+    mv_comMac.resize(3);
+    mv_track.resize(3);
+    mv_editLong.resize(11);
+    mv_editdelay.resize(8);
+    mv_delay.resize(8);
+
+    for(int i=0;i<mv_Labfirst.size();i++)
+    {
+        mv_Labfirst[i] = new QLabel();
+        mv_comSecond[i] = new QComboBox();
+        mv_editLong[i] = new QLineEdit();
+        if(i<3)
+        {
+             mv_comMac[i] = new QComboBox();
+             mv_track[i] = new QLabel(tr("Track Host"));
+        }
+        if(i<8)
+        {
+            mv_delay[i] = new QLabel(tr("Delay"));
+            mv_editdelay[i] = new QLineEdit();
+        }
+    }
+
+    mv_Labfirst[0]->setText(tr("Auto"));
+    mv_Labfirst[1]->setText(tr("Handle"));
+    mv_Labfirst[2]->setText(tr("Semi-Auto"));
+    mv_Labfirst[3]->setText(tr("SDI 1"));
+    mv_Labfirst[4]->setText(tr("SDI 2"));
+    mv_Labfirst[5]->setText(tr("SDI 3"));
+    mv_Labfirst[6]->setText(tr("SDI 4"));
+    mv_Labfirst[7]->setText(tr("SDI 5"));
+    mv_Labfirst[8]->setText(tr("SDI 6"));
+    mv_Labfirst[9]->setText(tr("DVI-I"));
+    mv_Labfirst[10]->setText(tr("DVI-II"));
+
+
+    m_con = new QGridLayout();
+    for(int i=0;i<mv_Labfirst.size();i++)
+    {
+        m_con->addWidget(mv_Labfirst[i],i,0);
+        m_con->addWidget(mv_comSecond[i],i,1);
+        if(i<3)
+        {
+            m_con->addWidget(mv_track[i],i,2,Qt::AlignRight);
+            m_con->addWidget(mv_comMac[i],i,3);
+            m_con->addWidget(mv_editLong[i],i,4);
+        }
+        if(i>=3)
+        {
+            m_con->addWidget(mv_editLong[i],i,2);
+            m_con->addWidget(mv_delay[i-3],i,3,Qt::AlignRight);
+            m_con->addWidget(mv_editdelay[i-3],i,4);
+        }
+    }
+    this->setLayout(m_con);
+
+    //event
 
 }
 
@@ -346,6 +405,7 @@ FollowMachineSetting::FollowMachineSetting(QWidget* parent):QWidget(parent)
     m_IP = new QLineEdit();
     m_port = new QLineEdit();
     m_con = new QFormLayout();
+    m_con->setMargin(60);
     m_con->addRow(tr("IP"),m_IP);
     m_con->addRow(tr("Port"),m_port);
     this->setLayout(m_con);

@@ -182,6 +182,60 @@ protected:
  *
  * 录播功能区
  */
+
+class IndexWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit IndexWidget(QWidget *parent = 0);
+    ~IndexWidget();
+signals:
+
+public slots:
+protected:
+     void paintEvent(QPaintEvent* event);
+
+};
+class OSDWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit OSDWidget(QWidget *parent = 0);
+    ~OSDWidget();
+signals:
+
+public slots:
+protected:
+     void paintEvent(QPaintEvent* event);
+
+};
+class TimerWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit TimerWidget(QWidget *parent = 0);
+    ~TimerWidget();
+signals:
+
+public slots:
+protected:
+     void paintEvent(QPaintEvent* event);
+
+};
+class AttachOSDWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit AttachOSDWidget(QWidget *parent = 0);
+    ~AttachOSDWidget();
+signals:
+
+public slots:
+protected:
+     void paintEvent(QPaintEvent* event);
+
+};
+
 class QLuboFun : public QBaseFun
 {
     Q_OBJECT
@@ -192,6 +246,12 @@ signals:
 
 public slots:
 protected:
+    void paintEvent(QPaintEvent* event);
+private:
+    IndexWidget     *indexWidget;
+    OSDWidget       *osdWidget;
+    TimerWidget     *timerWidget;
+    AttachOSDWidget *attachWidget;
 
 };
 /**

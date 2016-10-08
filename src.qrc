@@ -34,5 +34,7 @@
         <file>skin/dir1.qss</file>
         <file>skin/luboSetting.png</file>
         <file>skin/sysSetting.png</file>
+        <file>skin/minus.png</file>
+        <file>skin/plus.png</file>
     </qresource>
 </RCC>
