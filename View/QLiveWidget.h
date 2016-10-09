@@ -21,8 +21,8 @@ public slots:
 public:
      QHBoxLayout *m_titleBar;
      QHBoxLayout *m_statuBar;
-private:
      QVideoWidget *video;
+private:
      QVBoxLayout  *videoLayout;
      QGridLayout  *gridLayout;
      QButton  *full_btn;

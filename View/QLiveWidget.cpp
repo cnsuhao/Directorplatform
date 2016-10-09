@@ -2,16 +2,9 @@
 
 void onFullScreen(QWidget* q)
 {
-    if(q->isFullScreen())
-    {
-        q->setWindowFlags(Qt::SubWindow);
-        q->showNormal();
-    }
-    else
-    {
-        q->setWindowFlags(Qt::Dialog);
-        q->showFullScreen();
-    }
+    QLiveWidget *d=static_cast<QLiveWidget*>(q);
+    Q_ASSERT(d);
+    d->video->fullVideoScreen();
 }
 
 QLiveWidget::QLiveWidget(QWidget *parent) :

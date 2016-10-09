@@ -29,16 +29,20 @@ public:
     explicit QVideoWidget(QWidget *parent = 0);
     virtual void setBackgroundColor(QColor color);
 signals:
-
+     void cocoSelected(QVideoWidget*);
 public slots:
 
-protected:
-    QColor bkcolor;
+
+public:
     /*record the mouse left button is pressed ?*/
     bool   isPressed;
 protected:
+    QColor bkcolor;
+protected:
     void paintEvent(QPaintEvent* event);
     void mousePressEvent(QMouseEvent* event);
+public:
+    void fullVideoScreen();
 };
 
 #endif // QVIDEOWIDGET_H

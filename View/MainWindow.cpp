@@ -2,11 +2,19 @@
 #include "QSystemSettingWidget.h"
 #include <QPropertyAnimation>
 
+
+
+/**************************************************/
+
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent), NumberOfLive(7)
 {
     leftVideo = new QDirWidget();
     rightVideo = new QDirWidget();
+
+    m_selDir.append(leftVideo->video);
+    m_selDir.append(rightVideo->video);
+
     ctrlwin = new QCtrlWindow();
     funwin = new QFunctionWidget();
     gridLayout = new QGridLayout();
@@ -22,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     for(int i=0;i<NumberOfLive;i++)
     {
         QLiveWidget *qlive = new QLiveWidget();
+        m_selLive.append(qlive->video);
+        connect(qlive->video,SIGNAL(cocoSelected(QVideoWidget*)),this,SLOT(TobeMutexLive(QVideoWidget*)));
         liveVideo_vec.append(qlive);
     }
 
@@ -138,6 +148,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_semiAuto,SIGNAL(clicked()),this,SLOT(showSemiAuto()));
     connect(m_man,SIGNAL(clicked()),this,SLOT(showHandle()));
 
+    connect(leftVideo->video,SIGNAL(cocoSelected(QVideoWidget*)),this,SLOT(TobeMutex(QVideoWidget*)));
+    connect(rightVideo->video,SIGNAL(cocoSelected(QVideoWidget*)),this,SLOT(TobeMutex(QVideoWidget*)));
+
 }
 
 MainWindow::~MainWindow()
@@ -221,4 +234,29 @@ void MainWindow::showSemiAuto()
 void MainWindow::showHandle()
 {
     QMessageBox::warning(0,"","TODO",0,0);
+}
+
+void MainWindow::TobeMutex(QVideoWidget* w)
+{
+
+   for(int i=0;i<m_selDir.size();i++)
+   {
+       if(m_selDir.at(i)!=w)
+       {
+           m_selDir.at(i)->isPressed=false;
+       }
+   }
+   // QMessageBox::warning(0,"","1212",0,0);
+    //m_selDir.updateState();
+}
+
+void MainWindow::TobeMutexLive(QVideoWidget *w)
+{
+    for(int i=0;i<m_selLive.size();i++)
+    {
+        if(m_selLive.at(i)!=w)
+        {
+            m_selLive.at(i)->isPressed=false;
+        }
+    }
 }
