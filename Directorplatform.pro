@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     Model/QButton.cpp \
     Model/QVideoWidget.cpp \
     View/QSystemSettingWidget.cpp \
-    View/QLuboSettingWidget.cpp
+    View/QLuboSettingWidget.cpp \
+    Model/TipDialog.cpp
 
 HEADERS  += \
     Model/QYoohooMainWindow.h \
@@ -42,7 +43,8 @@ HEADERS  += \
     Model/QButton.h \
     Model/QVideoWidget.h \
     View/QSystemSettingWidget.h \
-    View/QLuboSettingWidget.h
+    View/QLuboSettingWidget.h \
+    Model/TipDialog.h
 
 RESOURCES += \
     src.qrc

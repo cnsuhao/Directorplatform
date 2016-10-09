@@ -1,5 +1,5 @@
 #include "View/QDirWidget.h"
-
+#include <QTime>
 
 void onBtnFullScreen(QWidget* q)
 {
@@ -12,6 +12,7 @@ void onBtnFullScreen(QWidget* q)
 void onBtnRecord(QWidget* q)
 {
     QMessageBox::warning(q,"tip","record",0,0);
+
 }
 void onBtnPause(QWidget* q)
 {
@@ -69,7 +70,9 @@ QDirWidget::QDirWidget(QWidget *parent) :
     PMG_switch = new QComboBox();
     PMG_switch->setToolTip(tr("PMG"));
     PMG_switch->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
-    time_title = new QLabel("00:00:00",this);
+    calctime.setHMS(0,0,0);
+
+    time_title = new QLabel(calctime.toString("hh:mm:ss"),this);
     time_title->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
 
 
