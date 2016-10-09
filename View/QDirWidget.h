@@ -6,6 +6,7 @@
 #include "Model//QVideoWidget.h"
 #include "Model/QButton.h"
 #include <QTimer>
+#include <QTime>
 #include <QComboBox>
 /*
  * Director Widget */
@@ -40,6 +41,8 @@ private:
     QVBoxLayout  *videoLayout;
     QVBoxLayout  *Con;
     QColor        tool_color;
+    QTime         calctime;
+    QTimer        timercalc;
 
 protected:
     void paintEvent(QPaintEvent* event);

@@ -12,7 +12,7 @@ QBaseFun::QBaseFun(QWidget* parent):QWidget(parent)
    m_tab = new QTabWidget();
    m_con->addWidget(m_tab);
    m_tab->setStyleSheet("QTabWidget::pane{border: 1px solid rgb(136,179,213);}");
-   m_tab->setStyleSheet("QTabWidget::tab-bar{border:none;}");
+  // m_tab->setStyleSheet("QTabWidget::tab-bar{border:none;}");
    this->setLayout(m_con);
 //
   // AddPage(new QWidget(),"1");
