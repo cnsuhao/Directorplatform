@@ -3,16 +3,9 @@
 
 void onBtnFullScreen(QWidget* q)
 {
-    if(q->isFullScreen())
-    {
-        q->setWindowFlags(Qt::SubWindow);
-        q->showNormal();
-    }
-    else
-    {
-        q->setWindowFlags(Qt::Dialog);
-        q->showFullScreen();
-    }
+    QDirWidget *d=static_cast<QDirWidget*>(q);
+    Q_ASSERT(d);
+    d->video->fullVideoScreen();
 }
 
 
@@ -111,13 +104,9 @@ QDirWidget::QDirWidget(QWidget *parent) :
     stop_btn->click=onBtnStop;
     pause_btn->click=onBtnPause;
 
-
-    //
-   // this->setStyleSheet("QButton{ background-color: yellow}");
-   // QLoadSkin::setStyle(this,":/skin/dir1.qss");
+    //connect(full_btn,SIGNAL(clicked()),this,SLOT(onBtnFullScreen()));
 
 }
-
 
 
 QDirWidget::~QDirWidget()

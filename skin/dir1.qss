@@ -464,6 +464,3 @@ QButton#plus
      background-color: transparent;
 }
 
-QTabWidget::tab-bar {
-        border: none;
-}

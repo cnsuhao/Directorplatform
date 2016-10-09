@@ -10,6 +10,8 @@
 #include "QSystemSettingWidget.h"
 #include "QLuboSettingWidget.h"
 #include  <QVector>
+#include <QList>
+
 
 class MainWindow : public QWidget
 {
@@ -29,6 +31,9 @@ public:
 
 
 private:
+
+    QList<QVideoWidget*> m_selDir;
+    QList<QVideoWidget*> m_selLive;
     const int NumberOfLive;
     /*全局栅格布局*/
     QGridLayout *gridLayout;
@@ -62,6 +67,7 @@ private:
 
     QButtonGroup *m_modeGroup,*m_autoGroup;
 
+
 protected:
     void paintEvent(QPaintEvent* event);
 
@@ -83,6 +89,8 @@ public slots:
     //手动
     void showHandle();
 
+    void TobeMutex(QVideoWidget*);
+    void TobeMutexLive(QVideoWidget*);
 
 };
 
