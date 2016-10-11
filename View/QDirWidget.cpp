@@ -67,7 +67,7 @@ QDirWidget::QDirWidget(QWidget *parent) :
     stop_btn->setObjectName("dir_stop");
     stop_btn->setFixedSize(24,24);
     stop_btn->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
-    PMG_switch = new QComboBox();
+    PMG_switch = new QLabel("PMG");
     PMG_switch->setToolTip(tr("PMG"));
     PMG_switch->setSizePolicy(QSizePolicy::Minimum,QSizePolicy::Fixed);
     calctime.setHMS(0,0,0);

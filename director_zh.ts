@@ -2,6 +2,130 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="zh_CN">
 <context>
+    <name>AudioSetting</name>
+    <message>
+        <source>Channel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation type="unfinished">刷新频率</translation>
+    </message>
+    <message>
+        <source>Bit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AutoTrackSetting</name>
+    <message>
+        <source>Track Host</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Handle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Semi-Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SDI 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SDI 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SDI 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SDI 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SDI 5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SDI 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DVI-I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DVI-II</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CodingSetting</name>
+    <message>
+        <source>Resolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frame Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I-Frame Spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Main Coding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sub Coding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Movie Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Movie Mode 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FollowMachineSetting</name>
+    <message>
+        <source>IP</source>
+        <translation type="unfinished">IP地址</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>DirectorPlatform</source>
@@ -21,6 +145,76 @@
     </message>
     <message>
         <source>Double</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OneKeySetting</name>
+    <message>
+        <source>Movie Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Movie Mode2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>P-Stream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Director</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Res-Record</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One-Key Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QCtrlSetting</name>
+    <message>
+        <source>Serial Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One Key Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One Key Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One Key Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock VGA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Return Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retrun Key</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -111,6 +305,77 @@
     </message>
 </context>
 <context>
+    <name>QDiskMgr</name>
+    <message>
+        <source>Forced moving disk video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New hard disk default video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New mobile hard disk default video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New SkyDrive default video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Map network drive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shared settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After full</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>protocol</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dump</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QEffectFun</name>
     <message>
         <source>Split</source>
@@ -165,6 +430,17 @@
     </message>
 </context>
 <context>
+    <name>QLabel</name>
+    <message>
+        <source>123456789123456789123456789123456789123456789123456789123456789</source>
+        <translation type="obsolete">打碎打碎会断送短时 大花洒UI的挥洒但好似、\n\n\n昂U盾户撒核对的活塞的话说</translation>
+    </message>
+    <message>
+        <source>12345678912345678123456789123456789123456789123456789123456789</source>
+        <translation type="unfinished">打碎打碎会断送短时 大花洒UI的挥洒但好似昂U盾户撒核对的活塞的话说</translation>
+    </message>
+</context>
+<context>
     <name>QLiveWidget</name>
     <message>
         <source>full screen</source>
@@ -173,6 +449,72 @@
     <message>
         <source>setting</source>
         <translation type="unfinished">设置</translation>
+    </message>
+</context>
+<context>
+    <name>QLuboFun</name>
+    <message>
+        <source>index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OSD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>attach</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QLuboSettingWidget</name>
+    <message>
+        <source>One-key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished">音频</translation>
+    </message>
+    <message>
+        <source>Record</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TimerRecord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RTMP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AutoTrack</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow-M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lubo Setting</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -428,6 +770,21 @@
     <message>
         <source>maxsize</source>
         <translation type="unfinished">最大化</translation>
+    </message>
+</context>
+<context>
+    <name>TipDialog</name>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished">确认</translation>
+    </message>
+    <message>
+        <source>Cannel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished">退出</translation>
     </message>
 </context>
 </TS>

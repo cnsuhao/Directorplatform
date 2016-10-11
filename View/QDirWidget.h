@@ -32,7 +32,7 @@ public:
     QButton  *pause_btn;
     QButton  *stop_btn;
 
-    QComboBox    *PMG_switch;
+    QLabel    *PMG_switch;
     QLabel       *time_title;
 
     void setToolBarBackColor(QColor color);

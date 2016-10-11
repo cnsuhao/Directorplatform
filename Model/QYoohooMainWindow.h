@@ -41,6 +41,7 @@ public:
     void setTitleToYoohoo(const QString &title);
 public slots:
     void onmaxsize();
+    void onclose();
 private:
 
     bool onLeft;

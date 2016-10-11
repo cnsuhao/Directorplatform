@@ -7,6 +7,7 @@
 #include <QDir>
 #include "PlatformConfig.h"
 #include <QTextStream>
+#include <Model/TipDialog.h>
 
 QSettingWidget::QSettingWidget(QWidget *parent) :
     QWidget(parent),canMove(false)
@@ -730,7 +731,14 @@ QSystemInfo::~QSystemInfo()
 
 void QSystemInfo::recovery()
 {
-    QMessageBox::warning(0,"","TODO",0,0);
+    TipDialog tip(TipDialog::OK|TipDialog::Cannel);
+    tip.setTipTitle(tr("waring"));
+    tip.setTipInfoText(tr("Are you sure restore the factory settings, restore the factory settings your personal configuration will be deleted"));
+    if(TipDialog::OK==tip.showDialog())
+    {
+
+    }
+   // QMessageBox::warning(0,"","TODO",0,0);
 }
 
 void QSystemInfo::upgrade()
