@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT       += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Directorplatform
@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     Model/QVideoWidget.cpp \
     View/QSystemSettingWidget.cpp \
     View/QLuboSettingWidget.cpp \
-    Model/TipDialog.cpp
+    Model/TipDialog.cpp \
+    Model/MutiSocket.cpp
 
 HEADERS  += \
     Model/QYoohooMainWindow.h \
@@ -44,7 +45,8 @@ HEADERS  += \
     Model/QVideoWidget.h \
     View/QSystemSettingWidget.h \
     View/QLuboSettingWidget.h \
-    Model/TipDialog.h
+    Model/TipDialog.h \
+    Model/MutiSocket.h
 
 RESOURCES += \
     src.qrc

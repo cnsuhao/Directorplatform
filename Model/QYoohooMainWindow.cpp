@@ -9,7 +9,7 @@
 #include <QPainter>
 #include <QBitmap>
 #include "Model/TipDialog.h"
-
+#include "View/PlatformConfig.h"
 
 #define log(...)                      printf(__VA_ARGS__);
 
@@ -148,28 +148,35 @@ void QYoohooMainWindow::mouseMove(QMouseEvent *e)
         if(onLeft)
         {
             r.setLeft(e->globalPos().x());
+            if(e->globalPos().x()+this->geometry().width()>=SCREEN_WIDTH)
+                return;
             setGeometry(r);
+            return;
         }
         else if(onRight)
         {
             r.setRight(e->globalPos().x());
             setGeometry(r);
+             return;
         }
         else if(onBottom)
         {
             r.setBottom(e->globalPos().y());
             setGeometry(r);
+             return;
         }
         else if(onLeftBottom)
         {
             r.setBottomLeft(e->globalPos());
             setGeometry(r);
+             return;
 
         }
         else if(onRightBottom)
         {
            r.setBottomRight(e->globalPos());
            setGeometry(r);
+            return;
         }
 
 
@@ -183,14 +190,14 @@ void QYoohooMainWindow::mouseMove(QMouseEvent *e)
  */
 void QYoohooMainWindow::mouseHoverEnter(QHoverEvent *e)
 {
-    if((e->pos().x()<=borderWidth||e->pos().x()>=rect().width()-borderWidth)&&e->pos().y()>titieHeight&&e->pos().y()<rect().height()-10)
+    if(e->pos().x()<=borderWidth&&e->pos().y()>30&&e->pos().y()<rect().height()-10)
     {
         setCursor(Qt::SizeHorCursor);
         onLeft =true;onRight=false;onLeftBottom=false;onRightBottom=false;
     }
-    else if(e->pos().y()>=rect().height()-10&& e->pos().x()>borderWidth&&e->pos().x()<rect().width()-10)
+    else if(e->pos().y()<=rect().height()-10&&e->pos().x()>rect().width()-10&&e->pos().y()>30)
     {
-         setCursor(Qt::SizeVerCursor);
+         setCursor(Qt::SizeHorCursor);
          onLeft =false;onRight=true;onLeftBottom=false;onRightBottom=false;
     }
     else if(e->pos().x()<borderWidth &&e->pos().y()>rect().height()-10)

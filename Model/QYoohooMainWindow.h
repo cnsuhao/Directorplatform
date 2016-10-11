@@ -78,6 +78,7 @@ private:
     void mouseLeave(QMouseEvent* e);
     void paintEvent(QPaintEvent* e);
     void PaintBtn(QObject* obj);
+    int miniWidth;
 
 protected:
      QString m_title;
