@@ -2,13 +2,17 @@
 #include <QPainter>
 #include <QDate>
 #include <QDateTime>
-
+#include <Model/TipDialog.h>
 
 // friend function to do event
 
 void onBtn_up_up(QWidget *q)
 {
-    // TODO
+    TipDialog t(TipDialog::OK|TipDialog::Cannel);
+    t.setTipTitle("hahha");
+    //t.setTipInfoText(QLabel::tr("12345678912345678123456789123456789123456789123456789123456789"));
+    t.loadMovie(":/skin/load.gif");
+    t.showDialog();
 }
 void onBtn_up_down(QWidget *q)
 {

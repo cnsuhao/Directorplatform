@@ -236,7 +236,7 @@ QButton#live_full:hover{
 
 
 QGraphicsView#logo{
-      background-image: url(:/skin/logo)
+      background-image: url(:/skin/logo);
 }
 
 /*预置位*/

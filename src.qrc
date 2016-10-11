@@ -36,5 +36,6 @@
         <file>skin/sysSetting.png</file>
         <file>skin/minus.png</file>
         <file>skin/plus.png</file>
+        <file>skin/load.gif</file>
     </qresource>
 </RCC>

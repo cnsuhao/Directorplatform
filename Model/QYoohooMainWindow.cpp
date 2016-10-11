@@ -8,6 +8,9 @@
 #include <QApplication>
 #include <QPainter>
 #include <QBitmap>
+#include "Model/TipDialog.h"
+
+
 #define log(...)                      printf(__VA_ARGS__);
 
 QYoohooMainWindow::QYoohooMainWindow(QWidget *parent) :
@@ -44,7 +47,7 @@ QYoohooMainWindow::QYoohooMainWindow(QWidget *parent) :
     max_btn->setToolTip(tr("maxsize"));
     max_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(50,205,50);}");
 
-    connect(close_btn,SIGNAL(clicked()),this,SLOT(close()));
+    connect(close_btn,SIGNAL(clicked()),this,SLOT(onclose()));
     connect(mini_btn,SIGNAL(clicked()),this,SLOT(showMinimized()));
     connect(max_btn,SIGNAL(clicked()),this,SLOT(onmaxsize()));
     m_titleLayout->setSpacing(1);
@@ -93,6 +96,16 @@ void QYoohooMainWindow::onmaxsize()
 
 }
 
+void QYoohooMainWindow::onclose()
+{
+    TipDialog tip(TipDialog::OK|TipDialog::Cannel);
+    tip.setTipTitle(tr("waring"));
+    tip.setTipInfoText(tr("do you want to quit?"));
+    if(TipDialog::OK==tip.showDialog())
+    {
+        close();
+    }
+}
 
 void QYoohooMainWindow::mousePress(QMouseEvent *e)
 {

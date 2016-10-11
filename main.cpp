@@ -15,7 +15,7 @@
 
 
 #include "View/QSystemSettingWidget.h"
-
+#include "Model/TipDialog.h"
 
 /*
  * cross platform*/
@@ -150,8 +150,6 @@ int main(int argc, char *argv[])
     w.resize(800,760);
     w.show();
 
-//    QSystemSettingWidget w;
-//    w.show();
 
     return app.exec();
 
