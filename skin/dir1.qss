@@ -464,3 +464,9 @@ QButton#plus
      background-color: transparent;
 }
 
+
+
+QPushButton#Tip_ok:hover{
+    border-radius:3px;
+    background:rgb(255,0,32);
+}
