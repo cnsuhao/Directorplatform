@@ -17,6 +17,10 @@
 #include "View/QSystemSettingWidget.h"
 #include "Model/TipDialog.h"
 
+#include "Model/MutiSocket.h"
+
+
+
 /*
  * cross platform*/
 
@@ -149,6 +153,7 @@ int main(int argc, char *argv[])
     w.setGeometry(100,100,w.geometry().width(),w.geometry().height());
     w.resize(800,760);
     w.show();
+
 
 
     return app.exec();

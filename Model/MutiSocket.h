@@ -1,92 +1,89 @@
-//#ifndef MUTISOCKET_H
-//#define MUTISOCKET_H
+#ifndef MUTISOCKET_H
+#define MUTISOCKET_H
 
-//#include <QObject>
-//#include <QUdpSocket>
-//#include <QTcpServer>
-//#include <QHostAddress>
-
-///**********************************************************
-// *                      MutiSocket
-// *
-// *  1,TCP/UDP可选
-// *  2,相同发送和接受消息接口
-// *  3,相同的配置接口
-// *
-// *
-// *
-// *
-// *
-// *
-// *
-// **********************************************************/
+#include <QObject>
+#include <QUdpSocket>
+#include <QTcpServer>
+#include <QHostAddress>
 
 
 
 
-//class MutiSocket : public QObject
-//{
-//    Q_OBJECT
-//public:
-//    enum Code{NOERROR=0x0,CREATEERROR=0x1};
-//    MutiSocket(QObject *parent = 0);
-//    MutiSocket(quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
-//    virtual ~MutiSocket();
-//    virtual bool sendMsg(const QVariant& var)=0;
-//    virtual void setTimeout(const qint32 time)=0;
-//    virtual bool recvMsg(QByteArray msg)=0;
-//    virtual void setPort(quint16 port);
-//    virtual void setAddress(QHostAddress &address);
-//protected:
-//    QHostAddress       m_address;
-//    quint16            m_port;
-//    int                m_code;
-//signals:
-//    void createError(int);
-//public slots:
-//    virtual void recvData()=0;
-
-//};
 
 
+class MutiSocket : public QObject
+{
+    Q_OBJECT
+public:
+    enum Code{NOERROR=0x0,CREATEERROR=0x1};
+    MutiSocket(quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
+    MutiSocket(quint32 timeout,quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
+    virtual ~MutiSocket();
+protected:
+    QHostAddress       m_address;
+    quint16            m_port;
+    quint32            m_time;
+    int                m_code;
+    QByteArray         m_data;
+signals:
+    void displayError(QString);
+    void disconnectedToSocket();
+public:
+    virtual void sendMsg(QByteArray msg)=0;
+    virtual QByteArray recvMsg()=0;
+    virtual void breakConnect()=0;
 
-////class TCPSocket : public MutiSocket
-////{
-////public:
-////    TCPSocket(QObject *parent=0);
-////    ~TCPSocket();
-////signals:
-////public:
-////    bool sendMsg(const QVariant &var);
-////    void setTimeout(const qint32 time);
-////    bool recvMsg(char *msg, qint32 length);
-////public slots:
-////    void readyRead();
-////private:
-////    QTcpSocket   *socket;
-////};
-
-
-//class UDPSocket :public MutiSocket
-//{
-//public:
-//    UDPSocket(QObject *parent=0);
-//    UDPSocket(quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
-//    ~UDPSocket();
-//signals:
-//public:
-//    bool sendMsg(const QVariant &var);
-//    void setTimeout(const qint32 time);
-//    bool recvMsg(QByteArray  msg);
-//public slots:
-//    void recvData();
-//private:
-//    QUdpSocket    *socket;
-//    void init();
-
-//};
+};
 
 
 
+class TCPSocket : public MutiSocket
+{
+     Q_OBJECT
+public:
+    TCPSocket(quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
+    TCPSocket(quint32 timeout,quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
+    ~TCPSocket();
+signals:
+public:
+    void sendMsg(QByteArray msg);
+    QByteArray recvMsg();
+    void breakConnect();
+protected slots:
+    void someerror();
+    void dis();
+private:
+    QTcpSocket   *m_socket;
+    void initSocket();
+};
 
-//#endif // MUTISOCKET_H
+
+class UDPSocket :public MutiSocket
+{
+    Q_OBJECT
+public:
+    UDPSocket(quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
+    UDPSocket(quint16 port,quint16 recvPort,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
+    ~UDPSocket();
+signals:
+public:
+    void sendMsg(QByteArray msg);
+    QByteArray recvMsg();
+    void breakConnect();
+public slots:
+    void someerror();
+    void someerror1();
+    void dis();
+    void recv();
+private:
+    QUdpSocket    *m_socket;//send
+    QUdpSocket    *m_bindsocket;//recv
+    quint16       m_recvport;
+    void initSocket();
+
+};
+
+
+
+
+#endif // MUTISOCKET_H
