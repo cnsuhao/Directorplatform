@@ -15,7 +15,6 @@ class MutiSocket : public QObject
 {
     Q_OBJECT
 public:
-    enum Code{NOERROR=0x0,CREATEERROR=0x1};
     MutiSocket(quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
     MutiSocket(quint32 timeout,quint16 port,QHostAddress address=QHostAddress::LocalHost,QObject *parent=0);
     virtual ~MutiSocket();
@@ -23,15 +22,24 @@ protected:
     QHostAddress       m_address;
     quint16            m_port;
     quint32            m_time;
-    int                m_code;
     QByteArray         m_data;
 signals:
     void displayError(QString);
     void disconnectedToSocket();
+    void waitforRead();
 public:
     virtual void sendMsg(QByteArray msg)=0;
-    virtual QByteArray recvMsg()=0;
+   // virtual QByteArray recvMsg()=0;
     virtual void breakConnect()=0;
+
+    virtual qint64 getMsgLength()=0;
+    virtual qint64 read(char* data,qint64 maxlen)=0;
+    virtual QByteArray read(qint64 maxlen)=0;
+    virtual QByteArray readAll()=0;
+    virtual qint64 readData(char* data,qint64 maxlen)=0;// BEST For UDP
+    virtual qint64 readLine(char*data,qint64 maxlen)=0;
+    virtual bool  peedToRead()=0;
+
 
 };
 
@@ -47,11 +55,20 @@ public:
 signals:
 public:
     void sendMsg(QByteArray msg);
-    QByteArray recvMsg();
+    //QByteArray recvMsg();
     void breakConnect();
+
+    qint64 getMsgLength();
+    qint64 read(char* data,qint64 maxlen);
+    QByteArray read(qint64 maxlen);
+    QByteArray readAll();
+    qint64 readData(char* data,qint64 maxlen);
+    qint64 readLine(char*data,qint64 maxlen);
+    bool   peedToRead();
 protected slots:
     void someerror();
     void dis();
+    void recv();
 private:
     QTcpSocket   *m_socket;
     void initSocket();
@@ -68,8 +85,16 @@ public:
 signals:
 public:
     void sendMsg(QByteArray msg);
-    QByteArray recvMsg();
+   // QByteArray recvMsg();
     void breakConnect();
+
+    qint64 getMsgLength();
+    qint64 read(char* data,qint64 maxlen);
+    QByteArray read(qint64 maxlen);
+    QByteArray readAll();
+    qint64 readData(char* data,qint64 maxlen);
+    qint64 readLine(char*data,qint64 maxlen);
+    bool peedToRead();
 public slots:
     void someerror();
     void someerror1();

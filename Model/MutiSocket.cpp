@@ -44,10 +44,9 @@ void TCPSocket::sendMsg(QByteArray msg)
 {
     m_socket->write(msg);
 }
-QByteArray TCPSocket::recvMsg()
+void TCPSocket::recv()
 {
-    m_data = m_socket->readAll();
-    return m_data;
+   emit waitforRead();
 }
 void TCPSocket::breakConnect()
 {
@@ -69,11 +68,43 @@ void TCPSocket::initSocket()
     connect(m_socket,SIGNAL(disconnected()),this,SLOT(dis()));
     connect(m_socket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(someerror()));
     m_socket->connectToHost(m_address,m_port);
+    connect(m_socket,SIGNAL(readyRead()),this,SLOT(recv));
 }
 
+qint64 TCPSocket::getMsgLength()
+{
+    return m_socket->readBufferSize();
+}
 
+qint64 TCPSocket::read(char *data, qint64 maxlen)
+{
+    return m_socket->read(data,maxlen);
+}
 
+QByteArray TCPSocket::read(qint64 maxlen)
+{
+    return m_socket->read(maxlen);
+}
 
+QByteArray TCPSocket::readAll()
+{
+    return m_socket->readAll();
+}
+
+qint64 TCPSocket::readData(char *data, qint64 maxlen)
+{
+    return m_socket->read(data,maxlen);
+}
+
+qint64 TCPSocket::readLine(char *data, qint64 maxlen)
+{
+    return m_socket->readLine(data,maxlen);
+}
+
+bool TCPSocket::peedToRead()
+{
+    return true;
+}
 /************************************************************************************************/
 
 
@@ -114,9 +145,9 @@ void UDPSocket::sendMsg(QByteArray msg)
     m_socket->write(msg);
 }
 
-QByteArray UDPSocket::recvMsg()
+void UDPSocket::recv()
 {
-    return m_data;
+   emit waitforRead();
 }
 
 void UDPSocket::breakConnect()
@@ -143,12 +174,38 @@ void UDPSocket::dis()
     emit disconnectedToSocket();
 }
 
-void UDPSocket::recv()
-{
-    while(m_bindsocket->hasPendingDatagrams())
-    {
-        m_data.resize(m_bindsocket->pendingDatagramSize());
 
-        m_bindsocket->readDatagram(m_data.data(),m_data.length());
-    }
+qint64 UDPSocket::getMsgLength()
+{
+    return m_bindsocket->pendingDatagramSize();
+}
+
+qint64 UDPSocket::read(char *data, qint64 maxlen)
+{
+    return m_bindsocket->read(data,maxlen);
+}
+
+QByteArray UDPSocket::read(qint64 maxlen)
+{
+    return m_bindsocket->read(maxlen);
+}
+
+QByteArray UDPSocket::readAll()
+{
+    return m_bindsocket->readAll();
+}
+
+qint64 UDPSocket::readData(char *data, qint64 maxlen)
+{
+    return m_bindsocket->readDatagram(data,maxlen);
+}
+
+qint64 UDPSocket::readLine(char *data, qint64 maxlen)
+{
+    return m_bindsocket->readLine(data,maxlen);
+}
+
+bool UDPSocket::peedToRead()
+{
+    return m_bindsocket->hasPendingDatagrams();
 }

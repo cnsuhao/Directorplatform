@@ -32,10 +32,12 @@ TipDialog::TipDialog(QDialog *parent) :
     m_title->setStyleSheet("QLabel{color:rgb(205,102,29);}");
     m_btnOK->setStyleSheet("QPushButton{border-radius:3px;background:rgb(50,205,50);}");
     m_btnOK->setFixedHeight(25);
+    m_btnOK->setObjectName("Tip_OK");
     m_btnCannel->setStyleSheet("QPushButton{border-radius:3px;background:rgb(218,165,32);}");
     m_btnCannel->setFixedHeight(25);
     m_btnExit->setStyleSheet("QPushButton{border-radius:3px;background:rgb(227,89,42);}");
     m_btnExit->setFixedHeight(25);
+
     //
     connect(m_btnOK,SIGNAL(clicked()),this,SLOT(clickedOK()));
     connect(m_btnCannel,SIGNAL(clicked()),this,SLOT(clickedCannel()));
