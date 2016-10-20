@@ -23,6 +23,9 @@
 #include <QDateEdit>
 #include <QTimeEdit>
 #include <QTableWidget>
+#include <QShortcut>
+#include <QPainter>
+#include <QMessageBox>
 
 /********************************************
  * QSystemSettingWidget class
@@ -31,6 +34,18 @@
  *  use to make system setting page
  *
  *******************************************/
+
+// designed for ok cannel apply
+
+#define     SYS_SETTING_OK         "QPushButton{border-radius:3px;background:rgb(55,55,55);} QPushButton:hover{border-radius:3px;background:rgb(55,55,55,150);}"
+#define     SYS_SETTING_APPLY      SYS_SETTING_OK
+#define     SYS_SETTING_CANNEL     SYS_SETTING_OK
+
+
+
+
+
+
 
 
 
@@ -75,10 +90,21 @@ public slots:
     virtual void clicked_OK();
     virtual void clicked_Apply();
     virtual void clicked_Cannel();
+
 protected:
     virtual void paintEvent(QPaintEvent* event);
 };
 
+
+class IDrawBackground : protected QWidget
+{
+public:
+     virtual void paintEvent(QPaintEvent *event)
+     {
+         QPainter p(this);
+         p.fillRect(rect(),QColor(48,48,48));
+     }
+};
 
 
 /**********************************SUB_PAGE******************************/
@@ -158,6 +184,17 @@ private:
 class QNetConfig : public QWidget
 {
     Q_OBJECT
+    Q_PROPERTY(QString mainIP READ getMainIP WRITE setMainIP)
+    Q_PROPERTY(QString subIP READ getSubIP WRITE setSubIP )
+    Q_PROPERTY(QString mainMask READ getMainMask WRITE setMainMask )
+    Q_PROPERTY(QString subMask READ getSubMask WRITE setSubMask )
+    Q_PROPERTY(QString mainGate READ getMainGate WRITE setMainGate )
+    Q_PROPERTY(QString subGate READ getSubGate WRITE setSubGate )
+    Q_PROPERTY(QString mainDNS READ getMainDNS WRITE setMainDNS )
+    Q_PROPERTY(QString subDNS READ getSubDNS WRITE setSubDNS)
+    Q_PROPERTY(QString mainMAC READ getMainMAC WRITE setMainMAC )
+    Q_PROPERTY(QString subMAC READ getSubMAC WRITE setSubMAC )
+
 public:
     explicit QNetConfig(QWidget *parent = 0);
     ~QNetConfig();
@@ -167,6 +204,8 @@ public slots:
      void mainCheckChange(int );
      void subCheckChange(int);
      void ReturnKey();
+
+     void mainIPChange(QString ipTxt);
 
 public:
     QCheckBox         *m_mainDHCP,*m_subDHCP;
@@ -184,6 +223,40 @@ private:
      void setMainEnabled(bool);
      void setSubEnabled(bool);
 
+
+public:
+
+     // property:
+     QString getMainIP()const;
+     void setMainIP(const QString &str);
+
+     QString getSubIP() const;
+     void setSubIP(const QString &str);
+
+     QString getMainMask() const;
+     void setMainMask(const QString &str);
+
+     QString getSubMask() const;
+     void setSubMask(const QString &str);
+
+     QString getMainGate() const;
+     void setMainGate(const QString &str);
+
+     QString getSubGate() const;
+     void setSubGate(const QString &str);
+
+     QString getMainDNS() const;
+     void setMainDNS(const QString &str);
+
+     QString getSubDNS() const;
+     void setSubDNS(const QString &str);
+
+     QString getMainMAC() const;
+     void setMainMAC(const QString &str);
+
+     QString getSubMAC() const;
+     void setSubMAC(const QString &str);
+
 };
 
 /**
@@ -191,6 +264,30 @@ private:
  *
  * 网络测试
  */
+
+
+class PlainTextYoo :public QPlainTextEdit
+{
+    Q_OBJECT
+public:
+    explicit PlainTextYoo()
+    {
+
+    }
+    void keyPressEvent(QKeyEvent *e)
+    {
+        if((e->modifiers()==Qt::ControlModifier)&&(e->key()==Qt::Key_C))
+        {
+           // QMessageBox::information(0,"","Ctrl-C",0,0);
+            emit Ctrl_C();
+        }
+        else return QPlainTextEdit::keyPressEvent(e);
+    }
+ signals:
+    void Ctrl_C();
+};
+
+
 class QNetTest : public QWidget
 {
     Q_OBJECT
@@ -203,12 +300,16 @@ public slots:
     void returnKey();
     void showStdOutInfo();
 
+    void exit_proc();
+
 public:
     QLineEdit*          m_commandLine;
-    QPlainTextEdit*     m_commandInfo;
+    PlainTextYoo*       m_commandInfo;
 private:
     QVBoxLayout*        m_con;
+    QHBoxLayout*        m_lay;
     QProcess*           m_proc;
+    QPushButton*        m_executeBtn;
 
 };
 

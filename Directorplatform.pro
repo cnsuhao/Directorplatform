@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+
 QT       += core gui
 QT       += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -31,7 +32,8 @@ SOURCES += main.cpp\
     View/QSystemSettingWidget.cpp \
     View/QLuboSettingWidget.cpp \
     Model/TipDialog.cpp \
-    Model/MutiSocket.cpp
+    Model/MutiSocket.cpp \
+    Model/ConfigFile.cpp
 
 HEADERS  += \
     Model/QYoohooMainWindow.h \
@@ -46,7 +48,8 @@ HEADERS  += \
     View/QSystemSettingWidget.h \
     View/QLuboSettingWidget.h \
     Model/TipDialog.h \
-    Model/MutiSocket.h
+    Model/MutiSocket.h \
+    Model/ConfigFile.h
 
 RESOURCES += \
     src.qrc

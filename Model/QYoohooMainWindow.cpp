@@ -36,16 +36,16 @@ QYoohooMainWindow::QYoohooMainWindow(QWidget *parent) :
 
     close_btn = new QPushButton(this);
     close_btn->setFixedSize(20,20);
-    close_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(227,89,42);}");
+    close_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(227,89,42,200);} QPushButton:hover{border-radius:10px;background:rgb(227,89,42,255);}");
     close_btn->setToolTip(tr("close"));
     mini_btn = new QPushButton(this);
     mini_btn->setFixedSize(20,20);
     mini_btn->setToolTip(tr("minisize"));
-    mini_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(218,165,32);}");
+    mini_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(218,165,32,200);} QPushButton:hover{border-radius:10px;background:rgb(218,165,32);}");
     max_btn = new QPushButton(this);
     max_btn->setFixedSize(20,20);
     max_btn->setToolTip(tr("maxsize"));
-    max_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(50,205,50);}");
+    max_btn->setStyleSheet("QPushButton{border-radius:10px;background:rgb(50,205,50,200);} QPushButton:hover{border-radius:10px;background:rgb(50,205,50);}");
 
     connect(close_btn,SIGNAL(clicked()),this,SLOT(onclose()));
     connect(mini_btn,SIGNAL(clicked()),this,SLOT(showMinimized()));

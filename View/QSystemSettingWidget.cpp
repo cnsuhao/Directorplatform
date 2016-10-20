@@ -25,8 +25,14 @@ QSettingWidget::QSettingWidget(QWidget *parent) :
     emptyLab = new QLabel();
 
     m_okBtn = new QPushButton(tr("Ok"));
+    m_okBtn->setFixedSize(32,20);
+    m_okBtn->setStyleSheet(SYS_SETTING_OK);
     m_applyBtn = new QPushButton(tr("Apply"));
+    m_applyBtn->setFixedSize(32,20);
+    m_applyBtn->setStyleSheet(SYS_SETTING_APPLY);
     m_cannelBtn = new QPushButton(tr("Cannel"));
+    m_cannelBtn->setFixedSize(32,20);
+    m_cannelBtn->setStyleSheet(SYS_SETTING_CANNEL);
 
     m_titleLay->addWidget(m_labTitle,2,Qt::AlignTop|Qt::AlignHCenter);
     m_dlgLay->addWidget(emptyLab,10);
@@ -133,8 +139,9 @@ void QSettingWidget::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QRect rectTitle=rect();
     rectTitle.setHeight(30);
+
+   // painter.fillRect(rect(),QColor(48,48,48));
     painter.fillRect(rectTitle,QColor(75,73,67));
-   // painter.fillRect(rectTitle,QColor(228,92,45));
     QPainterPath path;
     path.addRoundRect(rect(),2,2);
     QPolygon polygon= path.toFillPolygon().toPolygon();
@@ -280,26 +287,35 @@ QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
 
    m_mainDHCP = new QCheckBox((tr("DHCP")));
    m_mainIP = new QLineEdit();
-   //m_mainIP->setInputMask("000.000.000.000;");
+   m_mainIP->setStyleSheet("QLineEdit::text{align:center;}");
+   connect(m_mainIP,SIGNAL(textChanged(QString)),this,SLOT(mainIPChange(QString)));
+   m_mainIP->setInputMask("000.000.000.000;");
    QRegExp regexp("^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$");
    QRegExpValidator *vareg= new QRegExpValidator(regexp,this);
   // m_mainIP->setValidator(vareg);
    m_mainMask = new QLineEdit();
-   m_mainMask->setValidator(vareg);
+   m_mainMask->setInputMask("000.000.000.000;");
+  // m_mainMask->setValidator(vareg);
    m_mainGateway = new QLineEdit();
-   m_mainGateway->setValidator(vareg);
+   m_mainGateway->setInputMask("000.000.000.000;");
+  // m_mainGateway->setValidator(vareg);
    m_mainDNS = new QLineEdit();
-   m_mainDNS->setValidator(vareg);
+   m_mainDNS->setInputMask("000.000.000.000;");
    m_mainDNS->setPlaceholderText("8.8.8.8");
    m_mainMAC = new QLineEdit();
    m_mainMAC->setInputMask(">HH:HH:HH:HH:HH:HH;");
 
    m_subDHCP = new QCheckBox(tr("DHCP"));
    m_subIP = new QLineEdit();
+   m_subIP->setInputMask("000.000.000.000;");
    m_sub_Mask = new QLineEdit();
+   m_sub_Mask->setInputMask("000.000.000.000;");
    m_subGateway = new QLineEdit();
+   m_subGateway->setInputMask("000.000.000.000;");
    m_subDNS = new QLineEdit();
+   m_subDNS->setInputMask("000.000.000.000;");
    m_subMAC = new QLineEdit();
+   m_subMAC->setInputMask(">HH:HH:HH:HH:HH:HH");
 
    m_mainLayout->addRow(m_mainDHCP,new QLabel());
    m_mainLayout->addRow(tr("IP"),m_mainIP);
@@ -331,10 +347,6 @@ QNetConfig::QNetConfig(QWidget* parent):QWidget(parent)
 
    connect(m_mainIP,SIGNAL(returnPressed()),this,SLOT(ReturnKey()));
 
-
-}
-QNetConfig::~QNetConfig()
-{
 
 }
 
@@ -371,6 +383,20 @@ void QNetConfig::subCheckChange(int state)
         break;
     }
 }
+QNetConfig::~QNetConfig()
+{
+   QObjectList list = children();
+   foreach (QObject *var, list)
+   {
+     if(var)
+     {
+         delete var;
+         var =NULL;
+     }
+   }
+   qDebug("QNetConfig children has been release\n");
+}
+
 void QNetConfig::setMainEnabled(bool ienabled)
 {
     m_mainIP->setEnabled(ienabled);
@@ -401,7 +427,101 @@ void QNetConfig::ReturnKey()
 
 }
 
+void QNetConfig::mainIPChange(QString ipTxt)
+{
+    //QMessageBox::information(0,"",ipTxt,0,0);
+}
 
+QString QNetConfig::getMainIP()const
+{
+    return m_mainIP->text();
+}
+
+void QNetConfig::setMainIP(const QString &str)
+{
+    m_mainIP->setText(str);
+}
+
+QString QNetConfig::getSubIP() const
+{
+    return m_subIP->text();
+}
+void QNetConfig::setSubIP(const QString &str)
+{
+    m_subIP->setText(str);
+}
+
+QString QNetConfig::getMainMask() const
+{
+    return m_mainMask->text();
+}
+void QNetConfig::setMainMask(const QString &str)
+{
+    m_mainMask->setText(str);
+}
+
+QString QNetConfig::getSubMask()const
+{
+    return m_sub_Mask->text();
+}
+void QNetConfig::setSubMask(const QString &str)
+{
+    m_sub_Mask->setText(str);
+}
+QString QNetConfig::getMainGate()const
+{
+    return m_mainGateway->text();
+}
+void QNetConfig::setMainGate(const QString &str)
+{
+    m_mainGateway->setText(str);
+}
+QString QNetConfig::getSubGate()const
+{
+    return m_subGateway->text();
+}
+void QNetConfig::setSubGate(const QString &str)
+{
+    m_subGateway->setText(str);
+}
+
+QString QNetConfig::getMainDNS()const
+{
+    return m_mainDNS->text();
+}
+void QNetConfig::setMainDNS(const QString &str)
+{
+    m_mainDNS->setText(str);
+}
+
+QString QNetConfig::getSubDNS()const
+{
+    return m_subDNS->text();
+}
+void QNetConfig::setSubDNS(const QString &str)
+{
+    m_subDNS->setText(str);
+}
+
+QString QNetConfig::getMainMAC() const
+{
+    return m_mainMAC->text();
+}
+void QNetConfig::setMainMAC(const QString &str)
+{
+    m_mainMask->setText(str);
+}
+
+QString QNetConfig::getSubMAC() const
+{
+    return m_subMAC->text();
+}
+
+void QNetConfig::setSubMAC(const QString &str)
+{
+    m_subMAC->setText(str);
+}
+/********************************************************/
 //网络测试
 
 QNetTest::QNetTest(QWidget* parent):QWidget(parent)
@@ -410,10 +530,18 @@ QNetTest::QNetTest(QWidget* parent):QWidget(parent)
     m_proc = new QProcess(this);
     m_commandLine = new QLineEdit();
     m_commandLine->setFixedWidth(300);
-    m_commandInfo = new QPlainTextEdit();
+    m_commandInfo = new PlainTextYoo();
     m_commandLine->setPlaceholderText(tr("input command"));
-
-    m_con->addWidget(m_commandLine,0,Qt::AlignCenter);
+    m_lay= new QHBoxLayout();
+    m_executeBtn = new QPushButton(tr("Execute"));
+    m_executeBtn->setFixedWidth(50);
+    m_lay->addStretch(1);
+    m_lay->addWidget(m_commandLine,0,Qt::AlignCenter);
+    m_lay->addWidget(m_executeBtn,0,Qt::AlignLeft);
+    m_lay->addStretch(1);
+    m_con->addLayout(m_lay);
+    //m_con->addWidget(m_commandLine,0,Qt::AlignCenter);
+    //m_con->addWidget(m_executeBtn);
     m_con->addWidget(m_commandInfo);
     this->setLayout(m_con);
 
@@ -422,16 +550,33 @@ QNetTest::QNetTest(QWidget* parent):QWidget(parent)
     connect(m_commandLine,SIGNAL(returnPressed()),this,SLOT(returnKey()));
     connect(m_proc,SIGNAL(readyReadStandardOutput()),this,SLOT(showStdOutInfo()));
 
+    connect(m_commandInfo,SIGNAL(Ctrl_C()),this,SLOT(exit_proc()));
+    connect(m_executeBtn,SIGNAL(clicked()),this,SLOT(returnKey()));
+
+
+}
+
+void QNetTest::exit_proc()
+{
+    if(m_proc->isOpen())
+     {
+       m_proc->close();
+       m_commandInfo->appendHtml("<font color=red>you press CTRL-C,the command broken</font>");
+       m_commandInfo->appendHtml("<font color=black> </font>");
+     }
 
 }
 
 QNetTest::~QNetTest()
 {
+    if(m_proc->isOpen())
+    m_proc->close();
 
 }
 void QNetTest::returnKey()
 {
     m_commandInfo->clear();
+    if(m_proc->isOpen())
     m_proc->close();
     m_proc->start(m_commandLine->text());
     m_proc->waitForReadyRead();
