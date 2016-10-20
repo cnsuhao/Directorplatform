@@ -339,6 +339,31 @@ private:
     QHBoxLayout           *m_con;
     QFormLayout           *m_form_1,*m_form_2;
 
+public:
+    void setMianLight(int value);
+    int getMainLight()const;
+
+    void setMainBalance(int value);
+    int getMainBalance()const;
+
+    void setMainShade(int value);
+    int getMainShade()const;
+
+    void setMainFill(int value);
+    int getMainFill()const;
+
+    void setSubLight(int value);
+    int getSubLight()const;
+
+    void setSubBalance(int value);
+    int getSubBalance()const;
+
+    void setSubShade(int value);
+    int getSubShade()const;
+
+    void setSubFill(int value);
+    int getSubFill()const;
+
 };
 
 /**
@@ -448,6 +473,10 @@ protected:
     void clicked_OK();
     void clicked_Apply();
     void clicked_Cannel();
+
+private:
+    QString configFileName;
+    void InitConfig();
 
 };
 

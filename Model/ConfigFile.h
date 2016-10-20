@@ -6,6 +6,8 @@
  *
  *  read configure file
  *
+ *
+ *  author: Yoohoo         date: 2016-10-20
  */
 
 #include <QString>

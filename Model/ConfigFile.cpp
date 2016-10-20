@@ -11,8 +11,15 @@ ConfigFile::ConfigFile(const QString& fileName)
     while(std::getline(file,line))
     {
         line =trim(line);// beside space enter table ..
+        for(int i=0;i<line.length();i++)
+        {
+            if(line[i]=='#')
+            {
+                line.erase(i,line.length());
+                break;
+            }
+        }
         if(!line.length())continue;
-        if(line[0]=='#')continue;
         if(line[0]=='[')
         {
             insection=trim(line.substr(1,line.find(']')-1));
@@ -50,7 +57,7 @@ std::string ConfigFile::trim(const std::string &source, const char *delims)
 
 QString ConfigFile::getValue(const QString &key,const QString& section) const
 {
-    QMap<QString,QString>::const_iterator constIter=m_content.find(section+'/'+key);
+    QMap<QString,QString>::const_iterator constIter=m_content.find(section.toLower()+'/'+key.toLower());
     if(constIter ==m_content.end())
     {
        // throw "not exist";

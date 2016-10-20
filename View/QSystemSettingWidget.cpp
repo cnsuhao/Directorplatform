@@ -9,6 +9,8 @@
 #include <QTextStream>
 #include <Model/TipDialog.h>
 
+#include "Model/ConfigFile.h"
+
 QSettingWidget::QSettingWidget(QWidget *parent) :
     QWidget(parent),canMove(false)
 {
@@ -665,6 +667,83 @@ QGrapCard::QGrapCard(QWidget* parent):QWidget(parent)
 
 }
 
+
+
+void QGrapCard::setMianLight(int value)
+{
+    m_light_1->setValue(value);
+}
+int QGrapCard::getMainLight()const
+{
+    return m_light_1->value();
+}
+
+void QGrapCard::setMainBalance(int value)
+{
+    m_balance_1->setValue(value);
+}
+int QGrapCard::getMainBalance()const
+{
+    return m_balance_1->value();
+}
+
+void QGrapCard::setMainShade(int value)
+{
+    m_shade_1->setValue(value);
+}
+int QGrapCard::getMainShade()const
+{
+    return m_shade_1->value();
+}
+
+void QGrapCard::setMainFill(int value)
+{
+    m_fill_1->setValue(value);
+}
+int QGrapCard::getMainFill()const
+{
+    return m_fill_1->value();
+}
+
+void QGrapCard::setSubLight(int value)
+{
+    m_light_2->setValue(value);
+}
+int QGrapCard::getSubLight()const
+{
+    return m_light_2->value();
+}
+
+void QGrapCard::setSubBalance(int value)
+{
+    m_balance_2->setValue(value);
+}
+int QGrapCard::getSubBalance()const
+{
+    return m_balance_2->value();
+}
+
+void QGrapCard::setSubShade(int value)
+{
+    m_shade_2->setValue(value);
+}
+int QGrapCard::getSubShade()const
+{
+    return m_shade_2->value();
+}
+
+void QGrapCard::setSubFill(int value)
+{
+    m_fill_2->setValue(value);
+}
+
+itn QGrapCard::getSubFill()const
+{
+    return m_fill_2->value();
+}
+
+
+
 QGrapCard::~QGrapCard()
 {
 
@@ -944,6 +1023,8 @@ QSystemSettingWidget::QSystemSettingWidget(QWidget *parent) :
     AddPage(systemInfoWidget,tr("Information"));
     SetTitle(tr("system setting"));
 
+    InitConfig();
+
 }
 
 QSystemSettingWidget::~QSystemSettingWidget()
@@ -970,3 +1051,25 @@ void QSystemSettingWidget::clicked_Cannel()
   close();
 }
 
+
+void QSystemSettingWidget::InitConfig()
+{
+    // 初始化配置文件
+    // TODO
+    configFileName ="F:\\C++\\Dev\\Qt\\Directorplatform\\config.conf";
+
+    ConfigFile cfg(configFileName);
+
+    // net-config
+    netConfigWidget->setMainIP(cfg.getValue("MainIP","NetworkConfig"));
+    netConfigWidget->setMainGate(cfg.getValue("MainGate","NetworkConfig"));
+    netConfigWidget->setMainDNS(cfg.getValue("MainDNS","networkConfig"));
+    netConfigWidget->setMainMask(cfg.getValue("MainMask","NetworkConfig"));
+
+    netConfigWidget->setSubIP(cfg.getValue("SubIP","NetworkConfig"));
+    netConfigWidget->setSubGate(cfg.getValue("subGate","NetworkConfig"));
+    netConfigWidget->setSubDNS(cfg.getValue("subDNS","networkConfig"));
+    netConfigWidget->setSubMask(cfg.getValue("subMask","NetworkConfig"));
+
+
+}
