@@ -737,7 +737,7 @@ void QGrapCard::setSubFill(int value)
     m_fill_2->setValue(value);
 }
 
-itn QGrapCard::getSubFill()const
+int QGrapCard::getSubFill()const
 {
     return m_fill_2->value();
 }
@@ -746,7 +746,16 @@ itn QGrapCard::getSubFill()const
 
 QGrapCard::~QGrapCard()
 {
+    QObjectList obj = this->children();
 
+    foreach(QObject *var,obj)
+    {
+        if(var)
+        {
+            delete var;
+            var = NULL;
+        }
+    }
 }
 
 //中控设置  18393366997---776917623
@@ -792,6 +801,99 @@ QCtrlSetting::QCtrlSetting(QWidget* parent):QWidget(parent)
     this->setLayout(m_con);
 
 }
+
+QString QCtrlSetting::getOneKeyStartCode()const
+{
+    return m_oneKeyStart->text();
+}
+void QCtrlSetting::setOneKeyStartCode(const QString& code)
+{
+    m_oneKeyStart->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getOneKeyStartReturnCode()const
+{
+    return m_oneKeyStartReturn->text();
+}
+void QCtrlSetting::setOneKeyStartReturnCode(const QString& code)
+{
+    m_oneKeyStartReturn->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getOneKeyPauseCode()const
+{
+    return m_oneKeyPause->text();
+}
+void QCtrlSetting::setOneKeyPauseCode(const QString& code)
+{
+    m_oneKeyPause->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getOneKeyPauseReturnCode()const
+{
+    return m_oneKeyPauseReturn->text();
+}
+void QCtrlSetting::setOneKeyPauseReturnCode(const QString& code)
+{
+    m_oneKeyPauseReturn->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getOneKeyStopCode()const
+{
+    return m_oneKeyStop->text();
+}
+void QCtrlSetting::setOneKeyStopCode(const QString& code)
+{
+    m_oneKeyStop->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getOneKeyStopReturnCode()const
+{
+    return m_oneKeyStopReturn->text();
+}
+void QCtrlSetting::setOneKeyStopReturnCode(const QString& code)
+{
+    m_oneKeyStopReturn->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getPowerOffCode()const
+{
+    return m_shutdown->text();
+}
+void QCtrlSetting::setPowerOffCode(const QString& code)
+{
+    m_shutdown->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getPowerOffReturnCode()const
+{
+    return m_shutdownReturn->text();
+}
+void QCtrlSetting::setPowerOffReturnCode(const QString& code)
+{
+    m_shutdownReturn->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getLockVGACode()const
+{
+    return m_lockVGA->text();
+}
+void QCtrlSetting::setLockVGACode(const QString& code)
+{
+    m_lockVGA->setText(code.toUpper());
+}
+
+QString QCtrlSetting::getLockVGAReturnCode()const
+{
+    return m_lockVGAReturn->text();
+}
+void QCtrlSetting::setLockVGAReturnCode(const QString& code)
+{
+    m_lockVGAReturn->setText(code.toUpper());
+}
+
+
+
 
 QCtrlSetting::~QCtrlSetting()
 {
@@ -1070,6 +1172,21 @@ void QSystemSettingWidget::InitConfig()
     netConfigWidget->setSubGate(cfg.getValue("subGate","NetworkConfig"));
     netConfigWidget->setSubDNS(cfg.getValue("subDNS","networkConfig"));
     netConfigWidget->setSubMask(cfg.getValue("subMask","NetworkConfig"));
+
+
+    // c-setting
+
+    ctrlSetting->setOneKeyStartCode(cfg.getValue("OneKeyStartCode","CenterSetting"));
+    ctrlSetting->setOneKeyStartReturnCode(cfg.getValue("OneKeyStartReturnCode","CenterSetting"));
+    ctrlSetting->setOneKeyPauseCode(cfg.getValue("OneKeyPauseCode","CenterSetting"));
+    ctrlSetting->setOneKeyPauseReturnCode(cfg.getValue("OneKeyPauseReturnCode","CenterSetting"));
+    ctrlSetting->setOneKeyStopCode(cfg.getValue("OneKeyStopCode","CenterSetting"));
+    ctrlSetting->setOneKeyStopReturnCode(cfg.getValue("OneKeyStopReturnCode","CenterSetting"));
+    ctrlSetting->setPowerOffCode(cfg.getValue("PowerOffCode","CenterSetting"));
+    ctrlSetting->setPowerOffReturnCode(cfg.getValue("PowerOffReturnCode","CenterSetting"));
+    ctrlSetting->setLockVGACode(cfg.getValue("LockVGACode","CenterSetting"));
+    ctrlSetting->setLockVGAReturnCode(cfg.getValue("LockVGAReturnCode","CenterSetting"));
+
 
 
 }
