@@ -389,6 +389,39 @@ protected:
     QComboBox           *m_serialPort;
     QLabel tmp;
 
+
+public:
+    QString getOneKeyStartCode()const;
+    void setOneKeyStartCode(const QString& code);
+
+    QString getOneKeyStartReturnCode()const;
+    void setOneKeyStartReturnCode(const QString& code);
+
+    QString getOneKeyPauseCode()const;
+    void setOneKeyPauseCode(const QString& code);
+
+    QString getOneKeyPauseReturnCode()const;
+    void setOneKeyPauseReturnCode(const QString& code);
+
+    QString getOneKeyStopCode()const;
+    void setOneKeyStopCode(const QString& code);
+
+    QString getOneKeyStopReturnCode()const;
+    void setOneKeyStopReturnCode(const QString& code);
+
+    QString getPowerOffCode()const;
+    void setPowerOffCode(const QString& code);
+
+    QString getPowerOffReturnCode()const;
+    void setPowerOffReturnCode(const QString& code);
+
+    QString getLockVGACode()const;
+    void setLockVGACode(const QString& code);
+
+    QString getLockVGAReturnCode()const;
+    void setLockVGAReturnCode(const QString& code);
+
+
 };
 
 /**
