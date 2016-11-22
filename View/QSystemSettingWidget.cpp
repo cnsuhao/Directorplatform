@@ -188,7 +188,16 @@ QUserMgr::QUserMgr(QWidget* parent):QWidget(parent)
 
 QUserMgr::~QUserMgr()
 {
+    QObjectList objlist=this->children();
 
+    foreach (QObject *obj, objlist)
+    {
+        if(obj)
+        {
+            delete obj;
+            obj=NULL;
+        }
+    }
 }
 
 // 串口设置
@@ -200,7 +209,16 @@ QSerialPort::QSerialPort(QWidget* parent):QWidget(parent)
 
 QSerialPort::~QSerialPort()
 {
+    QObjectList objlist=this->children();
 
+    foreach (QObject *obj, objlist)
+    {
+        if(obj)
+        {
+            delete obj;
+            obj=NULL;
+        }
+    }
 }
 // 磁盘管理
 QDiskMgr::QDiskMgr(QWidget* parent):QWidget(parent)
@@ -891,7 +909,6 @@ void QCtrlSetting::setLockVGAReturnCode(const QString& code)
 {
     m_lockVGAReturn->setText(code.toUpper());
 }
-
 
 
 
